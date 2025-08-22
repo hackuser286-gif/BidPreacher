@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Website — Coming Later</title>
+  <meta name="description" content="A simple placeholder page. Future-ready HTML scaffold." />
+  <!-- Minimal inline favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230f172a'/><text x='50' y='58' font-size='42' text-anchor='middle' fill='%23e2e8f0'>⏳</text></svg>" />
+  <style>
+    :root {
+      --bg: #0f172a;   /* dark mode background */
+      --fg: #e2e8f0;   /* dark mode text */
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;   /* light background */
+      --fg: #0f172a;   /* light text */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 { font-size: clamp(1.5rem, 5vw, 3rem); margin: 0; text-align: center; }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      background: var(--fg);
+      color: var(--bg);
+      transition: background 0.3s, color 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <main role="main" aria-label="Placeholder">
+    <h1>this is my website I will use it later</h1>
+    <button id="toggleTheme">Toggle Dark/Light</button>
+  </main>  <script>
+    const btn = document.getElementById("toggleTheme");
+    btn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      if (current === "light") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    });
+  </script></body>
+</html>
+
