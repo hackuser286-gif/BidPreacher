@@ -1,97 +1,106 @@
-/* General reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  /* Set your dial size once here */
+  --dial-size: 240px;
+  --neon: #00ff66;
 }
 
-body {
-  height: 100vh;
-  background: radial-gradient(circle at center, #001100, #000000);
-  color: #00ff66;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Orbitron", sans-serif;
-  overflow: hidden;
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+img{display:block;max-width:100%}
+
+/* Stage */
+body{
+  display:grid;
+  place-items:center;
+  background: radial-gradient(circle at 50% 40%, #001500 0%, #000 65%);
+  color: var(--neon);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  overflow:hidden;
 }
 
-/* Omnitrix container */
-.omnitrix {
+/* Omnitrix shell - no fake large hitbox */
+.omnitrix{
+  display:grid;
+  justify-items:center;
+  gap:14px;
+}
+
+/* Dial: hit area == visual size */
+.dial{
+  width: var(--dial-size);
+  height: var(--dial-size);
   position: relative;
-  width: 300px;   /* size of dial container */
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Dial */
-.dial {
-  position: relative;
-  width: 220px;   /* adjust this to match your PNG’s real size */
-  height: 220px;
-  margin-bottom: 20px;
-  transition: transform 0.5s ease;
-}
-
-.dial img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none; /* so user can’t drag the image */
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: none; /* allow custom drag on touch */
   user-select: none;
+  /* subtle glow without increasing layout size */
+  filter: drop-shadow(0 0 18px rgba(0,255,102,.45));
 }
-
-/* Alien hologram */
-.hologram {
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.hologram img {
-  width: 120px;
-  height: 120px;
+#dialImage{
+  width:100%;
+  height:100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px #00ff66);
-  animation: pulse 2s infinite;
+  pointer-events: none; /* allow pointer to reach container */
+  transform: rotate(0deg);
+  transition: transform .08s linear; /* snappy update */
 }
 
-.hologram p {
-  margin-top: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #00ff66;
-  text-shadow: 0 0 5px #00ff66;
+/* Hologram: hidden by default; shown when selecting or transformed */
+.hologram{
+  display:none;
+  place-items:center;
+  gap:8px;
+  text-align:center;
+  translate: 0 -8px;
+}
+.hologram img{
+  width: clamp(96px, 35vw, 140px);
+  height: auto;
+  filter: drop-shadow(0 0 12px var(--neon)) brightness(1.12);
+  animation: float 3s ease-in-out infinite;
+}
+.hologram p{
+  font-weight: 700;
+  letter-spacing:.5px;
+  text-shadow: 0 0 8px var(--neon), 0 0 18px var(--neon);
 }
 
-/* Status text */
-.status {
-  margin-top: 10px;
-  font-size: 14px;
-  text-align: center;
-  color: #00ff66;
-  text-shadow: 0 0 5px #00ff66;
+/* Show hologram when in selecting or transformed states */
+.omnitrix.selecting .hologram,
+.omnitrix.transformed .hologram{
+  display:grid;
 }
 
-/* Flash effect on transform */
-.flash {
+/* Status */
+.status{
+  font-size: 0.95rem;
+  text-shadow: 0 0 8px var(--neon);
+  opacity:.9;
+}
+
+/* Flash overlay */
+.flash{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,255,102,.85), rgba(0,0,0,0) 60%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s;
-  z-index: 9999;
+  transition: opacity .35s ease;
+  z-index: 999;
+}
+.flash.show{ opacity:1 }
+
+/* Green or red controlled via class */
+.flash.green{ background: radial-gradient(circle, rgba(0,255,102,.85), rgba(0,0,0,0) 60%) }
+.flash.red{   background: radial-gradient(circle, rgba(255,0,0,.8),   rgba(0,0,0,0) 60%) }
+
+/* Floating holo */
+@keyframes float{
+  0%,100%{ transform: translateY(0) }
+  50%{ transform: translateY(-10px) }
 }
 
-/* Glowing pulse for hologram */
-@keyframes pulse {
-  0% { transform: scale(1); filter: drop-shadow(0 0 5px #00ff66); }
-  50% { transform: scale(1.05); filter: drop-shadow(0 0 20px #00ff66); }
-  100% { transform: scale(1); filter: drop-shadow(0 0 5px #00ff66); }
-}
+/* When transformed, lock cursor to indicate no rotation */
+.omnitrix.transformed .dial{ cursor: not-allowed }
