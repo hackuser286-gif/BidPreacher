@@ -8,16 +8,22 @@
 </head>
 <body>
   <div class="omnitrix">
-    
     <!-- Dial -->
     <div class="dial" id="dial">
-      <img id="dialImage" src="images/omnitrix-dial.png" alt="Omnitrix Dial">
+      <img src="images/omnitrix-dial.png" alt="Omnitrix Dial">
     </div>
 
     <!-- Alien Hologram -->
     <div class="hologram">
       <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast">
       <p id="holoName">Heatblast</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="prevBtn">◀</button>
+      <button id="transformBtn">TRANSFORM</button>
+      <button id="nextBtn">▶</button>
     </div>
 
     <!-- Status -->
@@ -27,7 +33,7 @@
   <!-- Flash effect -->
   <div class="flash" id="flash"></div>
 
-  <!-- Connect JavaScript -->
+  <!-- Load JS at the end so elements exist -->
   <script src="script.js"></script>
 </body>
 </html>
