@@ -1,30 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omnitrix Simulator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omnitrix — Ultimate Simulator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="omnitrix" id="omnitrix">
-    <!-- Dial -->
-    <div class="dial" id="dial">
-      <img src="images/omnitrix-dial.png" alt="Omnitrix Dial">
-    </div>
+  <main class="stage">
+    <!-- Heads-up display -->
+    <header class="hud" aria-live="polite">
+      <div class="hud-left">
+        <div class="badge">OMNITRIX</div>
+        <div class="state" id="hudState">IDLE</div>
+      </div>
+      <div class="hud-center">
+        <!-- circular energy ring mirrors charge -->
+        <svg class="energy-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00ff66"/>
+              <stop offset="100%" stop-color="#3cff96"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="52" class="ring-bg"/>
+          <circle cx="60" cy="60" r="52" class="ring-fg" id="ringFg" pathLength="100"/>
+        </svg>
+        <div class="percent" id="percentText">100%</div>
+      </div>
+      <div class="hud-right">
+        <div class="cooldown" id="cooldownText" aria-live="polite"></div>
+      </div>
+    </header>
 
-    <!-- Alien Hologram -->
-    <div class="hologram" id="hologram">
-      <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast">
-      <p id="holoName">Heatblast</p>
-    </div>
-  </div>
+    <!-- Omnitrix device -->
+    <section class="omnitrix" id="omnitrix" aria-label="Omnitrix">
+      <!-- Dial -->
+      <div class="dial" id="dial" role="button" aria-pressed="false" aria-label="Omnitrix Dial">
+        <img
+          id="dialImage"
+          src="images/omnitrix-dial.png"
+          alt=""
+          draggable="false"
+          onerror="this.style.display='none';document.getElementById('dialFallback').style.display='block';"
+        />
+        <div id="dialFallback" class="dial-fallback" aria-hidden="true"></div>
 
-  <!-- Status -->
-  <div class="status" id="statusText">Tap dial to select an alien</div>
+        <!-- Hologram ON the dial (only while selecting) -->
+        <div class="holo" id="holoOnDial" aria-hidden="true">
+          <div class="holo-ring"></div>
+          <img id="holoImage" src="aliens/heatblast.png" alt="" draggable="false" />
+          <p id="holoName" class="holo-name">Heatblast</p>
+        </div>
 
-  <!-- Flash effect -->
-  <div class="flash" id="flash"></div>
+        <!-- scan sweep + static overlay (glitch) -->
+        <div class="scan" id="scanSweep" aria-hidden="true"></div>
+        <div class="static" id="staticFx" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <p class="status" id="statusText">Tap the dial to begin</p>
+  </main>
+
+  <!-- Flash overlay for transform/revert -->
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
+  <!-- Optional sounds (safe if missing) -->
+  <audio id="sClick"     src="audio/click.mp3" preload="auto"></audio>
+  <audio id="sRotate"    src="audio/rotate.mp3" preload="auto"></audio>
+  <audio id="sSelect"    src="audio/select.mp3" preload="auto"></audio>
+  <audio id="sTransform" src="audio/transform.mp3" preload="auto"></audio>
+  <audio id="sRevert"    src="audio/revert.mp3" preload="auto"></audio>
+  <audio id="sError"     src="audio/error.mp3" preload="auto"></audio>
+  <audio id="sLow"       src="audio/low.mp3" preload="auto"></audio>
+  <audio id="sGlitch"    src="audio/glitch.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
