@@ -1,1 +1,44 @@
+body {
+  background: black;
+  color: lime;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
+.omnitrix {
+  margin-top: 50px;
+}
+
+.dial img {
+  width: 150px;
+  transition: transform 0.5s ease;
+}
+
+.hologram img {
+  width: 200px;
+  margin: 20px 0;
+  filter: drop-shadow(0 0 15px lime);
+}
+
+button {
+  background: black;
+  color: lime;
+  border: 2px solid lime;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.flash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.flash.flash--active {
+  opacity: 1;
+}
