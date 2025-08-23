@@ -8,14 +8,13 @@
 </head>
 <body>
   <main class="stage">
-    <!-- Heads-up display -->
+    <!-- HUD (charge / state / cooldown) -->
     <header class="hud" aria-live="polite">
       <div class="hud-left">
         <div class="badge">OMNITRIX</div>
         <div class="state" id="hudState">IDLE</div>
       </div>
       <div class="hud-center">
-        <!-- circular energy ring mirrors charge -->
         <svg class="energy-ring" viewBox="0 0 120 120" aria-hidden="true">
           <defs>
             <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -29,14 +28,14 @@
         <div class="percent" id="percentText">100%</div>
       </div>
       <div class="hud-right">
-        <div class="cooldown" id="cooldownText" aria-live="polite"></div>
+        <div class="cooldown" id="cooldownText"></div>
       </div>
     </header>
 
     <!-- Omnitrix device -->
     <section class="omnitrix" id="omnitrix" aria-label="Omnitrix">
-      <!-- Dial -->
       <div class="dial" id="dial" role="button" aria-pressed="false" aria-label="Omnitrix Dial">
+        <!-- PNG dial (fallback appears if this fails) -->
         <img
           id="dialImage"
           src="images/omnitrix-dial.png"
@@ -44,16 +43,17 @@
           draggable="false"
           onerror="this.style.display='none';document.getElementById('dialFallback').style.display='block';"
         />
+        <!-- CSS fallback dial -->
         <div id="dialFallback" class="dial-fallback" aria-hidden="true"></div>
 
-        <!-- Hologram ON the dial (only while selecting) -->
+        <!-- Hologram INSIDE the dial (only in selecting state) -->
         <div class="holo" id="holoOnDial" aria-hidden="true">
           <div class="holo-ring"></div>
           <img id="holoImage" src="aliens/heatblast.png" alt="" draggable="false" />
           <p id="holoName" class="holo-name">Heatblast</p>
         </div>
 
-        <!-- scan sweep + static overlay (glitch) -->
+        <!-- Visual FX layers -->
         <div class="scan" id="scanSweep" aria-hidden="true"></div>
         <div class="static" id="staticFx" aria-hidden="true"></div>
       </div>
@@ -62,10 +62,10 @@
     <p class="status" id="statusText">Tap the dial to begin</p>
   </main>
 
-  <!-- Flash overlay for transform/revert -->
+  <!-- Transform/revert flash -->
   <div class="flash" id="flash" aria-hidden="true"></div>
 
-  <!-- Optional sounds (safe if missing) -->
+  <!-- Optional SFX (safe if files are missing) -->
   <audio id="sClick"     src="audio/click.mp3" preload="auto"></audio>
   <audio id="sRotate"    src="audio/rotate.mp3" preload="auto"></audio>
   <audio id="sSelect"    src="audio/select.mp3" preload="auto"></audio>
