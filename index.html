@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omnitrix</title>
+  <title>Omnitrix Simulator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="omnitrix">
+  <div class="omnitrix" id="omnitrix">
     <!-- Dial -->
     <div class="dial" id="dial">
-      <img id="dialImage" src="images/omnitrix-dial.png" alt="Omnitrix Dial" onerror="this.style.display='none';document.getElementById('dialFallback').style.display='block';">
-      <!-- Fallback dial if PNG not found -->
-      <div id="dialFallback"></div>
+      <img src="images/omnitrix-dial.png" alt="Omnitrix Dial">
     </div>
 
-    <!-- Alien Hologram (hidden at first) -->
+    <!-- Alien Hologram -->
     <div class="hologram" id="hologram">
       <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast">
       <p id="holoName">Heatblast</p>
     </div>
-
-    <!-- Status -->
-    <div class="status" id="statusText">Select an alien</div>
   </div>
+
+  <!-- Status -->
+  <div class="status" id="statusText">Tap dial to select an alien</div>
 
   <!-- Flash effect -->
   <div class="flash" id="flash"></div>
