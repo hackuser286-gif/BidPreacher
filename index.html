@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Omnitrix</title>
+  <meta name="theme-color" content="#27ff6f" />
   <!-- Connect CSS -->
   <link rel="stylesheet" href="style.css" />
-  <meta name="theme-color" content="#00ff66" />
 </head>
 <body>
   <main class="app" aria-label="Omnitrix Interface">
@@ -17,15 +17,15 @@
       </h1>
     </header>
 
-    <!-- Omnitrix Watch -->
+    <!-- Watch -->
     <section class="watch" aria-label="Omnitrix Watch">
-      <!-- Hologram Display -->
+      <!-- Hologram -->
       <div class="holo" aria-live="polite" aria-atomic="true">
         <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast hologram" />
         <div id="holoName" class="holo__name">Heatblast</div>
       </div>
 
-      <!-- Dial -->
+      <!-- Dial (drag to rotate, click to transform) -->
       <button
         id="dial"
         class="dial"
@@ -34,6 +34,7 @@
         <svg class="dial__face" viewBox="0 0 100 100" aria-hidden="true">
           <circle cx="50" cy="50" r="49" class="dial__ring-outer" />
           <circle cx="50" cy="50" r="44" class="dial__ring-inner" />
+          <!-- hourglass -->
           <path class="dial__hourglass"
                 d="M20,15 A35,35 0 0,0 80,15 L63,32 L37,32 Z
                    M37,68 L63,68 80,85 A35,35 0 0,1 20,85 Z" />
@@ -49,7 +50,7 @@
       </div>
     </section>
 
-    <!-- Alien Ring -->
+    <!-- Alien Ring (JS positions these around the dial) -->
     <ul id="alienRing" class="alien-ring" aria-label="Alien Selector">
       <li class="alien" data-name="Heatblast"     data-slug="heatblast"></li>
       <li class="alien" data-name="Wildmutt"      data-slug="wildmutt"></li>
@@ -73,16 +74,16 @@
       <li class="alien" data-name="Way Big"       data-slug="way-big"></li>
     </ul>
 
-    <!-- Flash Overlay -->
+    <!-- Flash overlay -->
     <div id="flash" class="flash" aria-hidden="true"></div>
 
-    <!-- Sounds -->
+    <!-- (Optional) Sounds -->
     <audio id="sfxRotate" preload="auto" src="audio/rotate.mp3"></audio>
     <audio id="sfxSelect" preload="auto" src="audio/select.mp3"></audio>
     <audio id="sfxTransform" preload="auto" src="audio/transform.mp3"></audio>
   </main>
 
-  <!-- Connect JavaScript -->
+  <!-- Connect JS -->
   <script src="script.js" defer></script>
 </body>
 </html>
