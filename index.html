@@ -4,46 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Omnitrix</title>
+  <!-- Connect CSS -->
   <link rel="stylesheet" href="style.css" />
   <meta name="theme-color" content="#00ff66" />
 </head>
 <body>
   <main class="app" aria-label="Omnitrix Interface">
-    <!-- HUD / status -->
+    <!-- HUD -->
     <header class="hud">
       <h1 class="hud__title" aria-live="polite" aria-atomic="true">
         Omnitrix — <span id="statusText">Ready</span>
       </h1>
     </header>
 
-    <!-- Watch body -->
+    <!-- Omnitrix Watch -->
     <section class="watch" aria-label="Omnitrix Watch">
-      <!-- Hologram display -->
+      <!-- Hologram Display -->
       <div class="holo" aria-live="polite" aria-atomic="true">
         <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast hologram" />
         <div id="holoName" class="holo__name">Heatblast</div>
       </div>
 
-      <!-- Dial (rotatable + tappable) -->
+      <!-- Dial -->
       <button
         id="dial"
         class="dial"
         aria-label="Omnitrix Dial. Rotate to change alien. Tap to transform."
       >
-        <!-- Inline SVG Omnitrix symbol (so you don't need an external image) -->
         <svg class="dial__face" viewBox="0 0 100 100" aria-hidden="true">
           <circle cx="50" cy="50" r="49" class="dial__ring-outer" />
           <circle cx="50" cy="50" r="44" class="dial__ring-inner" />
-          <!-- hourglass shape -->
           <path class="dial__hourglass"
                 d="M20,15 A35,35 0 0,0 80,15 L63,32 L37,32 Z
                    M37,68 L63,68 80,85 A35,35 0 0,1 20,85 Z" />
         </svg>
-        <!-- Rotation handle hint (purely visual; JS handles drag/rotate) -->
         <div class="dial__grip" aria-hidden="true"></div>
       </button>
 
-      <!-- Optional manual controls (keyboard / accessibility) -->
+      <!-- Controls -->
       <div class="controls">
         <button id="prevBtn" class="ctrl" aria-label="Previous alien">⟲</button>
         <button id="transformBtn" class="ctrl ctrl--primary" aria-label="Transform">TRANSFORM</button>
@@ -51,7 +49,7 @@
       </div>
     </section>
 
-    <!-- Alien ring (logical list; JS positions them around the dial) -->
+    <!-- Alien Ring -->
     <ul id="alienRing" class="alien-ring" aria-label="Alien Selector">
       <li class="alien" data-name="Heatblast"     data-slug="heatblast"></li>
       <li class="alien" data-name="Wildmutt"      data-slug="wildmutt"></li>
@@ -75,15 +73,16 @@
       <li class="alien" data-name="Way Big"       data-slug="way-big"></li>
     </ul>
 
-    <!-- Flash overlay for transformation effect -->
+    <!-- Flash Overlay -->
     <div id="flash" class="flash" aria-hidden="true"></div>
 
-    <!-- Audio (optional; JS will play them) -->
+    <!-- Sounds -->
     <audio id="sfxRotate" preload="auto" src="audio/rotate.mp3"></audio>
     <audio id="sfxSelect" preload="auto" src="audio/select.mp3"></audio>
     <audio id="sfxTransform" preload="auto" src="audio/transform.mp3"></audio>
   </main>
 
+  <!-- Connect JavaScript -->
   <script src="script.js" defer></script>
 </body>
 </html>
