@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Omnitrix</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="omnitrix" id="omnitrix">
+  <div class="omnitrix">
     <!-- Dial -->
-    <div class="dial" id="dial" aria-label="Omnitrix Dial">
-      <!-- keep alt="" so no text shows if image is missing -->
-      <img id="dialImage" src="images/omnitrix-dial.png" alt="" draggable="false" />
+    <div class="dial" id="dial">
+      <img id="dialImage" src="images/omnitrix-dial.png" alt="Omnitrix Dial" onerror="this.style.display='none';document.getElementById('dialFallback').style.display='block';">
+      <!-- Fallback dial if PNG not found -->
+      <div id="dialFallback"></div>
     </div>
 
-    <!-- Alien Hologram (hidden until user interacts) -->
+    <!-- Alien Hologram (hidden at first) -->
     <div class="hologram" id="hologram">
-      <img id="holoImage" src="aliens/heatblast.png" alt="" draggable="false" />
+      <img id="holoImage" src="aliens/heatblast.png" alt="Heatblast">
       <p id="holoName">Heatblast</p>
     </div>
 
     <!-- Status -->
-    <div class="status" id="statusText">Tap the dial to begin</div>
+    <div class="status" id="statusText">Select an alien</div>
   </div>
 
-  <!-- Flash overlay -->
+  <!-- Flash effect -->
   <div class="flash" id="flash"></div>
 
   <script src="script.js"></script>
