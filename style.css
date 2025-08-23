@@ -1,140 +1,42 @@
-/* ===== General ===== */
 body {
-  background: radial-gradient(circle at center, #001400, #000);
-  color: #00ff66;
-  font-family: "Orbitron", system-ui, sans-serif;
+  background: black;
+  color: lime;
+  font-family: Arial, sans-serif;
   text-align: center;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
-/* Omnitrix container */
 .omnitrix {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-  position: relative;
+  margin-top: 50px;
 }
 
-/* ===== Dial ===== */
 .dial img {
-  width: 170px;
-  filter: drop-shadow(0 0 25px #00ff66) drop-shadow(0 0 60px #00ff66);
-  transition: transform 0.5s ease, filter 0.3s ease;
-  cursor: pointer;
-}
-.dial img:hover {
-  filter: drop-shadow(0 0 35px #33ff99) drop-shadow(0 0 80px #00ff66);
-  transform: scale(1.05) rotate(5deg);
-}
-
-/* ===== Hologram ===== */
-.hologram {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  border-radius: 12px;
+  width: 150px;
+  transition: transform 0.5s ease;
 }
 
 .hologram img {
-  width: 220px;
-  filter: brightness(1.4) drop-shadow(0 0 25px #00ff66);
-  animation: holo-glow 2s infinite alternate ease-in-out;
-  pointer-events: none;
-}
-
-.hologram p {
-  margin: 0;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #00ff99;
-  text-shadow: 0 0 10px #00ff66, 0 0 25px #00ff99;
-}
-
-/* Hologram scan line effect */
-.hologram::after {
-  content: "";
-  position: absolute;
-  top: -10%;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  background: linear-gradient(0deg, transparent, rgba(0, 255, 100, 0.2), transparent);
-  animation: scan 3s linear infinite;
-}
-
-@keyframes scan {
-  0% { top: -20%; }
-  100% { top: 120%; }
-}
-
-@keyframes holo-glow {
-  from { filter: brightness(1.2) drop-shadow(0 0 20px #00ff66); }
-  to   { filter: brightness(1.6) drop-shadow(0 0 40px #00ff99); }
-}
-
-/* ===== Controls ===== */
-.controls {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
+  width: 200px;
+  margin: 20px 0;
+  filter: drop-shadow(0 0 15px lime);
 }
 
 button {
   background: black;
-  border: 2px solid #00ff66;
-  color: #00ff66;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-family: inherit;
-  border-radius: 8px;
+  color: lime;
+  border: 2px solid lime;
+  margin: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.2s ease;
-  box-shadow: 0 0 10px #00ff66, inset 0 0 8px #00ff33;
 }
 
-button:hover {
-  background: #00ff66;
-  color: black;
-  box-shadow: 0 0 25px #00ff66, 0 0 50px #00ff99;
-  transform: scale(1.05);
-}
-
-#transformBtn {
-  font-size: 1.2rem;
-  font-weight: bold;
-  padding: 14px 30px;
-  border-radius: 50px;
-}
-
-/* ===== Status Text ===== */
-.status {
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: #00ffaa;
-  text-shadow: 0 0 15px #00ff66, 0 0 30px #00ff99;
-  min-height: 25px;
-}
-
-/* ===== Flash Effect ===== */
 .flash {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: radial-gradient(circle at center, #00ff66, #ffffff);
+  background: white;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
-  z-index: 999;
+  transition: opacity 0.3s ease;
 }
 
 .flash.flash--active {
