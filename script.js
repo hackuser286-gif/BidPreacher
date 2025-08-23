@@ -1,4 +1,4 @@
-// ====== Alien Data ======
+// List of aliens
 const aliens = [
   { name: "Heatblast", img: "aliens/heatblast.png" },
   { name: "Wildmutt", img: "aliens/wildmutt.png" },
@@ -22,82 +22,67 @@ const aliens = [
   { name: "Way Big", img: "aliens/waybig.png" }
 ];
 
-// ====== Elements ======
+// Elements
 const dial = document.getElementById("dial");
 const holoImage = document.getElementById("holoImage");
 const holoName = document.getElementById("holoName");
-const statusText = document.getElementById("statusText");
 const flash = document.getElementById("flash");
+const statusText = document.getElementById("statusText");
 
-// ====== State ======
-let currentAlien = 0;
+let currentIndex = 0;
 let rotation = 0;
 
-// ====== Update Hologram ======
-function updateAlien(index) {
-  const alien = aliens[index];
-  holoImage.src = alien.img;
-  holoName.textContent = alien.name;
-  statusText.textContent = `Selected: ${alien.name}`;
+// --- Rotate Dial ---
+function rotateDial(direction) {
+  const step = 360 / aliens.length; // each alien takes equal part of the circle
+  if (direction === "next") {
+    currentIndex = (currentIndex + 1) % aliens.length;
+    rotation += step;
+  } else if (direction === "prev") {
+    currentIndex = (currentIndex - 1 + aliens.length) % aliens.length;
+    rotation -= step;
+  }
+
+  // Rotate dial visually
+  dial.style.transform = `rotate(${rotation}deg)`;
+
+  // Update hologram
+  holoImage.src = aliens[currentIndex].img;
+  holoName.textContent = aliens[currentIndex].name;
+  statusText.textContent = `Selected: ${aliens[currentIndex].name}`;
 }
 
-// ====== Dial Rotation ======
+// --- Transform sequence ---
+function transform() {
+  flash.style.opacity = 1;
+  setTimeout(() => {
+    flash.style.opacity = 0;
+    statusText.textContent = `Transformed into ${aliens[currentIndex].name}!`;
+  }, 200);
+}
+
+// --- Mouse/Tap Controls ---
+// Rotate with left/right arrow keys
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") rotateDial("next");
+  if (e.key === "ArrowLeft") rotateDial("prev");
+  if (e.key === "Enter") transform();
+});
+
+// Click dial to transform
+dial.addEventListener("click", transform);
+
+// Swipe (mobile support)
 let startX = 0;
-let isDragging = false;
-
-dial.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.clientX;
-});
-dial.addEventListener("mouseup", () => { isDragging = false; });
-dial.addEventListener("mouseleave", () => { isDragging = false; });
-dial.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  let deltaX = e.clientX - startX;
-  if (Math.abs(deltaX) > 50) { // rotate threshold
-    if (deltaX > 0) {
-      currentAlien = (currentAlien + 1) % aliens.length;
-      rotation += 36;
-    } else {
-      currentAlien = (currentAlien - 1 + aliens.length) % aliens.length;
-      rotation -= 36;
-    }
-    dial.style.transform = `rotate(${rotation}deg)`;
-    updateAlien(currentAlien);
-    startX = e.clientX;
-  }
-});
-
-// ====== Mobile touch support ======
 dial.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
-dial.addEventListener("touchmove", (e) => {
-  let deltaX = e.touches[0].clientX - startX;
-  if (Math.abs(deltaX) > 50) {
-    if (deltaX > 0) {
-      currentAlien = (currentAlien + 1) % aliens.length;
-      rotation += 36;
-    } else {
-      currentAlien = (currentAlien - 1 + aliens.length) % aliens.length;
-      rotation -= 36;
-    }
-    dial.style.transform = `rotate(${rotation}deg)`;
-    updateAlien(currentAlien);
-    startX = e.touches[0].clientX;
-  }
+
+dial.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+  if (endX < startX - 30) rotateDial("next"); // swipe left
+  if (endX > startX + 30) rotateDial("prev"); // swipe right
 });
 
-// ====== Transform (Tap Dial) ======
-dial.addEventListener("click", () => {
-  flash.classList.add("active");
-  statusText.textContent = `Transforming into ${aliens[currentAlien].name}...`;
-  
-  setTimeout(() => {
-    flash.classList.remove("active");
-    statusText.textContent = `${aliens[currentAlien].name} ready!`;
-  }, 600);
-});
-
-// ====== Initialize ======
-updateAlien(currentAlien);
+// Init
+statusText.textContent = "Select an alien";
