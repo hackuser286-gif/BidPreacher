@@ -1,4 +1,3 @@
-// List of aliens
 const aliens = [
   { name: "Heatblast", img: "aliens/heatblast.png" },
   { name: "Wildmutt", img: "aliens/wildmutt.png" },
@@ -26,15 +25,19 @@ const aliens = [
 const dial = document.getElementById("dial");
 const holoImage = document.getElementById("holoImage");
 const holoName = document.getElementById("holoName");
+const hologram = document.querySelector(".hologram");
 const flash = document.getElementById("flash");
 const statusText = document.getElementById("statusText");
 
 let currentIndex = 0;
 let rotation = 0;
+let transformed = false; // track transformation state
 
-// --- Rotate Dial ---
+// Rotate dial
 function rotateDial(direction) {
-  const step = 360 / aliens.length; // each alien takes equal part of the circle
+  if (transformed) return; // can’t rotate while transformed
+
+  const step = 360 / aliens.length;
   if (direction === "next") {
     currentIndex = (currentIndex + 1) % aliens.length;
     rotation += step;
@@ -43,46 +46,59 @@ function rotateDial(direction) {
     rotation -= step;
   }
 
-  // Rotate dial visually
   dial.style.transform = `rotate(${rotation}deg)`;
 
-  // Update hologram
+  // Show hologram only after selecting
+  hologram.style.display = "block";
   holoImage.src = aliens[currentIndex].img;
   holoName.textContent = aliens[currentIndex].name;
   statusText.textContent = `Selected: ${aliens[currentIndex].name}`;
 }
 
-// --- Transform sequence ---
+// Transform
 function transform() {
-  flash.style.opacity = 1;
-  setTimeout(() => {
-    flash.style.opacity = 0;
-    statusText.textContent = `Transformed into ${aliens[currentIndex].name}!`;
-  }, 200);
+  if (!hologram.style.display || hologram.style.display === "none") return; // must select first
+
+  if (!transformed) {
+    // Transform into alien
+    flash.style.background = "rgba(0,255,0,0.8)"; // green flash
+    flash.style.opacity = 1;
+    setTimeout(() => {
+      flash.style.opacity = 0;
+      statusText.textContent = `Transformed into ${aliens[currentIndex].name}!`;
+    }, 300);
+    transformed = true;
+  } else {
+    // Revert back to normal
+    flash.style.background = "rgba(255,0,0,0.8)"; // red flash
+    flash.style.opacity = 1;
+    setTimeout(() => {
+      flash.style.opacity = 0;
+      statusText.textContent = `Back to human form.`;
+      hologram.style.display = "none"; // hide hologram again
+    }, 300);
+    transformed = false;
+  }
 }
 
-// --- Mouse/Tap Controls ---
-// Rotate with left/right arrow keys
+// Controls
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") rotateDial("next");
   if (e.key === "ArrowLeft") rotateDial("prev");
   if (e.key === "Enter") transform();
 });
 
-// Click dial to transform
 dial.addEventListener("click", transform);
 
-// Swipe (mobile support)
+// Swipe for mobile
 let startX = 0;
-dial.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
-
+dial.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
 dial.addEventListener("touchend", (e) => {
   let endX = e.changedTouches[0].clientX;
-  if (endX < startX - 30) rotateDial("next"); // swipe left
-  if (endX > startX + 30) rotateDial("prev"); // swipe right
+  if (endX < startX - 30) rotateDial("next");
+  if (endX > startX + 30) rotateDial("prev");
 });
 
 // Init
-statusText.textContent = "Select an alien";
+hologram.style.display = "none"; // hide hologram initially
+statusText.textContent = "Tap dial to select alien";
