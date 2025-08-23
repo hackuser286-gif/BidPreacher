@@ -1,106 +1,82 @@
-:root{
-  /* Set your dial size once here */
-  --dial-size: 240px;
-  --neon: #00ff66;
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
 }
 
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-img{display:block;max-width:100%}
-
-/* Stage */
-body{
-  display:grid;
-  place-items:center;
-  background: radial-gradient(circle at 50% 40%, #001500 0%, #000 65%);
-  color: var(--neon);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  overflow:hidden;
-}
-
-/* Omnitrix shell - no fake large hitbox */
-.omnitrix{
-  display:grid;
-  justify-items:center;
-  gap:14px;
-}
-
-/* Dial: hit area == visual size */
-.dial{
-  width: var(--dial-size);
-  height: var(--dial-size);
+.omnitrix {
   position: relative;
-  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+.dial {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
   cursor: pointer;
-  touch-action: none; /* allow custom drag on touch */
-  user-select: none;
-  /* subtle glow without increasing layout size */
-  filter: drop-shadow(0 0 18px rgba(0,255,102,.45));
 }
-#dialImage{
-  width:100%;
-  height:100%;
+
+.dial img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  pointer-events: none; /* allow pointer to reach container */
-  transform: rotate(0deg);
-  transition: transform .08s linear; /* snappy update */
 }
 
-/* Hologram: hidden by default; shown when selecting or transformed */
-.hologram{
-  display:none;
-  place-items:center;
-  gap:8px;
-  text-align:center;
-  translate: 0 -8px;
-}
-.hologram img{
-  width: clamp(96px, 35vw, 140px);
-  height: auto;
-  filter: drop-shadow(0 0 12px var(--neon)) brightness(1.12);
-  animation: float 3s ease-in-out infinite;
-}
-.hologram p{
-  font-weight: 700;
-  letter-spacing:.5px;
-  text-shadow: 0 0 8px var(--neon), 0 0 18px var(--neon);
+#dialFallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00ff00, #006600);
+  border: 5px solid #00ff00;
+  box-shadow: 0 0 20px #00ff00;
 }
 
-/* Show hologram when in selecting or transformed states */
-.omnitrix.selecting .hologram,
-.omnitrix.transformed .hologram{
-  display:grid;
+/* Hologram */
+.hologram {
+  position: absolute;
+  top: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: none;
+}
+
+.hologram img {
+  max-width: 120px;
+  filter: drop-shadow(0 0 20px #00ff00);
+}
+
+.hologram p {
+  margin: 10px 0 0;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
 }
 
 /* Status */
-.status{
-  font-size: 0.95rem;
-  text-shadow: 0 0 8px var(--neon);
-  opacity:.9;
+.status {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #00ff00;
 }
 
-/* Flash overlay */
-.flash{
+/* Flash effect */
+.flash {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle, rgba(0,255,102,.85), rgba(0,0,0,0) 60%);
+  background: white;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .35s ease;
-  z-index: 999;
+  transition: opacity 0.3s;
 }
-.flash.show{ opacity:1 }
-
-/* Green or red controlled via class */
-.flash.green{ background: radial-gradient(circle, rgba(0,255,102,.85), rgba(0,0,0,0) 60%) }
-.flash.red{   background: radial-gradient(circle, rgba(255,0,0,.8),   rgba(0,0,0,0) 60%) }
-
-/* Floating holo */
-@keyframes float{
-  0%,100%{ transform: translateY(0) }
-  50%{ transform: translateY(-10px) }
+.flash.active {
+  opacity: 1;
 }
-
-/* When transformed, lock cursor to indicate no rotation */
-.omnitrix.transformed .dial{ cursor: not-allowed }
