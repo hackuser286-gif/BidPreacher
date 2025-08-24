@@ -2,820 +2,821 @@
 <html lang="en">
 <head>
   <!-- =========================================================
-       BidPreacher – Connector E-Commerce • index.html
-       Static, client-side storefront. No payment processing.
+       BidPreacher — Connector E-commerce Marketplace
+       Part 1 of 3: Head + Header + Hero + Categories + Product Grid (first half)
        ========================================================= -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="BidPreacher — Discover. Like. Request. We connect buyers with sellers. No payments online; we forward your request instantly via WhatsApp or email." />
-  <meta name="author" content="BidPreacher" />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://your-username.github.io/bidpreacher/" />
+
+  <!-- Required Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary SEO -->
+  <title>BidPreacher — Plug-and-Play Connectors & Cables for Pros and Tinkerers</title>
+  <meta name="description" content="Shop BidPreacher for high-quality connectors, adapters, and cables. Curated for makers, AV pros, auto modders, and home tech. Fast shipping, fair prices, zero fuss.">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="BidPreacher — Discover. Like. Request. We Connect." />
-  <meta property="og:description" content="A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller—fast and free." />
-  <meta property="og:url" content="https://your-username.github.io/bidpreacher/" />
-  <meta property="og:site_name" content="BidPreacher" />
-  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BidPreacher">
+  <meta property="og:title" content="BidPreacher — Plug-and-Play Connectors & Cables">
+  <meta property="og:description" content="A smarter marketplace for connectors, adapters, and cable kits. Compare, customize, and buy with confidence.">
+  <meta property="og:url" content="https://www.bidpreacher.com/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BidPreacher — Discover. Like. Request. We Connect." />
-  <meta name="twitter:description" content="We forward your Buy Now request to the operator to connect you with the seller offline. Zero-cost, static, privacy-first." />
-  <meta name="twitter:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@bidpreacher">
+  <meta name="twitter:title" content="BidPreacher — Plug-and-Play Connectors & Cables">
+  <meta name="twitter:description" content="Curated connectors and cable kits for makers and pros.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop">
 
-  <!-- Preconnects (images) -->
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="preconnect" href="https://picsum.photos" crossorigin />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.bidpreacher.com/">
 
-  <!-- Icons / Favicons (placeholders) -->
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="manifest" href="assets/site.webmanifest" />
+  <!-- Preconnects / Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos" crossorigin>
 
-  <title>BidPreacher – Discover. Like. Request.</title>
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0f172a">
 
-  <!-- Styles and Scripts -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
 
-  <!-- JSON-LD: Organization + WebSite + a few Product stubs (script.js injects more at runtime) -->
+  <!-- Robots -->
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BidPreacher",
-    "url": "https://your-username.github.io/bidpreacher/",
-    "logo": "https://your-username.github.io/bidpreacher/assets/favicon.png",
+    "url": "https://www.bidpreacher.com",
+    "logo": "https://www.bidpreacher.com/logo.svg",
     "sameAs": [
-      "https://twitter.com/",
-      "https://instagram.com/",
-      "https://facebook.com/"
-    ]
+      "https://twitter.com/bidpreacher",
+      "https://www.linkedin.com/company/bidpreacher",
+      "https://www.youtube.com/@bidpreacher"
+    ],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@bidpreacher.com",
+      "areaServed": "Worldwide",
+      "availableLanguage": ["en"]
+    }]
   }
   </script>
+
+  <!-- JSON-LD: Website + SearchAction -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "BidPreacher",
-    "url": "https://your-username.github.io/bidpreacher/",
+    "url": "https://www.bidpreacher.com/",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://your-username.github.io/bidpreacher/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+      "target": "https://www.bidpreacher.com/search?q={query}",
+      "query-input": "required name=query"
     }
   }
   </script>
+
+  <!-- JSON-LD: Product Stubs (3 examples) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Aurora Smart Lamp",
-    "sku": "BP-GAD-001",
-    "category": "Home",
-    "description": "Touch-dimmable bedside lamp with warm/cool modes.",
-    "image": [
-      "https://images.unsplash.com/photo-1512374382149-233c42b6a83a?q=80&w=1200&auto=format&fit=crop"
-    ],
-    "brand": { "@type": "Brand", "name": "GlowCraft" },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "132" },
-    "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "1499", "availability": "https://schema.org/InStock" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Nimbus Wireless Earbuds",
-    "sku": "BP-GAD-003",
-    "category": "Gadgets",
-    "description": "Bluetooth 5.3 with ENC mic and 30-hour case.",
-    "image": [
-      "https://images.unsplash.com/photo-1518443882831-c6d7b1b3a52d?q=80&w=1200&auto=format&fit=crop"
-    ],
-    "brand": { "@type": "Brand", "name": "AudioLeaf" },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.3", "reviewCount": "98" },
-    "offers": { "@type": "Offer", "priceCurrency": "INR", "price": "2299", "availability": "https://schema.org/InStock" }
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "USB-C to USB-A Adapter (10Gbps)",
+        "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop",
+        "description": "Rugged aluminum USB-C to USB-A 3.2 Gen 2 adapter, 10Gbps, 60W pass-through.",
+        "sku": "BP-USBCA-10G",
+        "brand": { "@type": "Brand", "name": "BidPreacher Essentials" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "14.99",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.bidpreacher.com/p/usb-c-to-a-10g"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "reviewCount": "128"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "XT60 Solderless Connector Pair",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
+        "description": "Field-ready XT60 connectors with tool-free clamp, 12-14 AWG.",
+        "sku": "BP-XT60-CLAMP",
+        "brand": { "@type": "Brand", "name": "VoltCraft x BidPreacher" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "9.95",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.bidpreacher.com/p/xt60-solderless"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "RJ45 Crimp-Free CAT6 Kit",
+        "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop",
+        "description": "Tool-less CAT6 pass-through kit with 10x connectors + tester.",
+        "sku": "BP-RJ45-KIT",
+        "brand": { "@type": "Brand", "name": "EtherPro" },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "USD",
+          "price": "29.00",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": "https://www.bidpreacher.com/p/rj45-crimp-free"
+        }
+      }
+    ]
   }
   </script>
 </head>
 
-<body>
+<body data-page="home" class="theme-slate">
   <!-- =========================================================
-       Accessibility: Skip link
+       HEADER
        ========================================================= -->
-  <a class="skip-to-content" href="#main">Skip to content</a>
-
-  <!-- =========================================================
-       Owner Config Warning (script.js toggles)
-       ========================================================= -->
-  <div id="config-warning" class="notice-config hidden" role="region" aria-live="polite">
-    <div class="container">
-      <p><strong>Setup needed:</strong> Update your phone/email in <code>script.js</code> <em>config</em> to enable WhatsApp and Email forwarding.</p>
-      <button class="btn small" type="button" data-dismiss aria-label="Dismiss setup notice">Dismiss</button>
-    </div>
-  </div>
-
-  <!-- Offline banner -->
-  <div id="offline-banner" class="banner offline hidden" role="alert" aria-live="assertive">
-    <div class="container">
-      <span>You’re offline. Images and links may not load. We’ll retry when you’re back online.</span>
-    </div>
-  </div>
-
-  <!-- Cookie/Disclaimer banner placeholder -->
-  <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie notice" aria-live="polite" hidden>
-    <div class="container">
-      <p>We use localStorage to remember your likes and cart. No tracking cookies, no analytics. <a href="#privacy">Learn more</a>.</p>
-      <button class="btn small" type="button" data-accept-cookies>OK</button>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       Header
-       ========================================================= -->
-  <header class="site-header" role="banner">
-    <div class="container header-wrap">
-      <a class="logo" href="#" aria-label="BidPreacher home">
-        <span class="logo-text">BidPreacher</span>
+  <a class="skip-nav" href="#main">Skip to content</a>
+  <header class="site-header" role="banner" aria-label="Primary">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="/" class="logo" aria-label="BidPreacher Home">
+        <img src="https://picsum.photos/seed/bidp-logo/160/40" alt="BidPreacher" width="160" height="40" loading="eager" decoding="async">
       </a>
 
-      <!-- Search + Category quick filter -->
-      <form class="search" role="search" aria-label="Search products" onsubmit="return false;">
-        <span class="sr-only" id="search-label">Search</span>
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.49-1.49-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
-        <input id="search-input" type="search" aria-labelledby="search-label" placeholder="Search by title, description or tags…" autocomplete="off" />
+      <!-- Primary Navigation -->
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="/shop" class="nav-link">Shop</a></li>
+          <li><a href="/bundles" class="nav-link">Bundles</a></li>
+          <li><a href="/builds" class="nav-link">Build Guides</a></li>
+          <li><a href="/deals" class="nav-link">Deals</a></li>
+          <li><a href="/support" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <!-- Search -->
+      <form class="search" role="search" aria-label="Sitewide">
+        <label for="search-input" class="visually-hidden">Search products</label>
+        <input id="search-input" name="q" type="search" placeholder="Search connectors, adapters, kits…" autocomplete="off" spellcheck="false" inputmode="search">
+        <button type="submit" aria-label="Search">
+          <!-- Search Icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a8 8 0 1 1 5.293-14.293A8 8 0 0 1 10 18zm13 3-6.4-6.4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
       </form>
 
-      <nav class="header-actions" aria-label="Primary">
-        <button class="btn icon ghost" type="button" aria-label="Open cart" data-open-cart>
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-1 2H1v2h2l3.6 7.59-1.35 2.44A2 2 0 0 0 7 21h12v-2H7.42a.25.25 0 0 1-.22-.37L8.1 16h7.45a2 2 0 0 0 1.79-1.11l3.58-7.16A1 1 0 0 0 20 6H6.21l-.94-2z"/></svg>
-          <span class="badge" id="cart-count" data-cart-count>0</span>
+      <!-- Utility Icons -->
+      <div class="header-utilities">
+        <button class="icon-btn" aria-label="Favorites" data-action="open-favorites">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span class="badge" aria-hidden="true" data-fav-count>0</span>
         </button>
-        <button class="btn icon ghost" type="button" aria-label="Liked products">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.053-4.236-9.428-8.58C1.04 9.916 2.44 6.5 5.756 6.05A5.1 5.1 0 0 1 12 8.2a5.1 5.1 0 0 1 6.244-2.15c3.316.45 4.716 3.866 2.184 6.37C19.053 16.764 12 21 12 21z"/></svg>
-          <span class="badge" id="likes-count" data-likes-count>0</span>
+        <button class="icon-btn" aria-label="Cart" data-action="open-cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12zM6 6l-2-3H1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="badge" aria-hidden="true" data-cart-count>0</span>
         </button>
-        <a class="btn outline small" href="#seller" aria-label="Seller onboarding">Sell on BidPreacher</a>
-      </nav>
+        <button class="icon-btn mobile-nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </div>
 
-    <!-- Secondary controls row -->
-    <div class="container controls-row" role="region" aria-label="Filter and sort">
-      <div class="chip-row" id="category-row">
-        <!-- JS will inject category buttons here -->
-        <button class="chip active" type="button" aria-pressed="true" data-category="All">All</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Home">Home</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Fashion">Fashion</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Gadgets">Gadgets</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Beauty">Beauty</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Fitness">Fitness</button>
-        <button class="chip" type="button" aria-pressed="false" data-category="Crafts">Crafts</button>
-      </div>
-      <div class="sort">
-        <label for="sort-select">Sort</label>
-        <select id="sort-select" aria-label="Sort products">
-          <option value="popular">Popular</option>
-          <option value="new">New</option>
-          <option value="price_asc">Price: Low to High</option>
-          <option value="price_desc">Price: High to Low</option>
-        </select>
-      </div>
-    </div>
+    <!-- Mobile Drawer Nav -->
+    <nav id="mobile-menu" class="mobile-menu" hidden>
+      <ul>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/bundles">Bundles</a></li>
+        <li><a href="/builds">Build Guides</a></li>
+        <li><a href="/deals">Deals</a></li>
+        <li><a href="/support">Support</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- =========================================================
-       Main
+       HERO
        ========================================================= -->
-  <main id="main" tabindex="-1">
+  <section class="hero" aria-label="Intro">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Connect Anything. Build Everything.</h1>
+        <p class="subhead">
+          From drone power leads to studio patch bays — BidPreacher curates the connectors
+          and cable kits that make your builds click. Compare specs, customize lengths,
+          and check out in seconds.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="/shop" data-cta="shop-now">Shop Connectors</a>
+          <a class="btn btn-ghost" href="/builds" data-cta="view-guides" aria-label="View Build Guides">View Build Guides</a>
+        </div>
+        <ul class="hero-trust">
+          <li>Free returns, 30 days</li>
+          <li>Lifetime support</li>
+          <li>Secure checkout</li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <picture>
+          <img src="https://images.unsplash.com/photo-1550645612-83f5d50f0e2b?q=80&w=1200&auto=format&fit=crop"
+               alt="Assorted connectors and cable assemblies"
+               width="960" height="600" loading="eager" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
 
-    <!-- ====================== HERO ======================= -->
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1 id="hero-title">Discover. Like. Request. We Connect.</h1>
-          <p class="lead">A curated marketplace where your “Buy Now” notifies us to connect you with the right seller—fast and free. No payments here. We’re the bridge.</p>
-          <div class="hero-ctas">
-            <a class="btn primary" href="#products" data-scroll-to="products">Explore Products</a>
-            <a class="btn ghost" href="#how-it-works">How it works</a>
+  <!-- =========================================================
+       CATEGORIES
+       ========================================================= -->
+  <section class="categories" aria-labelledby="categories-heading">
+    <div class="container">
+      <h2 id="categories-heading">Shop by Category</h2>
+      <div class="categories-grid">
+        <!-- Category 1 -->
+        <a class="category-card" href="/c/power" aria-label="Shop Power Connectors">
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800&auto=format&fit=crop" alt="Power connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>Power</h3>
+            <p>XT60, Anderson, DC barrel, automotive.</p>
           </div>
-          <ul class="hero-highlights">
-            <li>Zero-cost &amp; privacy-first</li>
-            <li>WhatsApp + Email forwarding</li>
-            <li>Local and independent sellers</li>
-          </ul>
+        </a>
+        <!-- Category 2 -->
+        <a class="category-card" href="/c/networking" aria-label="Shop Networking">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800&auto=format&fit=crop" alt="Networking connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>Networking</h3>
+            <p>RJ45, keystones, punch-down, PoE kits.</p>
+          </div>
+        </a>
+        <!-- Category 3 -->
+        <a class="category-card" href="/c/audio" aria-label="Shop Audio Connectors">
+          <img src="https://images.unsplash.com/photo-1521537604893-e43b1c6d79a1?q=80&w=800&auto=format&fit=crop" alt="Audio connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>Audio</h3>
+            <p>XLR, TRS, speakON, patchbay hardware.</p>
+          </div>
+        </a>
+        <!-- Category 4 -->
+        <a class="category-card" href="/c/video" aria-label="Shop Video Connectors">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop" alt="Video connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>Video</h3>
+            <p>HDMI 2.1, DisplayPort, SDI, adapters.</p>
+          </div>
+        </a>
+        <!-- Category 5 -->
+        <a class="category-card" href="/c/usb" aria-label="Shop USB & Data">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="USB connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>USB & Data</h3>
+            <p>USB-C PD, OTG, micro, serial & dev kits.</p>
+          </div>
+        </a>
+        <!-- Category 6 -->
+        <a class="category-card" href="/c/solderless" aria-label="Shop Solderless">
+          <img src="https://images.unsplash.com/photo-1543248939-a6762e5b88f2?q=80&w=800&auto=format&fit=crop" alt="Solderless connectors" width="400" height="260" loading="lazy">
+          <div class="category-info">
+            <h3>Solderless</h3>
+            <p>Tool-free clamps for rapid field work.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PRODUCT GRID (FIRST HALF)
+       includes: loading skeletons + 12 product cards
+       ========================================================= -->
+  <main id="main" class="main" role="main" aria-label="Featured Products">
+
+    <!-- Loading Skeletons (visible by default; JS will swap) -->
+    <section class="product-grid" aria-label="Featured Products — Loading" data-state="loading">
+      <div class="container">
+        <h2 class="section-title">Featured Connectors & Kits</h2>
+        <div class="grid grid-products skeleton-grid" aria-hidden="false">
+          <!-- 12 Skeleton Cards -->
+          <!-- Each skeleton mimics the final card structure for layout stability -->
+          <article class="card product skeleton" aria-busy="true">
+            <div class="media skeleton-box"></div>
+            <div class="content">
+              <div class="line skeleton-box"></div>
+              <div class="line skeleton-box short"></div>
+              <div class="price-rating">
+                <span class="price skeleton-box"></span>
+                <span class="rating skeleton-box short"></span>
+              </div>
+              <div class="actions">
+                <span class="btn skeleton-box"></span>
+                <span class="btn skeleton-box"></span>
+              </div>
+            </div>
+          </article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
+          <article class="card product skeleton" aria-busy="true"><div class="media skeleton-box"></div><div class="content"><div class="line skeleton-box"></div><div class="line skeleton-box short"></div><div class="price-rating"><span class="price skeleton-box"></span><span class="rating skeleton-box short"></span></div><div class="actions"><span class="btn skeleton-box"></span><span class="btn skeleton-box"></span></div></div></article>
         </div>
-        <figure class="hero-media">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop" alt="Happy customers discovering products" loading="eager" width="1200" height="800" />
-          <figcaption class="muted small">Photo via Unsplash</figcaption>
-        </figure>
       </div>
     </section>
 
-    <!-- ====================== FEATURED CATEGORIES ======================= -->
-    <section id="featured-categories" class="section categories" aria-labelledby="categories-title">
+    <!-- Actual Product Grid (initially hidden; revealed by JS) -->
+    <section class="product-grid" aria-label="Featured Products" data-state="ready" hidden>
       <div class="container">
-        <div class="section-head">
-          <h2 id="categories-title">Browse by Category</h2>
-          <p class="muted">Home, Fashion, Gadgets, Beauty, Fitness, Crafts</p>
-        </div>
-
-        <div class="category-grid">
-          <!-- JS will hydrate; static fallback cards below -->
-          <button class="category-card" type="button" data-category="Home" aria-pressed="false">
-            <img src="https://picsum.photos/seed/home/720/360" alt="Home essentials category" loading="lazy" width="720" height="360" />
-            <h3>Home</h3>
-          </button>
-          <button class="category-card" type="button" data-category="Fashion" aria-pressed="false">
-            <img src="https://picsum.photos/seed/fashion/720/360" alt="Fashion category" loading="lazy" width="720" height="360" />
-            <h3>Fashion</h3>
-          </button>
-          <button class="category-card" type="button" data-category="Gadgets" aria-pressed="false">
-            <img src="https://picsum.photos/seed/gadgets/720/360" alt="Gadgets category" loading="lazy" width="720" height="360" />
-            <h3>Gadgets</h3>
-          </button>
-          <button class="category-card" type="button" data-category="Beauty" aria-pressed="false">
-            <img src="https://picsum.photos/seed/beauty/720/360" alt="Beauty category" loading="lazy" width="720" height="360" />
-            <h3>Beauty</h3>
-          </button>
-          <button class="category-card" type="button" data-category="Fitness" aria-pressed="false">
-            <img src="https://picsum.photos/seed/fitness/720/360" alt="Fitness category" loading="lazy" width="720" height="360" />
-            <h3>Fitness</h3>
-          </button>
-          <button class="category-card" type="button" data-category="Crafts" aria-pressed="false">
-            <img src="https://picsum.photos/seed/crafts/720/360" alt="Crafts category" loading="lazy" width="720" height="360" />
-            <h3>Crafts</h3>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== FEATURED DEALS / TRENDING CAROUSEL ======================= -->
-    <section class="section deals" id="trending" aria-labelledby="deals-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="deals-title">Trending Now</h2>
-          <p class="muted">Hot picks loved by the BidPreacher community.</p>
-          <div class="carousel-controls">
-            <button class="btn icon ghost" type="button" aria-label="Previous" data-carousel-prev>
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M15 18l-6-6 6-6"/></svg>
+        <h2 class="section-title">Featured Connectors & Kits</h2>
+        <div class="grid grid-products">
+          <!-- PRODUCT CARD 1 -->
+          <article class="card product" data-product-id="BP-USBCA-10G">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             </button>
-            <button class="btn icon ghost" type="button" aria-label="Next" data-carousel-next>
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 6l6 6-6 6"/></svg>
+            <a class="media" href="/p/usb-c-to-a-10g">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop"
+                   alt="USB-C to USB-A Adapter (10Gbps) in aluminum finish"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/usb-c-to-a-10g">USB-C ⇄ USB-A Adapter (10Gbps)</a></h3>
+              <p class="product-desc">Rugged, 10Gbps transfer, 60W pass-through. Survives the field and your backpack.</p>
+              <div class="meta">
+                <div class="price">$14.99</div>
+                <div class="rating" aria-label="4.7 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(128)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-USBCA-10G">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-USBCA-10G">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-USBCA-10G">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 2 -->
+          <article class="card product" data-product-id="BP-XT60-CLAMP">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             </button>
-          </div>
-        </div>
-
-        <!-- Basic static structure; JS may hydrate -->
-        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Trending products">
-          <div class="carousel-track" data-carousel-track>
-            <!-- Slide -->
-            <article class="deal-card" aria-roledescription="slide" aria-label="Aurora Smart Lamp">
-              <img src="https://images.unsplash.com/photo-1512374382149-233c42b6a83a?q=80&w=1200&auto=format&fit=crop" alt="Aurora Smart Lamp on a nightstand" loading="lazy" width="640" height="400" />
-              <div class="deal-body">
-                <h3>Aurora Smart Lamp</h3>
-                <p class="muted small">Touch-dimmable bedside lamp with warm/cool modes.</p>
-                <div class="price-row">
-                  <strong>₹1499</strong>
-                  <button class="btn small" type="button" data-buy="BP-GAD-001">Buy Now</button>
-                </div>
-              </div>
-            </article>
-            <!-- Slide -->
-            <article class="deal-card" aria-roledescription="slide" aria-label="Nimbus Wireless Earbuds">
-              <img src="https://images.unsplash.com/photo-1518443882831-c6d7b1b3a52d?q=80&w=1200&auto=format&fit=crop" alt="White wireless earbuds on a desk" loading="lazy" width="640" height="400" />
-              <div class="deal-body">
-                <h3>Nimbus Wireless Earbuds</h3>
-                <p class="muted small">Bluetooth 5.3 with ENC mic and 30-hour case.</p>
-                <div class="price-row">
-                  <strong>₹2299</strong>
-                  <button class="btn small" type="button" data-buy="BP-GAD-003">Buy Now</button>
-                </div>
-              </div>
-            </article>
-            <!-- Slide -->
-            <article class="deal-card" aria-roledescription="slide" aria-label="AirFlex Yoga Mat">
-              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop" alt="Purple yoga mat on wooden floor" loading="lazy" width="640" height="400" />
-              <div class="deal-body">
-                <h3>AirFlex Yoga Mat</h3>
-                <p class="muted small">Non-slip TPE with body alignment markers.</p>
-                <div class="price-row">
-                  <strong>₹1199</strong>
-                  <button class="btn small" type="button" data-buy="BP-FIT-005">Buy Now</button>
-                </div>
-              </div>
-            </article>
-            <!-- Slide -->
-            <article class="deal-card" aria-roledescription="slide" aria-label="Minimalist Wristwatch">
-              <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=1200&auto=format&fit=crop" alt="Minimalist wristwatch with leather strap" loading="lazy" width="640" height="400" />
-              <div class="deal-body">
-                <h3>Minimalist Wristwatch</h3>
-                <p class="muted small">Slim analog with leather strap, 5 ATM.</p>
-                <div class="price-row">
-                  <strong>₹2599</strong>
-                  <button class="btn small" type="button" data-buy="BP-FAS-008">Buy Now</button>
-                </div>
-              </div>
-            </article>
-          </div>
-          <div class="carousel-dots" role="tablist" aria-label="Select slide">
-            <button role="tab" aria-selected="true" aria-controls="slide-1" tabindex="0"></button>
-            <button role="tab" aria-selected="false" aria-controls="slide-2" tabindex="-1"></button>
-            <button role="tab" aria-selected="false" aria-controls="slide-3" tabindex="-1"></button>
-            <button role="tab" aria-selected="false" aria-controls="slide-4" tabindex="-1"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== SEARCH RESULTS SUMMARY ======================= -->
-    <section class="section results-summary" aria-live="polite">
-      <div class="container">
-        <p class="muted small"><span id="results-count">Showing popular items</span> <span id="results-query"></span></p>
-      </div>
-    </section>
-
-    <!-- ====================== PRODUCTS ======================= -->
-    <section id="products" class="section products-section" aria-labelledby="products-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="products-title">Explore Products</h2>
-          <p class="muted">Add to cart or hit <em>Buy Now</em> to forward your request instantly.</p>
-        </div>
-
-        <!-- Loading skeletons while JS hydrates -->
-        <div class="product-grid" id="product-grid" aria-live="polite">
-          <!-- 24 placeholders (fallback if JS disabled) -->
-          <!-- Row 1 -->
-          <article class="product-card skeleton">
-            <div class="product-media"><div class="ph"></div></div>
-            <div class="product-body">
-              <div class="product-title ph"></div>
-              <div class="rating ph"></div>
-              <div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div>
-              <div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div>
-            </div>
-          </article>
-          <article class="product-card skeleton">
-            <div class="product-media"><div class="ph"></div></div>
-            <div class="product-body">
-              <div class="product-title ph"></div>
-              <div class="rating ph"></div>
-              <div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div>
-              <div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div>
-            </div>
-          </article>
-          <article class="product-card skeleton">
-            <div class="product-media"><div class="ph"></div></div>
-            <div class="product-body">
-              <div class="product-title ph"></div>
-              <div class="rating ph"></div>
-              <div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div>
-              <div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div>
-            </div>
-          </article>
-          <article class="product-card skeleton">
-            <div class="product-media"><div class="ph"></div></div>
-            <div class="product-body">
-              <div class="product-title ph"></div>
-              <div class="rating ph"></div>
-              <div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div>
-              <div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div>
-            </div>
-          </article>
-
-          <!-- Row 2 -->
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-
-          <!-- Row 3 -->
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-
-          <!-- Row 4 -->
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-
-          <!-- Row 5 -->
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-          <article class="product-card skeleton"><div class="product-media"><div class="ph"></div></div><div class="product-body"><div class="product-title ph"></div><div class="rating ph"></div><div class="price-row"><div class="price ph"></div><div class="ph small" style="width:48px"></div></div><div class="product-actions"><div class="btn ph"></div><div class="btn ph"></div></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== HOW IT WORKS ======================= -->
-    <section id="how-it-works" class="section how" aria-labelledby="how-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="how-title">How It Works</h2>
-          <p class="muted">Three steps from discovery to connection.</p>
-        </div>
-        <ol class="how-grid">
-          <li class="how-card">
-            <div class="how-icon" aria-hidden="true">1</div>
-            <h3>Pick what you love</h3>
-            <p>Discover curated products across Home, Fashion, Gadgets, Beauty, Fitness, and Crafts.</p>
-          </li>
-          <li class="how-card">
-            <div class="how-icon" aria-hidden="true">2</div>
-            <h3>Tap Buy Now</h3>
-            <p>Share your details. We compose a structured request with cart info.</p>
-          </li>
-          <li class="how-card">
-            <div class="how-icon" aria-hidden="true">3</div>
-            <h3>We connect you</h3>
-            <p>We instantly forward your request via WhatsApp or Email to the operator, who connects you with the seller to finalize payment &amp; delivery offline.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ====================== TESTIMONIALS ======================= -->
-    <section id="testimonials" class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="testimonials-title">What Buyers Say</h2>
-          <p class="muted">Real voices from our community.</p>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial-card" aria-label="Review by Aditi">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" alt="Aditi smiling" width="96" height="96" loading="lazy" />
-            <blockquote>“Buy Now connected me to a seller within minutes. Smooth and personal—no checkout hassles.”</blockquote>
-            <footer>— Aditi M., Bengaluru</footer>
-          </article>
-          <article class="testimonial-card" aria-label="Review by Rohit">
-            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop" alt="Rohit smiling" width="96" height="96" loading="lazy" />
-            <blockquote>“Loved the curated gadgets. The operator handled the intro, and I paid the seller directly.”</blockquote>
-            <footer>— Rohit S., Pune</footer>
-          </article>
-          <article class="testimonial-card" aria-label="Review by Nisha">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Nisha smiling" width="96" height="96" loading="lazy" />
-            <blockquote>“Privacy-first is a big plus. My info goes only to arrange the purchase—no spam.”</blockquote>
-            <footer>— Nisha K., Mumbai</footer>
-          </article>
-          <article class="testimonial-card" aria-label="Review by Aman">
-            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop" alt="Aman smiling" width="96" height="96" loading="lazy" />
-            <blockquote>“Great for local crafts. I discovered makers I wouldn’t have found otherwise.”</blockquote>
-            <footer>— Aman P., Jaipur</footer>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== BLOG / INSIGHTS ======================= -->
-    <section id="blog" class="section blog" aria-labelledby="blog-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="blog-title">Insights &amp; Ideas</h2>
-          <p class="muted">Tips, stories, and trends from our editors.</p>
-        </div>
-        <div class="blog-grid">
-          <article class="blog-card">
-            <a class="blog-media" href="#" aria-label="Read more: 7 Home Lighting Tips">
-              <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1200&auto=format&fit=crop" alt="Warm lamps in a cozy living room" loading="lazy" width="640" height="400" />
+            <a class="media" href="/p/xt60-solderless">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+                   alt="XT60 solderless connector pair"
+                   width="480" height="320" loading="lazy">
             </a>
-            <div class="blog-body">
-              <h3><a href="#">7 Home Lighting Tips for Calm Evenings</a></h3>
-              <p class="muted">Create ambient layers and set a relaxing tone with smart dimming and warm accents.</p>
-              <a class="btn text" href="#">Read more →</a>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <a class="blog-media" href="#" aria-label="Read more: Minimal Wardrobe">
-              <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1200&auto=format&fit=crop" alt="Minimal fashion wardrobe" loading="lazy" width="640" height="400" />
-            </a>
-            <div class="blog-body">
-              <h3><a href="#">Building a Minimal Wardrobe That Lasts</a></h3>
-              <p class="muted">Timeless basics and quality materials are your best style investments.</p>
-              <a class="btn text" href="#">Read more →</a>
-            </div>
-          </article>
-
-          <article class="blog-card">
-            <a class="blog-media" href="#" aria-label="Read more: Wireless Audio 101">
-              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop" alt="Headphones on a table" loading="lazy" width="640" height="400" />
-            </a>
-            <div class="blog-body">
-              <h3><a href="#">Wireless Audio 101: What Matters</a></h3>
-              <p class="muted">Codecs, battery life, and comfort—choose earbuds that suit your day.</p>
-              <a class="btn text" href="#">Read more →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== TRUST / GUARANTEES ======================= -->
-    <section id="trust" class="section trust" aria-labelledby="trust-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="trust-title">Why BidPreacher</h2>
-          <p class="muted">Practical, transparent, and privacy-respecting.</p>
-        </div>
-        <div class="trust-grid">
-          <article class="trust-card">
-            <div class="trust-icon" aria-hidden="true">🔒</div>
-            <h3>Secure &amp; Private</h3>
-            <p>We don’t process payments or store sensitive data. Your details are used only to arrange the purchase with the seller.</p>
-          </article>
-          <article class="trust-card">
-            <div class="trust-icon" aria-hidden="true">💬</div>
-            <h3>Human Connection</h3>
-            <p>Your request is forwarded via WhatsApp/email to the operator who connects you with a real seller.</p>
-          </article>
-          <article class="trust-card">
-            <div class="trust-icon" aria-hidden="true">💸</div>
-            <h3>Zero Cost</h3>
-            <p>No hidden fees. No subscriptions. The site is free to use and runs on GitHub Pages.</p>
-          </article>
-          <article class="trust-card">
-            <div class="trust-icon" aria-hidden="true">⚡</div>
-            <h3>Fast &amp; Lightweight</h3>
-            <p>Pure HTML, CSS, and JS. Quick to load, mobile-first, and optimized for modern browsers.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== SELLER ONBOARDING ======================= -->
-    <section id="seller" class="section seller" aria-labelledby="seller-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="seller-title">Sell with BidPreacher</h2>
-          <p class="muted">Submit your product. We’ll connect interested buyers to you.</p>
-        </div>
-
-        <div class="seller-grid">
-          <div class="seller-benefits">
-            <ul>
-              <li><strong>Free listing:</strong> No fees to start.</li>
-              <li><strong>Curated audience:</strong> Reach buyers who value quality and local sellers.</li>
-              <li><strong>Direct connections:</strong> We forward qualified leads to you.</li>
-              <li><strong>Simple workflow:</strong> You handle payment and delivery offline.</li>
-            </ul>
-            <p>Ready to showcase your products? Use the form to send us details. We’ll reply on WhatsApp/email.</p>
-          </div>
-
-          <!-- Mini Seller Form (script.js reads #seller-form) -->
-          <form id="seller-form" class="card form" aria-label="Seller onboarding form">
-            <fieldset>
-              <legend>Tell us about you and your product</legend>
-              <label>Full Name
-                <input name="seller_name" required placeholder="Your name" />
-              </label>
-              <label>Phone (WhatsApp preferred)
-                <input name="seller_phone" required inputmode="tel" placeholder="+91 9XXXXXXXXX" />
-              </label>
-              <label>Email (optional)
-                <input name="seller_email" type="email" placeholder="you@example.com" />
-              </label>
-              <label>Product / Service
-                <textarea name="seller_product" required rows="3" placeholder="Describe what you sell, MOQ, price range"></textarea>
-              </label>
-              <label>Notes (optional)
-                <textarea name="seller_notes" rows="2" placeholder="Any links or extra info"></textarea>
-              </label>
-              <div class="form-actions">
-                <button class="btn primary" type="submit">Submit</button>
-                <p class="muted small">By submitting, you agree to our <a href="#terms">Terms</a>.</p>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/xt60-solderless">XT60 Solderless Connector Pair</a></h3>
+              <p class="product-desc">Clamp-style XT60 for reliable field installs. 12–14 AWG compatible.</p>
+              <div class="meta">
+                <div class="price">$9.95</div>
+                <div class="rating" aria-label="4.6 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(89)</span>
+                </div>
               </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== FAQ ======================= -->
-    <section id="faq" class="section faq" aria-labelledby="faq-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="faq-title">Frequently Asked Questions</h2>
-          <p class="muted">Answers to common questions about how BidPreacher works.</p>
-        </div>
-
-        <div class="accordion" role="region" aria-label="FAQ">
-          <details>
-            <summary>Do you process payments?</summary>
-            <div class="content">
-              <p>No. BidPreacher never processes payments. We forward your interest to the operator who connects you with the seller to finalize payment and delivery offline.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Is my personal information safe?</summary>
-            <div class="content">
-              <p>Yes. We only use your details to connect you with the seller. We don’t sell data or run ads. See our <a href="#privacy">Privacy Policy</a>.</p>
-            </div>
-          </details>
-          <details>
-            <summary>How long until I hear back?</summary>
-            <div class="content">
-              <p>Typically within a few hours during business days. You will receive a WhatsApp message or an email from the operator.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Can I request bulk orders?</summary>
-            <div class="content">
-              <p>Absolutely. Many sellers support bulk orders. Mention your quantity in the notes during checkout.</p>
-            </div>
-          </details>
-          <details>
-            <summary>What if a product is out of stock?</summary>
-            <div class="content">
-              <p>We’ll propose alternatives or notify you when it’s available again.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Do you ship internationally?</summary>
-            <div class="content">
-              <p>Shipping is handled by sellers. International availability depends on the seller’s policy.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Can I return a product?</summary>
-            <div class="content">
-              <p>Returns and warranties are handled by the seller. We’ll help coordinate if needed.</p>
-            </div>
-          </details>
-          <details>
-            <summary>How do I become a seller?</summary>
-            <div class="content">
-              <p>Use the <a href="#seller">Seller form</a> above. We’ll get in touch to verify details and list your products.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================== CONTACT ======================= -->
-    <section id="contact" class="section contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="contact-title">Contact Us</h2>
-          <p class="muted">Questions? Feedback? We’d love to hear from you.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Reach us</h3>
-            <ul class="contact-info">
-              <li><strong>Email:</strong> <a id="footer-contact-email" href="mailto:owner@example.com">owner@example.com</a></li>
-              <li><strong>WhatsApp:</strong> <a id="footer-contact-whatsapp" href="https://wa.me/919999999999" target="_blank" rel="noopener">Chat now</a></li>
-              <li><strong>Address:</strong> BidPreacher, Remote-first • India</li>
-            </ul>
-            <p class="muted small">We respond Mon–Fri, 10:00–18:00 IST.</p>
-          </div>
-
-          <form class="card form" aria-label="Contact form" onsubmit="return false;">
-            <fieldset>
-              <legend>Send a message</legend>
-              <label>Your Name
-                <input placeholder="Full name" required />
-              </label>
-              <label>Email
-                <input type="email" placeholder="you@example.com" required />
-              </label>
-              <label>Message
-                <textarea rows="4" placeholder="Tell us what you need" required></textarea>
-              </label>
-              <div class="form-actions">
-                <a class="btn primary" href="#contact" aria-disabled="true">Send (use email above)</a>
-                <p class="muted small">For now, please contact us via WhatsApp or Email directly.</p>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-XT60-CLAMP">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-XT60-CLAMP">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-XT60-CLAMP">Buy Now</button>
               </div>
-            </fieldset>
-          </form>
+            </div>
+          </article>
 
-          <figure class="map-card">
-            <img src="https://picsum.photos/seed/map/960/480" alt="Map placeholder" width="960" height="480" loading="lazy" />
-            <figcaption class="muted small">We’re remote-first. Meetings on request.</figcaption>
-          </figure>
+          <!-- PRODUCT CARD 3 -->
+          <article class="card product" data-product-id="BP-RJ45-KIT">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/rj45-crimp-free">
+              <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop"
+                   alt="RJ45 crimp-free CAT6 kit"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/rj45-crimp-free">RJ45 Crimp-Free CAT6 Kit</a></h3>
+              <p class="product-desc">Tool-less pass-through connectors and a pocket tester to verify links fast.</p>
+              <div class="meta">
+                <div class="price">$29.00</div>
+                <div class="rating" aria-label="4.5 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(203)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-RJ45-KIT">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-RJ45-KIT">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-RJ45-KIT">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 4 -->
+          <article class="card product" data-product-id="BP-HDMI-21-CBL2M">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/hdmi-2-1-2m">
+              <img src="https://images.unsplash.com/photo-1585079542156-2755d9a7f0f7?q=80&w=1200&auto=format&fit=crop"
+                   alt="HDMI 2.1 ultra-flex cable 2m"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/hdmi-2-1-2m">HDMI 2.1 Ultra-Flex Cable — 2m</a></h3>
+              <p class="product-desc">4K/120, 8K/60 ready. Tight-space friendly jacket, bend-safe strain relief.</p>
+              <div class="meta">
+                <div class="price">$18.50</div>
+                <div class="rating" aria-label="4.8 out of 5">
+                  <span>★★★★★</span>
+                  <span class="count">(64)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-HDMI-21-CBL2M">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-HDMI-21-CBL2M">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-HDMI-21-CBL2M">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 5 -->
+          <article class="card product" data-product-id="BP-USBC-PD100W">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/usb-c-pd-100w">
+              <img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5?q=80&w=1200&auto=format&fit=crop"
+                   alt="USB-C Power Delivery cable 100W"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/usb-c-pd-100w">USB-C PD Cable — 100W E-Marked</a></h3>
+              <p class="product-desc">Charge laptops and dev boards safely with E-Marker verification.</p>
+              <div class="meta">
+                <div class="price">$16.00</div>
+                <div class="rating" aria-label="4.7 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(342)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-USBC-PD100W">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-USBC-PD100W">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-USBC-PD100W">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 6 -->
+          <article class="card product" data-product-id="BP-XLR-TRS-ADAPT">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/xlr-trs-adapter">
+              <img src="https://images.unsplash.com/photo-1519666213638-9f23a9f8a7d9?q=80&w=1200&auto=format&fit=crop"
+                   alt="XLR to TRS balanced adapter"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/xlr-trs-adapter">XLR ⇄ TRS Balanced Adapter</a></h3>
+              <p class="product-desc">Studio-grade, gold-plated contacts for clean signal paths.</p>
+              <div class="meta">
+                <div class="price">$12.49</div>
+                <div class="rating" aria-label="4.4 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(57)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-XLR-TRS-ADAPT">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-XLR-TRS-ADAPT">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-XLR-TRS-ADAPT">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 7 -->
+          <article class="card product" data-product-id="BP-DC5521-KIT">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/dc5521-universal">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89faba?q=80&w=1200&auto=format&fit=crop"
+                   alt="DC barrel universal kit"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/dc5521-universal">DC Barrel Universal Kit (5.5×2.1)</a></h3>
+              <p class="product-desc">Adapters for common sizes + polarity tester. Stop guessing, start powering.</p>
+              <div class="meta">
+                <div class="price">$22.00</div>
+                <div class="rating" aria-label="4.3 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(41)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-DC5521-KIT">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-DC5521-KIT">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-DC5521-KIT">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 8 -->
+          <article class="card product" data-product-id="BP-USB-C-HUB-4P">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/usb-c-hub-4p">
+              <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop"
+                   alt="USB-C 4-port hub"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/usb-c-hub-4p">USB-C Hub — 4 Port Gen 2</a></h3>
+              <p class="product-desc">Compact metal hub with per-port current safety and power status LEDs.</p>
+              <div class="meta">
+                <div class="price">$34.90</div>
+                <div class="rating" aria-label="4.6 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(176)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-USB-C-HUB-4P">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-USB-C-HUB-4P">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-USB-C-HUB-4P">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 9 -->
+          <article class="card product" data-product-id="BP-SPEAKON-PAIR">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/speakon-pair">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop"
+                   alt="speakON connector pair"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/speakon-pair">speakON Connector Pair — NL4</a></h3>
+              <p class="product-desc">Tour-tough connectors with secure twist-lock for pro audio rigs.</p>
+              <div class="meta">
+                <div class="price">$11.99</div>
+                <div class="rating" aria-label="4.5 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(73)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-SPEAKON-PAIR">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-SPEAKON-PAIR">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-SPEAKON-PAIR">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 10 -->
+          <article class="card product" data-product-id="BP-USB-A-MICRO-OTG">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/usb-a-micro-otg">
+              <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?q=80&w=1200&auto=format&fit=crop"
+                   alt="USB-A to Micro OTG adapter"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/usb-a-micro-otg">USB-A ⇄ Micro-USB OTG</a></h3>
+              <p class="product-desc">Legacy dev boards aren’t dead — add keyboards, flash drives, and more.</p>
+              <div class="meta">
+                <div class="price">$6.49</div>
+                <div class="rating" aria-label="4.2 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(58)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-USB-A-MICRO-OTG">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-USB-A-MICRO-OTG">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-USB-A-MICRO-OTG">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 11 -->
+          <article class="card product" data-product-id="BP-DP-8K-CBL1_5M">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/displayport-8k-1-5m">
+              <img src="https://images.unsplash.com/photo-1585079542156-2755d9a7f0f7?q=80&w=1200&auto=format&fit=crop"
+                   alt="DisplayPort 1.4 8K cable 1.5m"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/displayport-8k-1-5m">DisplayPort 1.4 Cable — 1.5m</a></h3>
+              <p class="product-desc">HBR3 certified for buttery 144Hz at 4K. Locking latches included.</p>
+              <div class="meta">
+                <div class="price">$15.75</div>
+                <div class="rating" aria-label="4.6 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(91)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-DP-8K-CBL1_5M">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-DP-8K-CBL1_5M">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-DP-8K-CBL1_5M">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT CARD 12 -->
+          <article class="card product" data-product-id="BP-MAGSAFE-USB-C">
+            <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <a class="media" href="/p/mag-usbc-cable">
+              <img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5?q=80&w=1200&auto=format&fit=crop"
+                   alt="Magnetic USB-C breakaway cable"
+                   width="480" height="320" loading="lazy">
+            </a>
+            <div class="content">
+              <h3 class="product-title"><a href="/p/mag-usbc-cable">Magnetic USB-C Breakaway Cable</a></h3>
+              <p class="product-desc">Save your ports. One-hand connect with dust-proof reversible tip.</p>
+              <div class="meta">
+                <div class="price">$19.80</div>
+                <div class="rating" aria-label="4.4 out of 5">
+                  <span>★★★★☆</span>
+                  <span class="count">(137)</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="btn btn-ghost" data-action="quick-view" data-product="BP-MAGSAFE-USB-C">Quick View</button>
+                <button class="btn btn-secondary" data-action="add-to-cart" data-product="BP-MAGSAFE-USB-C">Add to Cart</button>
+                <button class="btn btn-primary" data-action="buy-now" data-product="BP-MAGSAFE-USB-C">Buy Now</button>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
-
-    <!-- ====================== LEGAL / POLICIES ======================= -->
-    <section id="privacy" class="section legal" aria-labelledby="privacy-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="privacy-title">Privacy Policy</h2>
-          <p class="muted">Plain-English overview. Detailed policy below.</p>
-        </div>
-        <article class="legal-card">
-          <h3>What we collect</h3>
-          <p>When you tap Buy Now, we collect your name, phone, email, and shipping details to forward your request to the operator. We also store your cart and likes in your browser using localStorage.</p>
-          <h3>How we use it</h3>
-          <p>We only use your details to connect you with the seller—nothing else. No third-party trackers. No ads. No reselling of data.</p>
-          <h3>Data retention</h3>
-          <p>LocalStorage data stays in your browser until you clear it. Requests sent via WhatsApp/Email are handled by the operator and seller per their policies.</p>
-          <h3>Your choices</h3>
-          <p>You may clear your cart and likes anytime. For request copies or deletion, contact us via email.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="terms" class="section legal" aria-labelledby="terms-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="terms-title">Terms of Use</h2>
-          <p class="muted">Simple terms that keep everyone on the same page.</p>
-        </div>
-        <article class="legal-card">
-          <h3>Service nature</h3>
-          <p>BidPreacher is a connector. We don’t sell products, process payments, or guarantee stock. We forward requests to connect buyers and sellers.</p>
-          <h3>Responsibilities</h3>
-          <p>Product quality, warranties, and deliveries are handled by sellers. We facilitate introductions and support where possible.</p>
-          <h3>Acceptable use</h3>
-          <p>Don’t use this site for illegal items or abusive behavior. We reserve the right to refuse listings and remove content that violates these terms.</p>
-          <h3>Liability</h3>
-          <p>To the extent permitted by law, we are not liable for indirect or consequential damages arising from use of this site.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="accessibility" class="section legal" aria-labelledby="a11y-title">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="a11y-title">Accessibility Statement</h2>
-          <p class="muted">We build for everyone.</p>
-        </div>
-        <article class="legal-card">
-          <p>We aim to meet WCAG 2.1 AA guidelines. If you encounter any barriers, please email us. Features include keyboard-navigable modals and drawers, focus management, semantic markup, alt text, and reduced motion support.</p>
-        </article>
-      </div>
-    </section>
-
   </main>
 
   <!-- =========================================================
-       CART DRAWER (slide-in) • script.js wires interactions
+       QUICK VIEW MODAL (skeleton structure; hidden by default)
        ========================================================= -->
-  <aside id="cart-drawer" class="drawer" aria-hidden="true" role="dialog" aria-label="Shopping cart">
-    <div class="drawer-panel" role="document">
-      <header class="drawer-head">
-        <h2>Cart</h2>
-        <button class="btn icon ghost" type="button" data-close-cart aria-label="Close cart">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  <div class="modal quick-view" id="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="qv-title" hidden>
+    <div class="modal-backdrop" data-action="close-modal" tabindex="-1" aria-hidden="true"></div>
+    <div class="modal-dialog" role="document">
+      <header class="modal-header">
+        <h3 id="qv-title">Quick View</h3>
+        <button class="icon-btn close" aria-label="Close quick view" data-action="close-modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="modal-body">
+        <div class="qv-gallery">
+          <div class="skeleton-box image-slot" aria-hidden="true"></div>
+        </div>
+        <div class="qv-content">
+          <div class="skeleton-box line"></div>
+          <div class="skeleton-box line short"></div>
+          <div class="qv-price-rating">
+            <span class="skeleton-box price"></span>
+            <span class="skeleton-box rating"></span>
+          </div>
+          <div class="qv-options">
+            <!-- Option rows will hydrate here -->
+            <div class="skeleton-box pill"></div>
+            <div class="skeleton-box pill"></div>
+          </div>
+          <div class="qv-actions">
+            <button class="btn btn-secondary" data-action="add-to-cart">Add to Cart</button>
+            <button class="btn btn-primary" data-action="buy-now">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn btn-ghost" data-action="close-modal">Keep Browsing</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CART DRAWER (skeleton structure; hidden by default)
+       ========================================================= -->
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart" hidden>
+    <div class="drawer-backdrop" data-action="close-cart" tabindex="-1" aria-hidden="true"></div>
+    <div class="drawer-panel">
+      <header class="drawer-header">
+        <h3>Cart</h3>
+        <button class="icon-btn close" aria-label="Close cart" data-action="close-cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         </button>
       </header>
       <div class="drawer-body">
-        <ul id="cart-items" class="cart-items">
-          <!-- JS will render cart lines here -->
-          <li class="muted small">Your cart is empty.</li>
+        <!-- Placeholder items prior to hydration -->
+        <ul class="cart-list" aria-live="polite" aria-relevant="additions removals">
+          <li class="cart-item skeleton">
+            <div class="thumb skeleton-box"></div>
+            <div class="info">
+              <div class="line skeleton-box"></div>
+              <div class="line skeleton-box short"></div>
+            </div>
+            <div class="qty-price">
+              <span class="skeleton-box qty"></span>
+              <span class="skeleton-box price"></span>
+            </div>
+          </li>
+          <li class="cart-item skeleton">
+            <div class="thumb skeleton-box"></div>
+            <div class="info">
+              <div class="line skeleton-box"></div>
+              <div class="line skeleton-box short"></div>
+            </div>
+            <div class="qty-price">
+              <span class="skeleton-box qty"></span>
+              <span class="skeleton-box price"></span>
+            </div>
+          </li>
         </ul>
       </div>
-      <footer class="drawer-foot">
-        <div class="subtotal">Subtotal: <strong id="cart-subtotal">₹0</strong></div>
-        <div class="drawer-actions">
-          <button class="btn outline" type="button" data-close-cart>Continue Shopping</button>
-          <button class="btn primary" type="button" id="cart-buy-now" data-cart-buy>Buy Now</button>
+      <footer class="drawer-footer">
+        <div class="totals">
+          <span>Subtotal</span>
+          <strong data-cart-subtotal>$0.00</strong>
         </div>
-        <p class="muted xsmall">We connect you with the seller. Payment &amp; delivery happen offline.</p>
+        <div class="drawer-actions">
+          <a href="/checkout" class="btn btn-primary" data-action="checkout">Checkout</a>
+          <button class="btn btn-ghost" data-action="close-cart">Continue Shopping</button>
+        </div>
+        <p class="fineprint">Taxes and shipping calculated at checkout.</p>
       </footer>
     </div>
   </aside>
 
   <!-- =========================================================
-       QUICK VIEW MODAL
+       TEMPLATES (optional; used by JS to clone nodes)
        ========================================================= -->
-  <section id="quickview-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qv-title">
-    <div class="modal-dialog" role="document">
-      <header class="modal-head">
-        <h3 id="qv-title">Product Title</h3>
-        <button class="btn icon ghost" type="button" data-close-modal aria-label="Close quick view">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </header>
-      <div class="modal-body qv-body">
-        <figure class="qv-media">
-          <img id="modal-main-image" src="https://picsum.photos/seed/preview/960/640" alt="Product preview" width="960" height="640" />
-          <div id="qv-thumbs" class="thumbs">
-            <!-- JS will render thumbnails -->
-            <button type="button"><img src="https://picsum.photos/seed/preview/160/100" alt="Thumbnail 1" width="160" height="100" /></button>
-            <button type="button"><img src="https://picsum.photos/seed/preview2/160/100" alt="Thumbnail 2" width="160" height="100" /></button>
+  <template id="tpl-product-card">
+    <article class="card product">
+      <button class="fav-btn" aria-label="Add to favorites" data-action="toggle-like">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.65-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <a class="media" href="#">
+        <img src="" alt="" width="480" height="320" loading="lazy">
+      </a>
+      <div class="content">
+        <h3 class="product-title"><a href="#"></a></h3>
+        <p class="product-desc"></p>
+        <div class="meta">
+          <div class="price"></div>
+          <div class="rating" aria-label="">
+            <span>★★★★★</span>
+            <span class="count"></span>
           </div>
-        </figure>
-        <div class="qv-info">
-          <div class="price-row">
-            <strong id="qv-price">₹0</strong>
-            <span class="rating" aria-label="Rating">★★★★★</span>
-          </div>
-          <p id="qv-desc" class="muted">Full description appears here after selection.</p>
-          <div class="qv-actions">
-            <button id="qv-buy" class="btn primary" type="button">Buy Now</button>
-          </div>
-          <p class="muted xsmall">We forward your request to connect you with the seller. No online payment.</p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-ghost" data-action="quick-view">Quick View</button>
+          <button class="btn btn-secondary" data-action="add-to-cart">Add to Cart</button>
+          <button class="btn btn-primary" data-action="buy-now">Buy Now</button>
         </div>
       </div>
+    </article>
+  </template>
+
+  <!-- =========================================================
+       Accessibility Live Regions
+       ========================================================= -->
+  <div class="sr-only" aria-live="polite" aria-atomic="true" id="a11y-live"></div>
+
+  <!-- END OF PART 1 – CONTINUE WITH PART 2 -->
+</body>
+</html>
