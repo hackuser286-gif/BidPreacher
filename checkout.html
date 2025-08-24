@@ -1,1 +1,254 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  checkout.html
+  PART 1 of 3
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="unRYL checkout page. Enter your shipping and payment details to place your order." />
+  <meta name="author" content="unRYL Team" />
+
+  <title>Checkout | unRYL</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="cart.html" class="cart-icon" aria-label="View cart">
+          🛒 <span class="cart-count">2</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <!-- ================= PROGRESS INDICATOR ================= -->
+  <section class="checkout-steps">
+    <div class="container steps">
+      <div class="step completed">
+        <span class="step-icon">🛒</span>
+        <span class="step-label">Cart</span>
+      </div>
+      <div class="step active">
+        <span class="step-icon">📦</span>
+        <span class="step-label">Checkout</span>
+      </div>
+      <div class="step">
+        <span class="step-icon">✅</span>
+        <span class="step-label">Success</span>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END PROGRESS INDICATOR ================= -->
+
+  <!-- ================= MAIN START ================= -->
+  <main class="checkout-page">
+    <div class="container checkout-grid">
+      <!-- LEFT COLUMN STARTS -->
+      <section class="checkout-form">
+        <h1>Checkout</h1>
+        <p class="muted">Complete your order by providing shipping details and choosing a payment method.</p>
+
+        <form id="checkoutForm">
+          <!-- ================= SHIPPING INFO ================= -->
+          <fieldset>
+            <legend>Shipping Information</legend>
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="e.g. Alex Johnson" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890" required />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" placeholder="123 Fashion St." required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Los Angeles" required />
+              </div>
+
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="CA" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip" placeholder="90001" required />
+              </div>
+
+              <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                  <option value="">Select country</option>
+                  <option value="usa">United States</option>
+                  <option value="canada">Canada</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="australia">Australia</option>
+                  <option value="india">India</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+          <!-- ================= PAYMENT INFO ================= -->
+          <fieldset>
+            <legend>Payment Method</legend>
+
+            <div class="form-group radio-group">
+              <label>
+                <input type="radio" name="payment" value="cod" checked />
+                <span>💵 Cash on Delivery</span>
+              </label>
+            </div>
+
+            <div class="form-group radio-group">
+              <label>
+                <input type="radio" name="payment" value="card" />
+                <span>💳 Credit / Debit Card (Coming Soon)</span>
+              </label>
+            </div>
+
+            <div class="form-group radio-group">
+              <label>
+                <input type="radio" name="payment" value="upi" />
+                <span>📱 UPI (Coming Soon)</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn-primary place-order">
+            Place Order
+          </button>
+        </form>
+      </section>
+      <!-- LEFT COLUMN ENDS -->
+
+      <!-- RIGHT COLUMN STARTS -->
+      <aside class="order-summary">
+        <h2>Order Summary</h2>
+
+        <ul class="summary-items">
+          <li class="summary-item">
+            <img src="assets/products/hoodie-neon.jpg" alt="Neon Vibes Hoodie" class="summary-thumb" />
+            <div class="item-info">
+              <p class="item-name">Streetwear Hoodie - Neon Vibes</p>
+              <p class="item-seller">Sold by: HypeHouse</p>
+            </div>
+            <p class="item-price">$59.99</p>
+          </li>
+
+          <li class="summary-item">
+            <img src="assets/products/sneakers-genz.jpg" alt="Gen Z Sneakers" class="summary-thumb" />
+            <div class="item-info">
+              <p class="item-name">Chunky Sneakers - Gen Z Edition</p>
+              <p class="item-seller">Sold by: SneakLab</p>
+            </div>
+            <p class="item-price">$89.99</p>
+          </li>
+
+          <li class="summary-item">
+            <img src="assets/products/sunglasses-urban.jpg" alt="Urban Sunglasses" class="summary-thumb" />
+            <div class="item-info">
+              <p class="item-name">Urban Retro Sunglasses</p>
+              <p class="item-seller">Sold by: SunVibe</p>
+            </div>
+            <p class="item-price">$24.99</p>
+          </li>
+        </ul>
+
+        <div class="summary-totals">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span>$174.97</span>
+          </div>
+          <div class="summary-line">
+            <span>Estimated Shipping</span>
+            <span>$7.99</span>
+          </div>
+          <div class="summary-line total">
+            <span>Total</span>
+            <span>$182.96</span>
+          </div>
+        </div>
+
+        <div class="summary-actions">
+          <a href="cart.html" class="btn-secondary">Back to Cart</a>
+        </div>
+      </aside>
+      <!-- RIGHT COLUMN ENDS -->
+    </div>
+  </main>
+  <!-- ================= END MAIN ================= -->
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 unRYL. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Shop</a>
+        <a href="cart.html">Cart</a>
+        <a href="orders.html">Orders</a>
+      </nav>
+    </div>
+  </footer>
+  <!-- ================= END FOOTER ================= -->
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/app.js"></script>
+  <script src="js/cartService.js"></script>
+  <script src="js/orderService.js"></script>
+</body>
+</html>
