@@ -1,1 +1,338 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  success.html
+  PART 1 of 3
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Order confirmation — thank you for shopping at unRYL. Your purchase request has been submitted." />
+  <meta name="author" content="unRYL Team" />
+  <title>Order Confirmed | unRYL</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" aria-label="unRYL home">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="cart.html" class="cart-icon" aria-label="View cart">🛒 <span class="cart-count">0</span></a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <!-- ================= PROGRESS INDICATOR ================= -->
+  <section class="checkout-steps">
+    <div class="container steps">
+      <div class="step completed">
+        <span class="step-icon">🛒</span>
+        <span class="step-label">Cart</span>
+      </div>
+      <div class="step completed">
+        <span class="step-icon">📦</span>
+        <span class="step-label">Checkout</span>
+      </div>
+      <div class="step active">
+        <span class="step-icon">✅</span>
+        <span class="step-label">Success</span>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END PROGRESS INDICATOR ================= -->
+
+  <!-- ================= SUCCESS HERO / CARD ================= -->
+  <main class="success-page">
+    <section class="success-hero">
+      <div class="container success-card">
+        <div class="celebration">
+          <div class="checkmark">🎉</div>
+        </div>
+
+        <h1>Order Confirmed!</h1>
+        <p class="lead">Thanks for shopping with unRYL — your purchase request has been submitted.</p>
+
+        <!-- Order summary (placeholder values for now) -->
+        <div class="order-summary-card">
+          <h2>Order ID: <span id="orderId">ORD-20250824-1007</span></h2>
+          <p class="muted">Placed on: <time id="orderDate" datetime="2025-08-24">Aug 24, 2025</time></p>
+
+          <div class="summary-items">
+            <div class="summary-row">
+              <img src="https://images.unsplash.com/photo-1622445270723-1e3f08adbc9c?auto=format&fit=crop&w=200&q=60" alt="Neon Hoodie" />
+              <div>
+                <p><strong>Streetwear Hoodie - Neon Vibes</strong></p>
+                <p class="muted">Qty: 1 • Sold by: Urban Vibes Apparel</p>
+              </div>
+              <p class="price">$55.00</p>
+            </div>
+
+            <div class="summary-row">
+              <img src="https://images.unsplash.com/photo-1624378439575-8a6e9fbc8e02?auto=format&fit=crop&w=200&q=60" alt="Retro Cap" />
+              <div>
+                <p><strong>Retro Snapback Cap — Classic Black</strong></p>
+                <p class="muted">Qty: 1 • Sold by: Caps & Culture</p>
+              </div>
+              <p class="price">$18.00</p>
+            </div>
+          </div>
+
+          <div class="summary-totals">
+            <div class="summary-line"><span>Subtotal</span><span>$73.00</span></div>
+            <div class="summary-line"><span>Estimated Shipping</span><span>$5.00</span></div>
+            <div class="summary-line total"><span>Total</span><span>$78.00</span></div>
+          </div>
+
+          <div class="shipping-info">
+            <h3>Shipping To</h3>
+            <p id="shippingName">Alex Johnson</p>
+            <p id="shippingAddress">123 Fashion St., Los Angeles, CA 90001, United States</p>
+            <p class="muted">Estimated delivery: <strong id="deliveryDate">Aug 30, 2025</strong></p>
+          </div>
+
+          <div class="success-actions">
+            <a href="orders.html" class="btn-primary">View My Orders</a>
+            <a href="index.html" class="btn-secondary">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Optional celebratory visuals -->
+      <div class="confetti-container" aria-hidden="true">
+        <!-- Confetti elements dynamically animated with CSS -->
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+      </div>
+    </section>
+  </main>
+  <!-- ================= END SUCCESS HERO ================= -->
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="unRYL Logo" class="footer-logo" />
+        <p class="tagline">Drip for the Gen Z grind ✨</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="product.html">All Products</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="cart.html">Cart</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Account</h4>
+          <ul>
+            <li><a href="orders.html">My Orders</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping Info</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="#" aria-label="Follow us on Instagram">📸</a>
+        <a href="#" aria-label="Follow us on TikTok">🎶</a>
+        <a href="#" aria-label="Follow us on Twitter">🐦</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 unRYL. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- ================= END FOOTER ================= -->
+
+  <!-- ================= EXTRA STYLES (INLINE) ================= -->
+  <style>
+    /* SUCCESS PAGE SPECIFIC STYLES */
+    .checkout-steps {
+      background: var(--clr-bg-alt);
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .step {
+      text-align: center;
+    }
+    .step .step-icon {
+      display: block;
+      font-size: 1.5rem;
+    }
+    .step.active {
+      font-weight: 700;
+      color: var(--clr-primary);
+    }
+    .success-page {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .success-card {
+      background: var(--clr-white);
+      border-radius: 1.25rem;
+      box-shadow: var(--shadow-md);
+      padding: 2rem;
+      max-width: 720px;
+      text-align: center;
+      animation: popIn 0.6s ease;
+    }
+    .celebration .checkmark {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .order-summary-card {
+      text-align: left;
+      margin-top: 2rem;
+    }
+    .summary-items .summary-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .summary-items img {
+      width: 60px;
+      height: 60px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+    }
+    .summary-totals {
+      margin-top: 1rem;
+      border-top: 2px solid var(--clr-border);
+      padding-top: 1rem;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .summary-line.total {
+      font-weight: 700;
+      color: var(--clr-primary);
+    }
+    .shipping-info {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--clr-bg-alt);
+      border-radius: 0.75rem;
+    }
+    .success-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Confetti effect */
+    .confetti-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background: hsl(var(--hue), 80%, 60%);
+      top: -20px;
+      animation: fall 3s infinite;
+    }
+    .confetti:nth-child(1) { left: 20%; animation-delay: 0s; }
+    .confetti:nth-child(2) { left: 40%; animation-delay: 0.5s; }
+    .confetti:nth-child(3) { left: 60%; animation-delay: 1s; }
+    .confetti:nth-child(4) { left: 80%; animation-delay: 1.5s; }
+    .confetti:nth-child(5) { left: 50%; animation-delay: 2s; }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(600px) rotate(360deg); }
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/app.js"></script>
+  <script src="js/orderService.js"></script>
+
+  <script>
+    // Success page script (placeholder)
+    document.addEventListener("DOMContentLoaded", () => {
+      const orderIdEl = document.querySelector(".order-id");
+      const deliveryDateEl = document.querySelector(".delivery-date");
+
+      // Placeholder order ID + delivery date
+      const fakeOrderId = "UNRYL-" + Math.floor(Math.random() * 90000 + 10000);
+      const fakeDeliveryDate = new Date();
+      fakeDeliveryDate.setDate(fakeDeliveryDate.getDate() + 5);
+
+      if (orderIdEl) {
+        orderIdEl.textContent = "#" + fakeOrderId;
+      }
+      if (deliveryDateEl) {
+        deliveryDateEl.textContent = fakeDeliveryDate.toDateString();
+      }
+    });
+  </script>
+</body>
+</html>
