@@ -1,1 +1,325 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  product.html
+  PART 1 of 4
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover stylish Gen Z fashion at unRYL — explore product details, reviews, and related styles." />
+  <meta name="keywords" content="unRYL, gen z fashion, product details, shop, clothes, accessories" />
+  <meta name="author" content="unRYL Team" />
+  
+  <title>unRYL | Product Details</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html" class="active">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="search-toggle" aria-label="Toggle search bar">
+          🔍
+        </button>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <!-- MAIN STARTS -->
+  <main>
+
+  <!-- ================= PRODUCT HERO ================= -->
+  <section class="product-hero">
+    <div class="container">
+      <h1 id="productTitle">Streetwear Oversized Hoodie</h1>
+      <p class="subtitle">Gen Z’s favorite oversized hoodie — bold, comfy, unapologetic.</p>
+    </div>
+  </section>
+  <!-- ================= END PRODUCT HERO ================= -->
+    <!-- ================= PRODUCT DETAILS ================= -->
+  <section class="product-details">
+    <div class="container product-layout">
+      
+      <!-- Product Image Gallery -->
+      <div class="product-gallery">
+        <img 
+          src="https://images.unsplash.com/photo-1622445270723-1e3f08adbc9c?auto=format&fit=crop&w=900&q=80" 
+          alt="Streetwear Oversized Hoodie" 
+          class="main-image" 
+          id="mainProductImage" 
+        />
+        <div class="thumbnail-row">
+          <img src="https://images.unsplash.com/photo-1602810318383-ea9bc1e6ebf5?auto=format&fit=crop&w=400&q=80" alt="Alternate view 1" class="thumbnail" />
+          <img src="https://images.unsplash.com/photo-1624378439575-8a6e9fbc8e02?auto=format&fit=crop&w=400&q=80" alt="Alternate view 2" class="thumbnail" />
+          <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1a4?auto=format&fit=crop&w=400&q=80" alt="Alternate view 3" class="thumbnail" />
+        </div>
+      </div>
+
+      <!-- Product Information -->
+      <div class="product-info">
+        <h2 id="productName">Streetwear Oversized Hoodie</h2>
+        <p id="productPrice" class="price">$55</p>
+
+        <p id="productDesc" class="description">
+          Level up your streetwear game with this oversized hoodie — ultra-comfy, gender-neutral, and made for bold self-expression. Perfect for layering or rocking solo.
+        </p>
+
+        <!-- Size Options -->
+        <div class="options">
+          <label for="sizeSelect">Size:</label>
+          <select id="sizeSelect">
+            <option value="s">S</option>
+            <option value="m">M</option>
+            <option value="l" selected>L</option>
+            <option value="xl">XL</option>
+          </select>
+        </div>
+
+        <!-- Color Options -->
+        <div class="options">
+          <label for="colorSelect">Color:</label>
+          <select id="colorSelect">
+            <option value="black" selected>Black</option>
+            <option value="white">White</option>
+            <option value="beige">Beige</option>
+            <option value="neon">Neon Green</option>
+          </select>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="product-actions">
+          <button class="btn-secondary add-to-cart" data-id="101">Add to Cart</button>
+          <button class="btn-primary buy-now" data-id="101">Buy Now</button>
+        </div>
+
+        <!-- Seller Info (loaded later via sellers.json) -->
+        <aside class="seller-info">
+          <h3>Sold by: <span id="sellerName">Urban Vibes Apparel</span></h3>
+          <p id="sellerDesc">Independent Gen Z brand bringing you bold & authentic streetwear styles.</p>
+          <a href="#" id="contactSeller" class="btn-link">Contact Seller</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END PRODUCT DETAILS ================= -->
+    <!-- ================= PRODUCT TABS ================= -->
+  <section class="product-tabs">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="desc">Description</button>
+        <button class="tab-btn" data-tab="reviews">Reviews</button>
+        <button class="tab-btn" data-tab="seller">Seller Info</button>
+      </div>
+
+      <div class="tab-content active" id="desc">
+        <p>
+          Our oversized hoodie is made with premium cotton blend fabric for all-day comfort. 
+          Designed for Gen Z self-expression, it features a relaxed fit, soft fleece lining, 
+          and bold stitching details that make a statement.
+        </p>
+      </div>
+
+      <div class="tab-content" id="reviews">
+        <ul class="reviews">
+          <li>
+            <strong>Ashley R.</strong> ⭐⭐⭐⭐☆
+            <p>Love this hoodie! Super comfy and perfect for layering. Runs a bit big — which I like!</p>
+          </li>
+          <li>
+            <strong>Jay P.</strong> ⭐⭐⭐⭐⭐
+            <p>Exactly my vibe. The neon green one gets compliments everywhere I go.</p>
+          </li>
+          <li>
+            <strong>Maya K.</strong> ⭐⭐⭐⭐☆
+            <p>Fabric quality is amazing. Took a few extra days to arrive but worth it!</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="seller">
+        <h3>About the Seller</h3>
+        <p>
+          Urban Vibes Apparel is a youth-led streetwear brand based in NYC. 
+          Our mission is to bring authentic Gen Z styles that celebrate individuality and boldness. 
+          All items are designed with sustainability in mind 🌱.
+        </p>
+        <p>Ships from: Brooklyn, NY</p>
+        <p>Contact: <a href="mailto:support@urbanvibes.com">support@urbanvibes.com</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END PRODUCT TABS ================= -->
+
+
+  <!-- ================= RELATED PRODUCTS ================= -->
+  <section class="related-products">
+    <div class="container">
+      <h2 class="section-title">You May Also Like</h2>
+      <div class="product-grid">
+
+        <!-- Related Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Graphic T-Shirt" />
+          <div class="product-info">
+            <h3>Graphic T-Shirt</h3>
+            <p class="price">$28</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="201">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="201">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1593032465171-c2a9c63a16e9?auto=format&fit=crop&w=600&q=80" alt="Silver Chain Necklace" />
+          <div class="product-info">
+            <h3>Silver Chain Necklace</h3>
+            <p class="price">$15</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="202">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="202">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602810310984-9a3afcdce9c8?auto=format&fit=crop&w=600&q=80" alt="Cargo Joggers" />
+          <div class="product-info">
+            <h3>Cargo Joggers</h3>
+            <p class="price">$40</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="203">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="203">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Sneakers" />
+          <div class="product-info">
+            <h3>Chunky Sneakers</h3>
+            <p class="price">$65</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="204">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="204">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= END RELATED PRODUCTS ================= -->
+    <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="unRYL Logo" class="footer-logo" />
+        <p>Gen Z’s hub for bold, unapologetic fashion. Be unRYL, be you.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="orders.html">Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: support@unryl.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </div>
+
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> unRYL. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- ================= END FOOTER ================= -->
+
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/productService.js"></script>
+  <script src="js/cartService.js"></script>
+  <script src="js/orderService.js"></script>
+  <script src="js/searchFilter.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Dynamic footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Product tabs switching
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        tabContents.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
