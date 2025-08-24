@@ -1,1 +1,270 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  orders.html
+  PART 1 of 3
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="unRYL — My Orders. View your recent purchase requests, statuses, and order details." />
+  <meta name="keywords" content="unRYL, orders, purchase requests, my orders, gen z fashion" />
+  <title>unRYL | My Orders</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" aria-label="unRYL home">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html" class="active">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="search-toggle" aria-label="Toggle search">🔍</button>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">🛍️ <span class="cart-count">0</span></a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>My Orders</h1>
+        <p class="muted">Track your purchases, check statuses, and view order details. Your latest order is shown at the top.</p>
+      </div>
+    </section>
+
+    <!-- ORDERS LIST -->
+    <section class="orders-list container">
+      <!-- KEY ACTIONS -->
+      <div class="orders-actions">
+        <div class="orders-summary">
+          <p><strong id="ordersCount">3</strong> orders found</p>
+        </div>
+        <div class="orders-filters">
+          <label for="statusFilter" class="sr-only">Filter by status</label>
+          <select id="statusFilter" aria-label="Filter orders by status">
+            <option value="all">All statuses</option>
+            <option value="processing">Processing</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Order Card (Most Recent) -->
+      <article class="order-card recent" data-order-id="ORD-20250815-1001" aria-labelledby="orderTitle1">
+        <div class="order-header">
+          <div>
+            <h2 id="orderTitle1">Order ORD-20250815-1001</h2>
+            <p class="muted">Placed on: <time datetime="2025-08-15">Aug 15, 2025</time></p>
+          </div>
+          <div class="order-meta">
+            <span class="badge badge-processing">Processing ⏳</span>
+            <p class="order-total muted">Total: <strong>$96.00</strong></p>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <ul class="order-thumbs">
+            <li><img src="https://images.unsplash.com/photo-1622445270723-1e3f08adbc9c?auto=format&fit=crop&w=200&q=60" alt="Hoodie thumbnail" /></li>
+            <li><img src="https://images.unsplash.com/photo-1624378439575-8a6e9fbc8e02?auto=format&fit=crop&w=200&q=60" alt="Cap thumbnail" /></li>
+          </ul>
+
+          <div class="order-info">
+            <p class="muted">Sold by: <strong>Urban Vibes Apparel</strong></p>
+            <p class="muted">Items: 2</p>
+          </div>
+
+          <div class="order-actions">
+            <button class="btn-sm btn-outline view-details" data-order="ORD-20250815-1001" aria-label="View order ORD-20250815-1001">View Details</button>
+            <button class="btn-sm btn-secondary contact-seller" data-seller="urban-vibes" aria-label="Contact seller Urban Vibes Apparel">Contact Seller</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Order Card -->
+      <article class="order-card" data-order-id="ORD-20250701-0954" aria-labelledby="orderTitle2">
+        <div class="order-header">
+          <div>
+            <h2 id="orderTitle2">Order ORD-20250701-0954</h2>
+            <p class="muted">Placed on: <time datetime="2025-07-01">Jul 01, 2025</time></p>
+          </div>
+          <div class="order-meta">
+            <span class="badge badge-shipped">Shipped 🚚</span>
+            <p class="order-total muted">Total: <strong>$133.50</strong></p>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <ul class="order-thumbs">
+            <li><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=200&q=60" alt="Sneakers thumbnail" /></li>
+            <li><img src="https://images.unsplash.com/photo-1593032465171-c2a9c63a16e9?auto=format&fit=crop&w=200&q=60" alt="Chain thumbnail" /></li>
+            <li><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=200&q=60" alt="Tee thumbnail" /></li>
+          </ul>
+
+      <!-- (PART 1 ends here; more order cards, empty state, and footer will follow in PART 2) -->
+          <div class="order-info">
+            <p class="muted">Sold by: <strong>StreetFlex Co.</strong></p>
+            <p class="muted">Items: 3</p>
+          </div>
+
+          <div class="order-actions">
+            <button class="btn-sm btn-outline view-details" data-order="ORD-20250701-0954" aria-label="View order ORD-20250701-0954">View Details</button>
+            <button class="btn-sm btn-secondary contact-seller" data-seller="streetflex" aria-label="Contact seller StreetFlex Co.">Contact Seller</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Order Card -->
+      <article class="order-card" data-order-id="ORD-20250522-0742" aria-labelledby="orderTitle3">
+        <div class="order-header">
+          <div>
+            <h2 id="orderTitle3">Order ORD-20250522-0742</h2>
+            <p class="muted">Placed on: <time datetime="2025-05-22">May 22, 2025</time></p>
+          </div>
+          <div class="order-meta">
+            <span class="badge badge-delivered">Delivered ✅</span>
+            <p class="order-total muted">Total: <strong>$64.90</strong></p>
+          </div>
+        </div>
+
+        <div class="order-body">
+          <ul class="order-thumbs">
+            <li><img src="https://images.unsplash.com/photo-1614283225959-63e7fdf75f1a?auto=format&fit=crop&w=200&q=60" alt="Sunglasses thumbnail" /></li>
+          </ul>
+
+          <div class="order-info">
+            <p class="muted">Sold by: <strong>LensBoss Eyewear</strong></p>
+            <p class="muted">Items: 1</p>
+          </div>
+
+          <div class="order-actions">
+            <button class="btn-sm btn-outline view-details" data-order="ORD-20250522-0742" aria-label="View order ORD-20250522-0742">View Details</button>
+            <button class="btn-sm btn-secondary contact-seller" data-seller="lensboss" aria-label="Contact seller LensBoss Eyewear">Contact Seller</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Empty State (hidden by default, show when no orders exist) -->
+      <div class="orders-empty hidden">
+        <div class="empty-state">
+          <img src="assets/empty-orders.svg" alt="No orders illustration" class="empty-illustration" />
+          <h2>No Orders Yet</h2>
+          <p>You haven’t ordered anything yet — time to flex your Gen Z drip 😎</p>
+          <a href="index.html" class="btn btn-primary">Go Shopping</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>unRYL</h3>
+        <p class="muted">Your go-to Gen Z fashion hub. Stay drippy, stay unRYL.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="orders.html">Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <ul class="social-links">
+          <li><a href="#" aria-label="Instagram">📸 Instagram</a></li>
+          <li><a href="#" aria-label="TikTok">🎶 TikTok</a></li>
+          <li><a href="#" aria-label="Twitter">🐦 Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="muted">© 2025 unRYL. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- ================= END FOOTER ================= -->
+
+  <!-- ================= MODALS / OVERLAYS ================= -->
+  <!-- Order Details Modal -->
+  <div id="orderModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close order details">✖</button>
+      <h2 id="orderModalTitle">Order Details</h2>
+      <div class="modal-body">
+        <!-- Order details dynamically loaded -->
+        <p class="muted">Loading order info...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay hidden"></div>
+
+  <!-- (PART 2 ends here; scripts and closing tags will follow in PART 3) -->
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/app.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/orderService.js"></script>
+
+  <script>
+    // Simple modal handling for placeholder
+    const modal = document.getElementById("orderModal");
+    const overlay = document.getElementById("overlay");
+    const closeBtn = modal.querySelector(".modal-close");
+
+    document.querySelectorAll(".view-details").forEach(btn => {
+      btn.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.add("hidden");
+      overlay.classList.add("hidden");
+    };
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", closeModal);
+  </script>
+</body>
+</html>
