@@ -1,1 +1,304 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  cart.html
+  PART 1 of 3
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="unRYL Cart — view items, update quantities, and proceed to checkout." />
+  <meta name="keywords" content="unRYL, cart, checkout, shopping cart, gen z fashion" />
+  <title>unRYL | Your Cart</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html" aria-label="unRYL home">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="index.html#categories">Categories</a></li>
+        <li><a href="cart.html" class="active">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="search-toggle" aria-label="Toggle search bar">🔍</button>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">
+          🛍️ <span class="cart-count">2</span>
+        </a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <!-- MAIN START -->
+  <main>
+    <!-- Page Hero / Title -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Your Cart</h1>
+        <p class="muted">Review items, update quantities, and proceed to checkout. We notify the seller after you place a purchase request — owner notified first.</p>
+      </div>
+    </section>
+
+    <!-- ================= CART LAYOUT ================= -->
+    <section class="cart-section">
+      <div class="container cart-layout">
+
+        <!-- Cart Items Column -->
+        <div class="cart-items" aria-live="polite">
+          <!-- If cart is empty, show .empty-cart (we'll include a sample non-empty state now) -->
+          <!-- Sample cart item 1 -->
+          <article class="cart-item" data-id="101" aria-label="Cart item: Streetwear Oversized Hoodie">
+            <div class="cart-thumb">
+              <img src="https://images.unsplash.com/photo-1622445270723-1e3f08adbc9c?auto=format&fit=crop&w=400&q=80" alt="Streetwear Oversized Hoodie thumbnail" />
+            </div>
+
+            <div class="cart-meta">
+              <h2 class="cart-title">Streetwear Oversized Hoodie — Neon Vibes Edition</h2>
+              <p class="cart-seller">Sold by: <span class="seller-name">Urban Vibes Apparel</span></p>
+              <p class="cart-sku muted">SKU: UV-HOOD-NEON</p>
+              <p class="cart-price" aria-label="Price">$55.00</p>
+
+              <div class="cart-qty">
+                <button class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+                <input class="qty-input" type="number" min="1" value="1" aria-label="Quantity for Streetwear Oversized Hoodie" />
+                <button class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+              </div>
+
+              <div class="cart-actions">
+                <button class="btn-link btn-remove" aria-label="Remove Streetwear Oversized Hoodie">
+                  🗑️ Remove
+                </button>
+                <button class="btn-link btn-save" aria-label="Save for later">💾 Save for later</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sample cart item 2 -->
+          <article class="cart-item" data-id="202" aria-label="Cart item: Retro Snapback Cap">
+            <div class="cart-thumb">
+              <img src="https://images.unsplash.com/photo-1624378439575-8a6e9fbc8e02?auto=format&fit=crop&w=400&q=80" alt="Retro Snapback Cap thumbnail" />
+            </div>
+
+            <div class="cart-meta">
+              <h2 class="cart-title">Retro Snapback Cap — Classic Black</h2>
+              <p class="cart-seller">Sold by: <span class="seller-name">Caps & Culture</span></p>
+              <p class="cart-sku muted">SKU: CC-CAP-RETRO</p>
+              <p class="cart-price" aria-label="Price">$18.00</p>
+
+              <div class="cart-qty">
+                <button class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
+                <input class="qty-input" type="number" min="1" value="2" aria-label="Quantity for Retro Snapback Cap" />
+                <button class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
+              </div>
+
+              <div class="cart-actions">
+                <button class="btn-link btn-remove" aria-label="Remove Retro Snapback Cap">
+                  🗑️ Remove
+                </button>
+                <button class="btn-link btn-save" aria-label="Save for later">💾 Save for later</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder for dynamic items injected by cartService.js -->
+          <div id="cartItemsPlaceholder" aria-hidden="true" style="display:none;"></div>
+
+        </div>
+        <!-- END cart-items column -->
+
+        <!-- Cart Summary Column (desktop right / mobile below) -->
+        <aside class="cart-summary" aria-label="Cart summary">
+          <!-- Summary card content will go here in PART 2 -->
+          <!-- ================= SUMMARY CARD ================= -->
+          <div class="summary-card">
+            <h2>Order Summary</h2>
+
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">$91.00</span>
+            </div>
+
+            <div class="summary-line">
+              <span>Estimated Shipping</span>
+              <span id="cartShipping">$5.00</span>
+            </div>
+
+            <div class="summary-line total">
+              <strong>Total</strong>
+              <strong id="cartTotal">$96.00</strong>
+            </div>
+
+            <div class="summary-actions">
+              <a href="index.html" class="btn-secondary">⬅️ Continue Shopping</a>
+              <a href="checkout.html" class="btn-primary">Proceed to Checkout ➡️</a>
+            </div>
+          </div>
+          <!-- ================= END SUMMARY CARD ================= -->
+
+          <!-- ================= EMPTY CART STATE (hidden by default) ================= -->
+          <div class="empty-cart" style="display:none;" aria-live="polite">
+            <h2>Your cart is empty 😢</h2>
+            <p class="muted">Looks like you haven’t added anything yet. Time to treat yourself, Gen Z style!</p>
+            <a href="index.html" class="btn-primary">Go Shopping</a>
+          </div>
+          <!-- ================= END EMPTY CART STATE ================= -->
+
+        </aside>
+        <!-- END cart-summary -->
+      </div>
+    </section>
+    <!-- ================= END CART LAYOUT ================= -->
+
+    <!-- ================= PERKS / INFO BAR ================= -->
+    <section class="cart-perks">
+      <div class="container perks-grid">
+        <div class="perk">
+          🚚 <span>Free shipping on orders over $100</span>
+        </div>
+        <div class="perk">
+          🔒 <span>Secure checkout powered by Stripe</span>
+        </div>
+        <div class="perk">
+          💬 <span>24/7 Gen Z style support</span>
+        </div>
+      </div>
+    </section>
+    <!-- ================= END PERKS ================= -->
+
+    <!-- ================= RECOMMENDED PRODUCTS ================= -->
+    <section class="cart-recommendations">
+      <div class="container">
+        <h2>You may also like</h2>
+        <div class="recommend-grid">
+
+          <article class="recommend-card">
+            <img src="https://images.unsplash.com/photo-1593032465172-f47bf0cfcfb2?auto=format&fit=crop&w=400&q=80" alt="Chunky Sneakers" />
+            <h3>Chunky Sneakers — Hype Edition</h3>
+            <p class="muted">$75.00</p>
+            <a href="product.html" class="btn-sm">View</a>
+          </article>
+
+          <article class="recommend-card">
+            <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1c4?auto=format&fit=crop&w=400&q=80" alt="Sunglasses" />
+            <h3>Round Sunglasses — Retro Chill</h3>
+            <p class="muted">$25.00</p>
+            <a href="product.html" class="btn-sm">View</a>
+          </article>
+
+          <article class="recommend-card">
+            <img src="https://images.unsplash.com/photo-1620799139539-7f6b9a3f1d10?auto=format&fit=crop&w=400&q=80" alt="Graphic Tee" />
+            <h3>Graphic Tee — Anime Drop</h3>
+            <p class="muted">$28.00</p>
+            <a href="product.html" class="btn-sm">View</a>
+          </article>
+
+          <article class="recommend-card">
+            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Streetwear Joggers" />
+            <h3>Streetwear Joggers — Smoke Grey</h3>
+            <p class="muted">$48.00</p>
+            <a href="product.html" class="btn-sm">View</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- ================= END RECOMMENDED ================= -->
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container footer-grid">
+
+        <!-- Logo & About -->
+        <div class="footer-about">
+          <a href="index.html" class="footer-logo">
+            <img src="assets/logo.svg" alt="unRYL logo" />
+          </a>
+          <p class="muted">
+            unRYL is the Gen Z fashion hub — caps, tees, hoodies, sneakers & accessories built for your vibe.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Shop</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="orders.html">Orders</a></li>
+          </ul>
+        </div>
+
+        <!-- Help -->
+        <div class="footer-links">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer-socials">
+          <h3>Stay Connected</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> unRYL. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- ================= END FOOTER ================= -->
+
+  </main>
+  <!-- ================= END MAIN ================= -->
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/store.js"></script>
+  <script src="js/cartService.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Update footer year dynamically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
