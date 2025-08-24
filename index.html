@@ -1,1 +1,285 @@
+<!--
+  unRYL - Gen Z Fashion E-Commerce
+  index.html
+  PART 1 of 5
+-->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="unRYL - Gen Z fashion hub. Trendy t-shirts, caps, pants, and accessories for the bold and stylish generation." />
+  <meta name="keywords" content="unRYL, fashion, gen z, e-commerce, t-shirts, caps, pants, accessories" />
+  <meta name="author" content="unRYL Team" />
+  
+  <title>unRYL | Gen Z Fashion Hub</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Preload fonts (optional if custom fonts used later) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="index.html">
+          <img src="assets/logo.svg" alt="unRYL Logo" class="logo" />
+        </a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="product.html">Shop</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="search-toggle" aria-label="Toggle search bar">
+          🔍
+        </button>
+        <a href="cart.html" class="cart-icon" aria-label="View cart">
+          🛒 <span class="cart-count">0</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" aria-label="Toggle navigation menu">
+        ☰
+      </button>
+    </nav>
+  </header>
+  <!-- ================= END HEADER ================= -->
+
+  <!-- MAIN STARTS -->
+  <main><!-- ================= HERO SECTION ================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Be Bold. Be unRYL.</h1>
+      <p>Gen Z’s ultimate fashion hub — caps, tees, pants, and accessories built for your vibe.</p>
+      <a href="product.html" class="btn-primary">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd53?auto=format&fit=crop&w=800&q=80" alt="Gen Z fashion model" />
+    </div>
+  </section>
+  <!-- ================= END HERO ================= -->
+
+
+  <!-- ================= SEARCH & FILTER ================= -->
+  <section class="search-filter">
+    <div class="container">
+      <form id="searchForm" class="search-bar" role="search">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search for tees, caps, pants..." 
+          aria-label="Search products" />
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+
+      <div class="filters">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="caps">Caps</option>
+          <option value="t-shirts">T-Shirts</option>
+          <option value="pants">Pants</option>
+          <option value="accessories">Accessories</option>
+        </select>
+
+        <select id="sortFilter" aria-label="Sort products">
+          <option value="default">Sort by</option>
+          <option value="low-high">Price: Low to High</option>
+          <option value="high-low">Price: High to Low</option>
+          <option value="newest">Newest Arrivals</option>
+        </select>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END SEARCH & FILTER ================= -->
+    <!-- ================= CATEGORIES ================= -->
+  <section id="categories" class="categories">
+    <div class="container">
+      <h2 class="section-title">Shop by Category</h2>
+      <div class="category-grid">
+        <a href="product.html?category=caps" class="category-card">
+          <img src="https://images.unsplash.com/photo-1602810318383-ea9bc1e6ebf5?auto=format&fit=crop&w=600&q=80" alt="Caps" />
+          <span>Caps</span>
+        </a>
+        <a href="product.html?category=t-shirts" class="category-card">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="T-Shirts" />
+          <span>T-Shirts</span>
+        </a>
+        <a href="product.html?category=pants" class="category-card">
+          <img src="https://images.unsplash.com/photo-1583002194941-30a56ac7170c?auto=format&fit=crop&w=600&q=80" alt="Pants" />
+          <span>Pants</span>
+        </a>
+        <a href="product.html?category=accessories" class="category-card">
+          <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1a4?auto=format&fit=crop&w=600&q=80" alt="Accessories" />
+          <span>Accessories</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- ================= END CATEGORIES ================= -->
+
+
+  <!-- ================= FEATURED PRODUCTS ================= -->
+  <section id="featured" class="featured-products">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid">
+
+        <!-- Sample Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1622445270723-1e3f08adbc9c?auto=format&fit=crop&w=600&q=80" alt="Streetwear Oversized Tee" />
+          <div class="product-info">
+            <h3>Streetwear Oversized Tee</h3>
+            <p class="description">Soft cotton oversized tee, perfect for laid-back Gen Z vibes.</p>
+            <p class="price">$25</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="1">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="1">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1624378439575-8a6e9fbc8e02?auto=format&fit=crop&w=600&q=80" alt="Retro Snapback Cap" />
+          <div class="product-info">
+            <h3>Retro Snapback Cap</h3>
+            <p class="description">Classic snapback with a modern twist — pair it with anything.</p>
+            <p class="price">$18</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="2">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="2">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1602810310984-9a3afcdce9c8?auto=format&fit=crop&w=600&q=80" alt="Cargo Jogger Pants" />
+          <div class="product-info">
+            <h3>Cargo Jogger Pants</h3>
+            <p class="description">Utility-inspired joggers, functional and stylish for any street look.</p>
+            <p class="price">$40</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="3">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="3">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sample Product Card -->
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1593032465171-c2a9c63a16e9?auto=format&fit=crop&w=600&q=80" alt="Layered Silver Chain" />
+          <div class="product-info">
+            <h3>Layered Silver Chain</h3>
+            <p class="description">Minimal yet bold — perfect accessory for elevating any fit.</p>
+            <p class="price">$15</p>
+            <div class="product-actions">
+              <button class="btn-secondary add-to-cart" data-id="4">Add to Cart</button>
+              <button class="btn-primary buy-now" data-id="4">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= END FEATURED PRODUCTS ================= -->
+    <!-- ================= PROMO BANNER ================= -->
+  <section class="promo-banner">
+    <div class="container">
+      <h2>🔥 Limited Time Offer 🔥</h2>
+      <p>Get exclusive Gen Z fits at <strong>20% OFF</strong> this week only!</p>
+      <a href="product.html" class="btn-primary">Grab the Deal</a>
+    </div>
+  </section>
+  <!-- ================= END PROMO BANNER ================= -->
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-grid">
+      
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="unRYL logo" class="footer-logo" />
+        <p>unRYL is your Gen Z fashion hub — bold, stylish, and unapologetically you.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="orders.html">Orders</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p>Email: <a href="mailto:support@unryl.com">support@unryl.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/1234567890" target="_blank">+1 234 567 890</a></p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <ul class="social-icons">
+          <li><a href="#" aria-label="Instagram">📸</a></li>
+          <li><a href="#" aria-label="TikTok">🎵</a></li>
+          <li><a href="#" aria-label="Twitter">🐦</a></li>
+          <li><a href="#" aria-label="YouTube">▶️</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> unRYL. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- ================= END FOOTER ================= -->
+    <!-- MAIN ENDS -->
+  </main>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/productService.js"></script>
+  <script src="js/cartService.js"></script>
+  <script src="js/orderService.js"></script>
+  <script src="js/searchFilter.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Dynamic footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
