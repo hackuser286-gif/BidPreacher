@@ -1,1 +1,23 @@
-
+{
+  "name": "unRYL - GenZ Fashion Store",
+  "short_name": "unRYL",
+  "description": "unRYL is the ultimate Gen Z fashion store bringing streetwear, sneakers, and drip culture to your fingertips.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "assets/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
