@@ -1,81 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
   <title>BidPreacher – Discover. Like. Request. We Connect.</title>
-  <meta name="description" content="BidPreacher is a curated marketplace where you discover products, request to buy, and we connect you directly with the right seller — fast and free." />
-  <meta name="keywords" content="BidPreacher, marketplace, e-commerce, connect buyers, sellers, India shopping" />
-  <meta name="author" content="BidPreacher" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="BidPreacher is a curated, zero-cost connector storefront. Tap Buy Now to notify us on WhatsApp or Email—then we connect you to the seller to complete payment and delivery offline." />
+  <meta name="keywords" content="BidPreacher, connector marketplace, curated products, WhatsApp buy, request to buy" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="BidPreacher – Discover. Like. Request. We Connect." />
-  <meta property="og:description" content="A curated marketplace where your Buy Now notifies us to connect you with the right seller — fast and free." />
+  <meta property="og:description" content="A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller—fast and free." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourgithubusername.github.io/BidPreacher/" />
-  <meta property="og:image" content="https://picsum.photos/600/400?random=1" />
+  <meta property="og:url" content="https://yourusername.github.io/BidPreacher/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&auto=format&fit=crop" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="BidPreacher" />
-  <meta name="twitter:description" content="Discover. Like. Request. We Connect." />
-  <meta name="twitter:image" content="https://picsum.photos/600/400?random=2" />
+  <meta name="twitter:title" content="BidPreacher – Discover. Like. Request. We Connect." />
+  <meta name="twitter:description" content="Tap Buy Now to notify us via WhatsApp or Email—then we connect you to the seller offline." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&auto=format&fit=crop" />
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
+  <!-- Preconnects (for hotlinked images/fonts if needed later) -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos" crossorigin>
+
+  <!-- Styles & Script -->
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 
-  <!-- JSON-LD Organization stub -->
+  <!-- JSON-LD (Organization + 3 sample products as stub; script.js will inject full dataset later) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BidPreacher",
-    "url": "https://yourgithubusername.github.io/BidPreacher/",
-    "logo": "https://picsum.photos/200/200?random=99"
+    "url": "https://yourusername.github.io/BidPreacher/",
+    "logo": "https://yourusername.github.io/BidPreacher/assets/logo.svg",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Product",
+        "name":"AeroFit Smartwatch X1",
+        "image":["https://images.unsplash.com/photo-1512445239393-8f837d1ae4bb?w=800&auto=format&fit=crop&q=60"],
+        "description":"Lightweight fitness smartwatch with heart-rate and sleep tracking.",
+        "sku":"GAD-X1",
+        "brand":{"@type":"Brand","name":"AeroFit"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"2999","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"UrbanCanvas Tote",
+        "image":["https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&auto=format&fit=crop&q=60"],
+        "description":"Durable cotton tote for daily carry.",
+        "sku":"FAS-TOTE-UC",
+        "brand":{"@type":"Brand","name":"UrbanCanvas"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"799","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"OakBrew Pour-Over Kit",
+        "image":["https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&auto=format&fit=crop&q=60"],
+        "description":"Minimalist pour-over coffee starter kit.",
+        "sku":"HOME-POUR-OAK",
+        "brand":{"@type":"Brand","name":"OakBrew"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"1599","availability":"https://schema.org/InStock"}
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <!-- Offline banner -->
-  <div id="offline-banner" class="offline-banner hidden" role="status">⚠️ You’re offline. Some features may not work.</div>
+  <a class="skip-link" href="#products">Skip to products</a>
 
-  <!-- Owner config warning -->
-  <div id="config-warning" class="config-warning hidden">⚠️ Please update your config.js with your phone and email!</div>
+  <!-- Owner Config Banner (hidden by default; script.js will reveal if placeholders are detected) -->
+  <div id="config-banner" class="notice hidden" role="status" aria-live="polite">
+    <strong>Setup needed:</strong> Update your phone/email in <code>script.js → config</code> so Buy Requests reach you.
+  </div>
 
-  <header class="header">
-    <div class="logo">BidPreacher</div>
-    <div class="search-container">
-      <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products" />
+  <!-- No-JS notice -->
+  <noscript>
+    <div class="notice">
+      <p>JavaScript is disabled. BidPreacher needs it for cart, likes, and Buy Now.</p>
     </div>
-    <div class="header-actions">
-      <button id="likes-btn" aria-label="Liked products"><span id="likes-count">0</span> ❤️</button>
-      <button id="cart-btn" aria-label="Cart"><span id="cart-count">0</span> 🛒</button>
-    </div>
-  </header>
+  </noscript>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Discover. Like. Request. We Connect.</h1>
-      <p>A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller — fast and free.</p>
-      <button id="explore-btn" class="btn-primary">Explore Products</button>
-    </section>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="BidPreacher Home">
+        <!-- Text logo fallback -->
+        <span class="logo-mark">🛍️</span>
+        <span class="logo-text">BidPreacher</span>
+      </a>
 
-    <!-- Featured Categories -->
-    <section class="categories" id="categories">
-      <h2>Featured Categories</h2>
-      <div class="category-grid" id="category-grid">
-        <!-- JS injects category cards -->
-      </div>
-    </section>
+      <form id="search-form" class="search-bar" role="search" aria-label="Product search">
+        <button class="icon-btn" type="submit" aria-label="Search">
+          <!-- Search Icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12m8.7 12.3 3.5 3.5-1.4 1.4-3.5-3.5A8.96 8.96 0 0 1 10 20a9 9 0 1 1 9-9c0 2.1-.7 4-1.9 5.3Z" fill="currentColor"/></svg>
+        </button>
+        <input id="search-input" type="search" placeholder="Search products..." aria-label="Search products" />
+      </form>
 
-    <!-- Products -->
-    <section class="products" id="products">
-      <h2>Our Products</h2>
-      <div class="sort-filter">
+      <div class="filters" role="group" aria-label="Filters">
+        <label class="visually-hidden" for="category-select">Category</label>
+        <select id="category-select" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <!-- script.js will populate with unique categories -->
+        </select>
+
+        <label class="visually-hidden" for="sort-select">Sort</label>
         <select id="sort-select" aria-label="Sort products">
           <option value="popular">Popular</option>
           <option value="new">New</option>
@@ -83,110 +125,492 @@
           <option value="price-desc">Price: High to Low</option>
         </select>
       </div>
-      <div class="product-grid" id="product-grid">
-        <!-- Fallback placeholders -->
-        <div class="product-card placeholder">Loading products...</div>
-      </div>
-    </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-      <h2>How It Works</h2>
-      <div class="steps">
-        <div>1. Pick what you love.</div>
-        <div>2. Tap Buy Now and share your details.</div>
-        <div>3. We connect you to the seller to finalize payment & delivery.</div>
-      </div>
-    </section>
+      <nav class="header-actions" aria-label="Quick actions">
+        <button id="likes-button" class="icon-btn" aria-label="Liked products">
+          <!-- Heart Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          <span id="likes-count" class="badge" aria-live="polite">0</span>
+        </button>
+        <button id="cart-button" class="icon-btn" aria-label="Open cart" aria-haspopup="dialog" aria-controls="cart-drawer">
+          <!-- Cart Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM7.2 14h9.7c.8 0 1.6-.5 1.8-1.3l2.3-7.1H6.3L5.6 3H2v2h2l3.2 9Z" fill="currentColor"/></svg>
+          <span id="cart-count" class="badge" aria-live="polite">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Seller Onboarding -->
-    <section class="seller-cta">
-      <h2>Sell on BidPreacher</h2>
-      <p>Have a product to offer? Share it with us and we’ll connect you with buyers.</p>
-      <button id="seller-btn" class="btn-secondary">Submit Your Product</button>
-    </section>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Discover. Like. Request. We Connect.</h1>
+        <p class="sub">A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller—fast and free.</p>
+        <a class="btn primary" href="#products" id="cta-explore">Explore Products</a>
+        <p class="note">No payments here. We connect you with the seller. Payment &amp; delivery happen offline.</p>
+      </div>
+      <figure class="hero-art">
+        <img
+          src="https://images.unsplash.com/photo-1542831371-32f555c86880?w=900&q=70&auto=format&fit=crop"
+          alt="Shopping and connection illustration"
+          loading="lazy" width="900" height="600" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section id="featured-categories" aria-labelledby="featured-categories-title">
+    <div class="container">
+      <h2 id="featured-categories-title">Featured Categories</h2>
+      <div class="category-grid">
+        <!-- Cards are clickable filters (data-category used by JS) -->
+        <article class="category-card" tabindex="0" role="button" data-category="Home">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&auto=format&fit=crop&q=60" alt="Home decor items" loading="lazy" width="400" height="280" />
+          <h3>Home</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Fashion">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop&q=60" alt="Fashion apparel" loading="lazy" width="400" height="280" />
+          <h3>Fashion</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Gadgets">
+          <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=400&auto=format&fit=crop&q=60" alt="Gadgets on table" loading="lazy" width="400" height="280" />
+          <h3>Gadgets</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Beauty">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60" alt="Beauty products" loading="lazy" width="400" height="280" />
+          <h3>Beauty</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Fitness">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&auto=format&fit=crop&q=60" alt="Fitness gear" loading="lazy" width="400" height="280" />
+          <h3>Fitness</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Crafts">
+          <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=400&auto=format&fit=crop&q=60" alt="Handmade crafts" loading="lazy" width="400" height="280" />
+          <h3>Crafts</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <main id="products" class="products-section" aria-labelledby="products-title">
+    <div class="container">
+      <div class="list-header">
+        <h2 id="products-title">Products</h2>
+        <p class="muted" id="results-summary" aria-live="polite">Showing popular items</p>
+      </div>
+
+      <div id="product-grid" class="product-grid" role="list" aria-busy="true">
+        <!-- Static fallback cards (JS will replace/hydrate) -->
+        <article class="product-card" role="listitem" data-product-id="placeholder-1">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p1/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product One</h3>
+            <div class="rating" aria-label="Rated 4 out of 5">
+              <!-- 4 static stars -->
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹1,299</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-1">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-1">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-2">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p2/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Two</h3>
+            <div class="rating" aria-label="Rated 5 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹999</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-2">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-2">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-3">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p3/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Three</h3>
+            <div class="rating" aria-label="Rated 4 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹2,499</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-3">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-3">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-4">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p4/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Four</h3>
+            <div class="rating" aria-label="Rated 5 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹749</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-4">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-4">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-5">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p5/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Five</h3>
+            <div class="rating" aria-label="Rated 3 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹1,899</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-5">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-5">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-6">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p6/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Six</h3>
+            <div class="rating" aria-label="Rated 4 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹2,099</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-6">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-6">Buy Now</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
   </main>
 
-  <!-- Cart Drawer -->
-  <aside id="cart-drawer" class="cart-drawer hidden" role="dialog" aria-labelledby="cart-title">
-    <h2 id="cart-title">Your Cart</h2>
-    <div id="cart-items"></div>
-    <div class="cart-footer">
-      <span id="cart-subtotal">Subtotal: ₹0</span>
-      <button id="cart-buy-btn" class="btn-primary">Buy Now</button>
+  <!-- How It Works -->
+  <section id="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title">How It Works</h2>
+      <ol class="steps">
+        <li>
+          <h3>1. Pick what you love.</h3>
+          <p>Browse curated products across categories and tap the heart to save favorites.</p>
+        </li>
+        <li>
+          <h3>2. Tap Buy Now and share your details.</h3>
+          <p>We collect your order preferences and address securely on this page.</p>
+        </li>
+        <li>
+          <h3>3. We connect you to the seller.</h3>
+          <p>Finalize payment &amp; delivery offline directly with the seller.</p>
+        </li>
+      </ol>
     </div>
-    <button id="cart-close" class="close-btn" aria-label="Close cart">✖</button>
+  </section>
+
+  <!-- Seller Onboarding CTA -->
+  <section id="seller-cta" aria-labelledby="seller-title">
+    <div class="container seller-cta">
+      <div>
+        <h2 id="seller-title">Are you a seller?</h2>
+        <p>List your product or service on BidPreacher. We forward buyer requests directly to you.</p>
+      </div>
+      <button id="open-seller-form" class="btn outline" aria-haspopup="dialog" aria-controls="seller-form-modal">Submit a Lead</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <section>
+        <h3>About BidPreacher</h3>
+        <p>BidPreacher is a connector marketplace. We don’t process payments or hold inventory. We simply connect buyers with sellers.</p>
+      </section>
+      <section>
+        <h3>Contact</h3>
+        <ul class="link-list">
+          <li><a id="footer-contact-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a id="footer-contact-email" href="#">Email</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Legal</h3>
+        <ul class="link-list">
+          <li><a href="#privacy-policy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms &amp; Conditions</a></li>
+        </ul>
+      </section>
+      <section>
+        <h3>Attribution</h3>
+        <p>Images via Unsplash/Picsum (see <a href="assets/attribution.txt">credits</a>).</p>
+      </section>
+    </div>
+    <div class="container footnote">
+      <p>© <span id="year"></span> BidPreacher. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer (Slide-In) -->
+  <aside id="cart-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header">
+      <h2>Cart</h2>
+      <button class="icon-btn close-drawer" data-close="#cart-drawer" aria-label="Close cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12m0 0-6.3 6.3M12 12l6.3 6.3M12 12 5.7 5.7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <ul id="cart-items" class="cart-items" aria-live="polite">
+        <!-- JS populates cart line items -->
+      </ul>
+    </div>
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <strong id="cart-subtotal">₹0</strong>
+      </div>
+      <button id="cart-buy-now" class="btn primary">Buy Now</button>
+    </div>
   </aside>
 
   <!-- Product Quick View Modal -->
-  <div id="product-modal" class="modal hidden" role="dialog" aria-labelledby="product-modal-title">
-    <div class="modal-content">
-      <button class="close-btn" id="product-modal-close" aria-label="Close product modal">✖</button>
-      <div id="product-modal-body"></div>
+  <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="product-modal-title">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="product-modal-title">Product</h2>
+        <button class="icon-btn close-modal" data-close="#product-modal" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12m0 0-6.3 6.3M12 12l6.3 6.3M12 12 5.7 5.7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="modal-body product-detail">
+        <div class="gallery">
+          <img id="modal-main-image" src="https://picsum.photos/seed/m1/800/600" alt="Selected product image" loading="lazy" width="800" height="600" />
+          <div id="modal-thumbs" class="thumbs" role="list">
+            <!-- JS injects thumbnails; each <button role="listitem"> -->
+          </div>
+        </div>
+        <div class="detail">
+          <h3 id="modal-product-title">Sample Title</h3>
+          <p id="modal-product-desc" class="muted">Full description will appear here.</p>
+          <div class="rating" aria-label="Rated 4 out of 5">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+          </div>
+          <div class="price-row">
+            <span id="modal-product-price" class="price">₹0</span>
+          </div>
+          <div class="product-actions">
+            <button id="modal-add-to-cart" class="btn ghost">Add to Cart</button>
+            <button id="modal-buy-now" class="btn primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn outline" data-close="#product-modal">Close</button>
+      </footer>
     </div>
   </div>
 
   <!-- Buyer Form Modal -->
-  <div id="buyer-modal" class="modal hidden" role="dialog" aria-labelledby="buyer-form-title">
-    <div class="modal-content">
-      <button class="close-btn" id="buyer-modal-close" aria-label="Close buyer form">✖</button>
-      <h2 id="buyer-form-title">Your Details</h2>
-      <form id="buyer-form">
-        <input type="text" name="name" placeholder="Full Name" required />
-        <input type="tel" name="phone" placeholder="Phone (+91...)" required pattern="^[0-9+\-\s]{10,15}$" />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="text" name="address1" placeholder="Address Line 1" required />
-        <input type="text" name="address2" placeholder="Address Line 2" />
-        <input type="text" name="city" placeholder="City" required />
-        <input type="text" name="state" placeholder="State" required />
-        <input type="text" name="pincode" placeholder="Pincode" required pattern="^[0-9]{6}$" />
-        <textarea name="notes" placeholder="Delivery Notes"></textarea>
-        <label><input type="checkbox" required /> I consent to my details being used to connect with a seller.</label>
-        <button type="submit" class="btn-primary">Confirm Buy Now</button>
+  <div id="buyer-form-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="buyer-form-title">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="buyer-form-title">Buyer Details</h2>
+        <button class="icon-btn close-modal" data-close="#buyer-form-modal" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12m0 0-6.3 6.3M12 12l6.3 6.3M12 12 5.7 5.7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <form id="buyer-form" class="modal-body form-grid" novalidate>
+        <!-- Hidden hook: script.js can drop a summary of cart here -->
+        <div class="order-summary" aria-live="polite">
+          <h3>Order Summary</h3>
+          <ul id="order-summary-list"></ul>
+          <div class="subtotal-row"><span>Subtotal</span> <strong id="order-summary-subtotal">₹0</strong></div>
+        </div>
+
+        <fieldset class="buyer-fields">
+          <legend class="visually-hidden">Buyer Information</legend>
+          <label for="buyer-name">Full Name</label>
+          <input id="buyer-name" name="name" type="text" autocomplete="name" required />
+          <label for="buyer-phone">Phone</label>
+          <input id="buyer-phone" name="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" required />
+          <label for="buyer-email">Email</label>
+          <input id="buyer-email" name="email" type="email" autocomplete="email" required />
+          <label for="buyer-address1">Address Line 1</label>
+          <input id="buyer-address1" name="address1" type="text" autocomplete="address-line1" required />
+          <label for="buyer-address2">Address Line 2 (optional)</label>
+          <input id="buyer-address2" name="address2" type="text" autocomplete="address-line2" />
+          <label for="buyer-city">City</label>
+          <input id="buyer-city" name="city" type="text" autocomplete="address-level2" required />
+          <label for="buyer-state">State</label>
+          <input id="buyer-state" name="state" type="text" autocomplete="address-level1" required />
+          <label for="buyer-pincode">Pincode</label>
+          <input id="buyer-pincode" name="pincode" type="text" inputmode="numeric" pattern="[0-9]{6}" placeholder="6-digit PIN" required />
+          <label for="buyer-notes">Delivery Notes (optional)</label>
+          <textarea id="buyer-notes" name="notes" rows="3" placeholder="Landmark, timing, preferences…"></textarea>
+
+          <label class="checkbox">
+            <input id="buyer-consent" name="consent" type="checkbox" required />
+            <span>I agree to be contacted to arrange my purchase. <em>We use your info only to connect you with the seller.</em></span>
+          </label>
+        </fieldset>
+
+        <div class="privacy-note">
+          <p><strong>Privacy:</strong> We use your info only to arrange your purchase with the seller. No spam, ever.</p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Generate Request</button>
+          <button type="button" class="btn outline" data-close="#buyer-form-modal">Cancel</button>
+        </div>
       </form>
     </div>
   </div>
 
-  <!-- Confirmation Modal -->
-  <div id="confirmation-modal" class="modal hidden" role="dialog" aria-labelledby="confirmation-title">
-    <div class="modal-content">
-      <button class="close-btn" id="confirmation-close" aria-label="Close confirmation">✖</button>
-      <h2 id="confirmation-title">Send Your Request</h2>
-      <p>Your request is ready. Choose how you’d like to send it:</p>
-      <div id="confirmation-links"></div>
+  <!-- Request Confirmation Modal -->
+  <div id="request-confirm-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="request-confirm-title">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="request-confirm-title">Send Your Buy Request</h2>
+        <button class="icon-btn close-modal" data-close="#request-confirm-modal" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12m0 0-6.3 6.3M12 12l6.3 6.3M12 12 5.7 5.7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <div class="modal-body">
+        <p>Tap a button below to open your messaging app or email client with the request prefilled.</p>
+        <div id="confirm-links" class="confirm-links">
+          <!-- JS injects hrefs for WhatsApp and Email -->
+          <a id="confirm-whatsapp" class="btn primary" target="_blank" rel="noopener" href="#" aria-disabled="true">Send via WhatsApp</a>
+          <a id="confirm-email" class="btn outline" href="#" aria-disabled="true">Send via Email</a>
+          <button id="copy-request" class="btn ghost" data-copy-target="#request-payload">Copy Details</button>
+        </div>
+        <textarea id="request-payload" class="payload" readonly rows="10" aria-label="Generated request details"></textarea>
+        <p class="muted small">After you send, come back here—your cart will be cleared automatically.</p>
+      </div>
+      <footer class="modal-footer">
+        <button class="btn" data-close="#request-confirm-modal">Done</button>
+      </footer>
     </div>
   </div>
 
   <!-- Seller Form Modal -->
-  <div id="seller-modal" class="modal hidden" role="dialog" aria-labelledby="seller-form-title">
-    <div class="modal-content">
-      <button class="close-btn" id="seller-modal-close" aria-label="Close seller form">✖</button>
-      <h2 id="seller-form-title">Submit Your Product</h2>
-      <form id="seller-form">
-        <input type="text" name="product" placeholder="Product Name" required />
-        <input type="text" name="category" placeholder="Category" required />
-        <textarea name="details" placeholder="Product Details" required></textarea>
-        <input type="text" name="sellerName" placeholder="Your Name" required />
-        <input type="tel" name="sellerPhone" placeholder="Your Phone" required />
-        <button type="submit" class="btn-primary">Submit Product</button>
+  <div id="seller-form-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="seller-form-title">
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="seller-form-title">Submit a Product Lead</h2>
+        <button class="icon-btn close-modal" data-close="#seller-form-modal" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.3 5.7 12 12m0 0-6.3 6.3M12 12l6.3 6.3M12 12 5.7 5.7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+      <form id="seller-form" class="modal-body form-grid" novalidate>
+        <label for="seller-name">Your Name</label>
+        <input id="seller-name" name="sellerName" type="text" required />
+        <label for="seller-contact">Contact (Phone/Email)</label>
+        <input id="seller-contact" name="sellerContact" type="text" required />
+        <label for="seller-city">City</label>
+        <input id="seller-city" name="sellerCity" type="text" required />
+        <label for="seller-product">Product/Service</label>
+        <input id="seller-product" name="sellerProduct" type="text" required />
+        <label for="seller-notes">Notes</label>
+        <textarea id="seller-notes" name="sellerNotes" rows="3" placeholder="Price range, availability, links…"></textarea>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Notify BidPreacher</button>
+          <button type="button" class="btn outline" data-close="#seller-form-modal">Cancel</button>
+        </div>
       </form>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div id="toast" class="toast hidden" role="alert"></div>
+  <!-- Privacy Policy -->
+  <section id="privacy-policy" class="legal container" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Privacy Policy</h2>
+    <p>BidPreacher collects buyer details solely to connect buyers with sellers. We do not sell or share personal data with third parties. Data is processed client-side and transmitted by you directly via WhatsApp or email to the BidPreacher operator. We do not store payment information. For inquiries, contact us via the methods listed above.</p>
+  </section>
 
-  <footer class="footer">
-    <div class="footer-about">
-      <h3>About BidPreacher</h3>
-      <p>We connect buyers and sellers. No payments processed on this site. Payment & delivery happen offline.</p>
-    </div>
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-    </div>
-    <div class="footer-credits">
-      <p>Images from Unsplash & Picsum. © 2025 BidPreacher</p>
-    </div>
-  </footer>
+  <!-- Terms & Conditions -->
+  <section id="terms" class="legal container" aria-labelledby="terms-title">
+    <h2 id="terms-title">Terms &amp; Conditions</h2>
+    <p>BidPreacher is a connector service and does not act as merchant of record. All transactions, warranties, returns, and deliveries are between buyer and seller. Prices and availability are subject to change. By using this site, you agree to be contacted for the purpose of connecting with a seller regarding your request.</p>
+  </section>
+
+  <!-- Toasts & Live Regions -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  <div id="sr-live" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
 </body>
 </html>
+
