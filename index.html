@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>BidPreacher – Discover. Like. Request. We Connect.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="BidPreacher is a curated, zero-cost connector storefront. Tap Buy Now to notify us on WhatsApp or Email—then we connect you to the seller to complete payment and delivery offline." />
+  <meta name="keywords" content="BidPreacher, connector marketplace, curated products, WhatsApp buy, request to buy" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="BidPreacher – Discover. Like. Request. We Connect." />
+  <meta property="og:description" content="A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller—fast and free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/BidPreacher/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&auto=format&fit=crop" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BidPreacher – Discover. Like. Request. We Connect." />
+  <meta name="twitter:description" content="Tap Buy Now to notify us via WhatsApp or Email—then we connect you to the seller offline." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=80&auto=format&fit=crop" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Preconnects (for hotlinked images/fonts if needed later) -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://picsum.photos" crossorigin>
+
+  <!-- Styles & Script -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+
+  <!-- JSON-LD (Organization + 3 sample products as stub; script.js will inject full dataset later) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BidPreacher",
+    "url": "https://yourusername.github.io/BidPreacher/",
+    "logo": "https://yourusername.github.io/BidPreacher/assets/logo.svg",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Product",
+        "name":"AeroFit Smartwatch X1",
+        "image":["https://images.unsplash.com/photo-1512445239393-8f837d1ae4bb?w=800&auto=format&fit=crop&q=60"],
+        "description":"Lightweight fitness smartwatch with heart-rate and sleep tracking.",
+        "sku":"GAD-X1",
+        "brand":{"@type":"Brand","name":"AeroFit"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"2999","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"UrbanCanvas Tote",
+        "image":["https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&auto=format&fit=crop&q=60"],
+        "description":"Durable cotton tote for daily carry.",
+        "sku":"FAS-TOTE-UC",
+        "brand":{"@type":"Brand","name":"UrbanCanvas"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"799","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"OakBrew Pour-Over Kit",
+        "image":["https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&auto=format&fit=crop&q=60"],
+        "description":"Minimalist pour-over coffee starter kit.",
+        "sku":"HOME-POUR-OAK",
+        "brand":{"@type":"Brand","name":"OakBrew"},
+        "offers":{"@type":"Offer","priceCurrency":"INR","price":"1599","availability":"https://schema.org/InStock"}
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#products">Skip to products</a>
+
+  <!-- Owner Config Banner (hidden by default; script.js will reveal if placeholders are detected) -->
+  <div id="config-banner" class="notice hidden" role="status" aria-live="polite">
+    <strong>Setup needed:</strong> Update your phone/email in <code>script.js → config</code> so Buy Requests reach you.
+  </div>
+
+  <!-- No-JS notice -->
+  <noscript>
+    <div class="notice">
+      <p>JavaScript is disabled. BidPreacher needs it for cart, likes, and Buy Now.</p>
+    </div>
+  </noscript>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="BidPreacher Home">
+        <!-- Text logo fallback -->
+        <span class="logo-mark">🛍️</span>
+        <span class="logo-text">BidPreacher</span>
+      </a>
+
+      <form id="search-form" class="search-bar" role="search" aria-label="Product search">
+        <button class="icon-btn" type="submit" aria-label="Search">
+          <!-- Search Icon -->
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12m8.7 12.3 3.5 3.5-1.4 1.4-3.5-3.5A8.96 8.96 0 0 1 10 20a9 9 0 1 1 9-9c0 2.1-.7 4-1.9 5.3Z" fill="currentColor"/></svg>
+        </button>
+        <input id="search-input" type="search" placeholder="Search products..." aria-label="Search products" />
+      </form>
+
+      <div class="filters" role="group" aria-label="Filters">
+        <label class="visually-hidden" for="category-select">Category</label>
+        <select id="category-select" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <!-- script.js will populate with unique categories -->
+        </select>
+
+        <label class="visually-hidden" for="sort-select">Sort</label>
+        <select id="sort-select" aria-label="Sort products">
+          <option value="popular">Popular</option>
+          <option value="new">New</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <nav class="header-actions" aria-label="Quick actions">
+        <button id="likes-button" class="icon-btn" aria-label="Liked products">
+          <!-- Heart Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          <span id="likes-count" class="badge" aria-live="polite">0</span>
+        </button>
+        <button id="cart-button" class="icon-btn" aria-label="Open cart" aria-haspopup="dialog" aria-controls="cart-drawer">
+          <!-- Cart Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2ZM7.2 14h9.7c.8 0 1.6-.5 1.8-1.3l2.3-7.1H6.3L5.6 3H2v2h2l3.2 9Z" fill="currentColor"/></svg>
+          <span id="cart-count" class="badge" aria-live="polite">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Discover. Like. Request. We Connect.</h1>
+        <p class="sub">A curated marketplace where your ‘Buy Now’ notifies us to connect you with the right seller—fast and free.</p>
+        <a class="btn primary" href="#products" id="cta-explore">Explore Products</a>
+        <p class="note">No payments here. We connect you with the seller. Payment &amp; delivery happen offline.</p>
+      </div>
+      <figure class="hero-art">
+        <img
+          src="https://images.unsplash.com/photo-1542831371-32f555c86880?w=900&q=70&auto=format&fit=crop"
+          alt="Shopping and connection illustration"
+          loading="lazy" width="900" height="600" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section id="featured-categories" aria-labelledby="featured-categories-title">
+    <div class="container">
+      <h2 id="featured-categories-title">Featured Categories</h2>
+      <div class="category-grid">
+        <!-- Cards are clickable filters (data-category used by JS) -->
+        <article class="category-card" tabindex="0" role="button" data-category="Home">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&auto=format&fit=crop&q=60" alt="Home decor items" loading="lazy" width="400" height="280" />
+          <h3>Home</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Fashion">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop&q=60" alt="Fashion apparel" loading="lazy" width="400" height="280" />
+          <h3>Fashion</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Gadgets">
+          <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=400&auto=format&fit=crop&q=60" alt="Gadgets on table" loading="lazy" width="400" height="280" />
+          <h3>Gadgets</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Beauty">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60" alt="Beauty products" loading="lazy" width="400" height="280" />
+          <h3>Beauty</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Fitness">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&auto=format&fit=crop&q=60" alt="Fitness gear" loading="lazy" width="400" height="280" />
+          <h3>Fitness</h3>
+        </article>
+        <article class="category-card" tabindex="0" role="button" data-category="Crafts">
+          <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=400&auto=format&fit=crop&q=60" alt="Handmade crafts" loading="lazy" width="400" height="280" />
+          <h3>Crafts</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <main id="products" class="products-section" aria-labelledby="products-title">
+    <div class="container">
+      <div class="list-header">
+        <h2 id="products-title">Products</h2>
+        <p class="muted" id="results-summary" aria-live="polite">Showing popular items</p>
+      </div>
+
+      <div id="product-grid" class="product-grid" role="list" aria-busy="true">
+        <!-- Static fallback cards (JS will replace/hydrate) -->
+        <article class="product-card" role="listitem" data-product-id="placeholder-1">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p1/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product One</h3>
+            <div class="rating" aria-label="Rated 4 out of 5">
+              <!-- 4 static stars -->
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹1,299</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-1">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-1">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-2">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p2/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Two</h3>
+            <div class="rating" aria-label="Rated 5 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹999</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-2">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-2">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-3">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p3/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Three</h3>
+            <div class="rating" aria-label="Rated 4 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹2,499</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-3">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-3">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-4">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p4/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Four</h3>
+            <div class="rating" aria-label="Rated 5 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 17.3-6.2 3.8 1.8-7.1L2 9.5l7.3-.6L12 2l2.7 6.9 7.3.6-5.6 4.5 1.8 7.1z" fill="currentColor"/></svg>
+            </div>
+            <div class="price-row">
+              <span class="price">₹749</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn ghost add-to-cart" data-product-id="placeholder-4">Add to Cart</button>
+              <button class="btn buy-now" data-product-id="placeholder-4">Buy Now</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" role="listitem" data-product-id="placeholder-5">
+          <button class="like-btn" aria-pressed="false" aria-label="Like product">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 21.35 10 19.28C5.4 14.94 2 12 2 8.5 2 6 4 4 6.5 4c1.7 0 3.4.8 4.5 2.1C12.6 4.8 14.3 4 16 4 18.5 4 20.5 6 20.5 8.5c0 3.5-3.4 6.44-8 10.78l-.4.37Z" fill="currentColor"/></svg>
+          </button>
+          <figure class="product-media">
+            <img src="https://picsum.photos/seed/p5/600/400" alt="Sample product" loading="lazy" width="600" height="400" />
+          </figure>
+          <div class="product-body">
+            <h3 class="product-title">Sample Product Five</h3>
+            <div class="rating" aria-label="Rated 3 out of 5">
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="m
