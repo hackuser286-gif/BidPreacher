@@ -87,3 +87,12 @@ unRYL/
 ☁️ Backend API (Node.js/Express + MongoDB or Firebase)
 
 🔔 Push Notifications for order updates
+---
+
+📜 License
+
+This project is licensed under the MIT License – free to use, share, and remix.
+
+---
+
+Would you like me to also generate a **`LICENSE` file (MIT)** for you so the badge and README link work properly?
