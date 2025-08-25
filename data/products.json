@@ -1,1 +1,123 @@
-
+[
+  {
+    "id": "p001",
+    "name": "Oversized Graphic T-Shirt",
+    "description": "Soft cotton oversized tee with bold Gen Z print. Perfect for streetwear vibes.",
+    "category": "tshirts",
+    "price": 24.99,
+    "currency": "USD",
+    "stock": 50,
+    "images": [
+      "/assets/products/tshirt1.jpg",
+      "/assets/products/tshirt1_alt.jpg"
+    ],
+    "sellerId": "s001",
+    "tags": ["streetwear", "oversized", "unisex", "trending"],
+    "rating": 4.7,
+    "reviews": 132,
+    "createdAt": "2025-01-15"
+  },
+  {
+    "id": "p002",
+    "name": "Distressed Denim Jeans",
+    "description": "Trendy slim-fit jeans with distressed details and a modern washed finish.",
+    "category": "pants",
+    "price": 49.99,
+    "currency": "USD",
+    "stock": 30,
+    "images": [
+      "/assets/products/pants1.jpg"
+    ],
+    "sellerId": "s002",
+    "tags": ["denim", "casual", "slim-fit", "unisex"],
+    "rating": 4.5,
+    "reviews": 89,
+    "createdAt": "2025-02-01"
+  },
+  {
+    "id": "p003",
+    "name": "Snapback Cap",
+    "description": "Adjustable snapback cap with embroidered unRYL logo. Minimalist yet bold.",
+    "category": "caps",
+    "price": 19.99,
+    "currency": "USD",
+    "stock": 100,
+    "images": [
+      "/assets/products/cap1.jpg"
+    ],
+    "sellerId": "s001",
+    "tags": ["cap", "minimal", "logo", "streetwear"],
+    "rating": 4.8,
+    "reviews": 210,
+    "createdAt": "2025-01-25"
+  },
+  {
+    "id": "p004",
+    "name": "Chunky Sneakers",
+    "description": "Bold chunky sneakers with thick soles, perfect for the Gen Z aesthetic.",
+    "category": "footwear",
+    "price": 74.99,
+    "currency": "USD",
+    "stock": 25,
+    "images": [
+      "/assets/products/sneakers1.jpg"
+    ],
+    "sellerId": "s003",
+    "tags": ["sneakers", "chunky", "aesthetic", "unisex"],
+    "rating": 4.6,
+    "reviews": 65,
+    "createdAt": "2025-02-10"
+  },
+  {
+    "id": "p005",
+    "name": "Layered Chain Necklace",
+    "description": "Gold-plated layered chain necklace to complete your streetwear fit.",
+    "category": "accessories",
+    "price": 14.99,
+    "currency": "USD",
+    "stock": 70,
+    "images": [
+      "/assets/products/necklace1.jpg"
+    ],
+    "sellerId": "s004",
+    "tags": ["accessory", "chain", "jewelry", "streetwear"],
+    "rating": 4.4,
+    "reviews": 54,
+    "createdAt": "2025-01-28"
+  },
+  {
+    "id": "p006",
+    "name": "Neon Hoodie - Glow Edition",
+    "description": "Vibrant neon hoodie with soft fleece interior. Perfect for night streetwear and festivals.",
+    "category": "hoodies",
+    "price": 59.99,
+    "currency": "USD",
+    "stock": 40,
+    "images": [
+      "/assets/products/hoodie1.jpg",
+      "/assets/products/hoodie1_alt.jpg"
+    ],
+    "sellerId": "s002",
+    "tags": ["hoodie", "neon", "streetwear", "unisex"],
+    "rating": 4.9,
+    "reviews": 102,
+    "createdAt": "2025-02-12"
+  },
+  {
+    "id": "p007",
+    "name": "Retro Bucket Hat",
+    "description": "Classic retro bucket hat in pastel colors. Lightweight and stylish for daily wear.",
+    "category": "caps",
+    "price": 22.99,
+    "currency": "USD",
+    "stock": 60,
+    "images": [
+      "/assets/products/hat1.jpg"
+    ],
+    "sellerId": "s001",
+    "tags": ["hat", "retro", "casual", "streetwear"],
+    "rating": 4.3,
+    "reviews": 48,
+    "createdAt": "2025-02-05"
+  }
+]
