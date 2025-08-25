@@ -1,1 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="70" viewBox="0 0 220 70">
+  <defs>
+    <!-- Gradient definition -->
+    <linearGradient id="genzGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4"/> <!-- Neon Cyan -->
+      <stop offset="100%" stop-color="#00bbf9"/> <!-- Electric Blue -->
+    </linearGradient>
+  </defs>
 
+  <!-- Background (optional) -->
+  <rect width="220" height="70" rx="12" fill="#000000"/>
+
+  <!-- Text Logo -->
+  <text x="50%" y="50%" font-family="Poppins, Arial, Helvetica, sans-serif" font-size="34" font-weight="700"
+        fill="url(#genzGradient)" text-anchor="middle" alignment-baseline="middle" letter-spacing="2">
+    unRYL
+  </text>
+</svg>
