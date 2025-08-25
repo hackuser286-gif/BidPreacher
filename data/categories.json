@@ -1,1 +1,56 @@
-
+[
+  {
+    "id": "c001",
+    "name": "T-Shirts",
+    "description": "Trendy oversized, graphic, and basic tees for Gen Z fashion.",
+    "subcategories": [
+      { "id": "sc001", "name": "Oversized", "description": "Relaxed fit, comfy oversized tees." },
+      { "id": "sc002", "name": "Graphic", "description": "Bold graphic tees with street art vibes." },
+      { "id": "sc003", "name": "Plain", "description": "Minimalist plain tees for everyday wear." }
+    ],
+    "products": ["p001"]
+  },
+  {
+    "id": "c002",
+    "name": "Pants",
+    "description": "Streetwear joggers, cargos, and denim jeans.",
+    "subcategories": [
+      { "id": "sc004", "name": "Cargo Pants", "description": "Utility-inspired pants with pockets." },
+      { "id": "sc005", "name": "Joggers", "description": "Casual and comfy jogger pants." },
+      { "id": "sc006", "name": "Denim Jeans", "description": "Classic blue and black denim fits." }
+    ],
+    "products": ["p002"]
+  },
+  {
+    "id": "c003",
+    "name": "Caps",
+    "description": "Snapbacks, baseball caps, and bucket hats for Gen Z streetwear.",
+    "subcategories": [
+      { "id": "sc007", "name": "Snapback", "description": "Flat brim snapback caps." },
+      { "id": "sc008", "name": "Baseball", "description": "Classic curved brim baseball caps." },
+      { "id": "sc009", "name": "Bucket Hats", "description": "Trendy bucket hats for casual vibes." }
+    ],
+    "products": ["p003"]
+  },
+  {
+    "id": "c004",
+    "name": "Footwear",
+    "description": "Sneakers and slides for a fresh Gen Z style.",
+    "subcategories": [
+      { "id": "sc010", "name": "Sneakers", "description": "Street sneakers with comfort and style." },
+      { "id": "sc011", "name": "Slides", "description": "Casual and easy-to-wear slides." }
+    ],
+    "products": ["p004"]
+  },
+  {
+    "id": "c005",
+    "name": "Accessories",
+    "description": "Trendy jewelry, sunglasses, and everyday add-ons.",
+    "subcategories": [
+      { "id": "sc012", "name": "Jewelry", "description": "Chains, rings, and bracelets." },
+      { "id": "sc013", "name": "Sunglasses", "description": "Stylish shades for all outfits." },
+      { "id": "sc014", "name": "Bags", "description": "Crossbody bags, backpacks, and more." }
+    ],
+    "products": ["p005"]
+  }
+]
