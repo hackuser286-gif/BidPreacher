@@ -1,475 +1,332 @@
-/* ============================================================
-   unRYL - UI Connector (ui.js)
-   Connects store (state) with DOM: renders products, cart, orders,
-   binds UI events, and reacts to store pub/sub events.
-   ============================================================ */
+// ===============================
+// js/ui.js - unRYL Frontend UI Manager
+// ===============================
 
-import {
-  subscribe,
-  getProducts,
-  getCart,
-  getOrders,
-  addToCart,
-  removeFromCart,
-  updateCartQuantity,
-  clearCart,
-  addOrder,
-  publish
+import { 
+  state, subscribe, publish, addToCart 
 } from './store.js';
+import { showToast, formatPrice } from './utils.js';
 
-import {
-  formatPrice,
-  showToast,
-  debounce,
-  validateEmail,
-  validatePhone,
-  generateID,
-  formatDate
-} from './utils.js';
+// -------------------------------
+// TEMPLATE HELPERS
+// -------------------------------
 
-/* -------------------------------
-   Utility DOM Helpers
---------------------------------- */
-const qs = (sel, ctx = document) => ctx.querySelector(sel);
-const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-
-/* -------------------------------
-   Render: Product Cards
---------------------------------- */
-/**
- * Render product cards into a container.
- * productList: array of product objects
- * containerId: DOM id string (defaults to "productGrid")
- */
-export function renderProducts(productList = null, containerId = 'productGrid') {
-  try {
-    const products = productList || getProducts();
-    const container = document.getElementById(containerId);
-    if (!container) return; // graceful if page doesn't have this container
-
-    // clear
-    container.innerHTML = '';
-
-    // build cards
-    products.forEach((p) => {
-      const id = p.id ?? generateID('prod');
-      const title = p.title || p.name || 'Untitled Product';
-      const desc = p.description || p.desc || 'Fresh Gen Z drip — grab it while it’s hot.';
-      const img = (p.images && p.images[0]) || p.image || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80';
-      const price = typeof p.price === 'number' ? formatPrice(p.price) : (p.price || '—');
-
-      const card = document.createElement('article');
-      card.className = 'card product-item';
-      card.innerHTML = `
-        <img src="${img}" alt="${title}" loading="lazy" />
-        <div class="card-body">
-          <h3 class="card-title">${title}</h3>
-          <p class="card-text">${desc}</p>
-          <p class="card-price">${price}</p>
-          <div class="product-actions">
-            <button class="btn btn-secondary add-to-cart" data-id="${id}">Add to Cart</button>
-            <button class="btn btn-primary buy-now" data-id="${id}">Buy Now</button>
-          </div>
-        </div>
-      `;
-
-      // attach dataset product-id for later binding (use actual p.id if present)
-      card.querySelectorAll('[data-id]').forEach(el => el.dataset.productId = (p.id ?? id));
-
-      container.appendChild(card);
-    });
-
-    // bind buttons after render
-    bindAddToCartButtons(container);
-  } catch (err) {
-    console.error('renderProducts error:', err);
-  }
-}
-
-/* -------------------------------
-   Render: Cart
---------------------------------- */
-/**
- * Render cart UI into a container.
- * containerId default: "cartItems"
- */
-export function renderCart(containerId = 'cartItems') {
-  try {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    const cart = getCart();
-    const products = getProducts();
-
-    if (!cart || !cart.items || cart.items.length === 0) {
-      container.innerHTML = `
-        <div class="empty-cart">
-          <h3>Your cart is empty</h3>
-          <p>Add some fresh drops to get started.</p>
-          <a href="index.html" class="btn btn-primary">Go Shopping</a>
-        </div>
-      `;
-      updateCartBadge();
-      return;
-    }
-
-    // Build list
-    container.innerHTML = '';
-    const list = document.createElement('div');
-    list.className = 'cart-list';
-
-    cart.items.forEach((item) => {
-      const product = products.find(p => p.id === item.productId) || {};
-      const title = product.title || product.name || 'Unknown product';
-      const img = (product.images && product.images[0]) || product.image || 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80';
-      const price = typeof item.price === 'number' ? formatPrice(item.price) : formatPrice(product.price || 0);
-      const qty = item.quantity || 1;
-
-      const card = document.createElement('article');
-      card.className = 'cart-item';
-      card.dataset.productId = item.productId;
-      card.innerHTML = `
-        <div style="display:flex;gap:1rem;align-items:center">
-          <img src="${img}" alt="${title}" width="80" height="80" style="border-radius:8px;object-fit:cover" />
-          <div>
-            <h4 style="margin:0">${title}</h4>
-            <p class="muted" style="margin:0">Sold by: ${product.sellerName || product.seller || 'Unknown'}</p>
-            <p class="muted" style="margin:0">${price}</p>
-          </div>
-        </div>
-
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem">
-          <div class="cart-qty" style="display:flex;align-items:center;gap:0.5rem">
-            <button class="qty-btn qty-decrease" aria-label="Decrease quantity">−</button>
-            <input class="qty-input" type="number" min="1" value="${qty}" style="width:50px;text-align:center" />
-            <button class="qty-btn qty-increase" aria-label="Increase quantity">+</button>
-          </div>
-          <div>
-            <button class="btn-link btn-remove">🗑️ Remove</button>
-          </div>
-        </div>
-      `;
-
-      list.appendChild(card);
-    });
-
-    container.appendChild(list);
-
-    // Render subtotal area if exists
-    const subtotal = cart.items.reduce((sum, it) => sum + (it.price || 0) * (it.quantity || 1), 0);
-    const summaryHtml = document.createElement('div');
-    summaryHtml.className = 'cart-subtotal';
-    summaryHtml.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem">
-        <strong>Subtotal</strong>
-        <strong>${formatPrice(subtotal)}</strong>
+function productCardTemplate(product) {
+  return `
+    <div class="card">
+      <div class="card-image">
+        <img src="${product.image || 'https://via.placeholder.com/300'}" alt="${product.name}">
       </div>
-    `;
-    container.appendChild(summaryHtml);
+      <div class="card-body">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p class="price">${formatPrice(product.price)}</p>
+        <div class="card-actions">
+          <button class="btn btn-primary add-to-cart" data-id="${product.id}">Add to Cart</button>
+          <button class="btn btn-accent buy-now" data-id="${product.id}">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
 
-    // Bind cart actions
-    bindCartActions(container);
+function cartItemTemplate(item) {
+  return `
+    <div class="cart-item">
+      <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}" class="cart-thumb">
+      <div class="cart-details">
+        <h4>${item.name}</h4>
+        <p>Seller: ${item.seller || 'Unknown'}</p>
+        <p>Price: ${formatPrice(item.price)}</p>
+        <div class="cart-qty">
+          <button class="qty-minus" data-id="${item.id}">-</button>
+          <span class="qty">${item.quantity}</span>
+          <button class="qty-plus" data-id="${item.id}">+</button>
+        </div>
+        <button class="btn btn-error remove-item" data-id="${item.id}">Remove 🗑️</button>
+      </div>
+    </div>
+  `;
+}
+
+function orderCardTemplate(order) {
+  return `
+    <div class="card order-card">
+      <h4>Order #${order.id}</h4>
+      <p>Date: ${new Date(order.createdAt).toLocaleDateString()}</p>
+      <p>Status: <span class="badge ${order.status}">${order.status}</span></p>
+      <p>Total: ${formatPrice(order.total)}</p>
+      <button class="btn btn-accent view-order" data-id="${order.id}">View Details</button>
+    </div>
+  `;
+}
+// -------------------------------
+// RENDERING FUNCTIONS
+// -------------------------------
+
+export function renderProducts(productList = state.products, containerId = 'productGrid') {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (!productList || productList.length === 0) {
+    container.innerHTML = `<p class="text-center">No products found 😢</p>`;
+    return;
+  }
+
+  productList.forEach(product => {
+    container.insertAdjacentHTML('beforeend', productCardTemplate(product));
+  });
+
+  bindAddToCartButtons();
+}
+
+export function renderCart(containerId = 'cartContainer') {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = '';
+  const cartItems = state.cart.items || [];
+
+  if (cartItems.length === 0) {
+    container.innerHTML = `<p class="text-center">Your cart is empty 🛒</p>
+      <a href="index.html" class="btn btn-primary mt-2">Go Shopping</a>`;
     updateCartBadge();
-  } catch (err) {
-    console.error('renderCart error:', err);
+    return;
   }
+
+  cartItems.forEach(item => {
+    container.insertAdjacentHTML('beforeend', cartItemTemplate(item));
+  });
+
+  const subtotal = cartItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
+  const summary = document.createElement('div');
+  summary.className = 'cart-summary';
+  summary.innerHTML = `
+    <h3>Subtotal: ${formatPrice(subtotal)}</h3>
+    <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+  `;
+  container.appendChild(summary);
+
+  bindCartActions();
+  updateCartBadge();
 }
 
-/* -------------------------------
-   Render: Orders
---------------------------------- */
-export function renderOrders(containerId = 'ordersList') {
-  try {
-    const container = document.getElementById(containerId);
-    if (!container) return;
+export function renderOrders(containerId = 'ordersContainer') {
+  const container = document.getElementById(containerId);
+  if (!container) return;
 
-    const orders = getOrders();
-    if (!orders || orders.length === 0) {
-      container.innerHTML = `
-        <div class="orders-empty">
-          <h3>No orders yet</h3>
-          <p class="muted">You haven't placed any orders. Time to cop some drip 😎</p>
-          <a href="index.html" class="btn btn-primary">Shop Now</a>
-        </div>
-      `;
-      return;
-    }
+  const orders = state.orders || [];
+  container.innerHTML = '';
 
-    // Clear and render
-    container.innerHTML = '';
-    orders.slice().reverse().forEach((order) => {
-      const created = formatDate(order.createdAt || order.created || new Date().toISOString());
-      const total = formatPrice(order.total || 0);
-      const itemsCount = (order.items || []).reduce((s, it) => s + (it.quantity || 1), 0);
-
-      const card = document.createElement('article');
-      card.className = 'order-card';
-      card.innerHTML = `
-        <div class="order-header" style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <h4 style="margin:0">Order ${order.id}</h4>
-            <p class="muted" style="margin:0">${created} • ${itemsCount} items</p>
-          </div>
-          <div>
-            <strong>${total}</strong>
-          </div>
-        </div>
-        <div class="order-actions" style="margin-top:0.75rem">
-          <button class="btn-sm btn-outline view-details" data-order="${order.id}">View Details</button>
-        </div>
-      `;
-      container.appendChild(card);
-    });
-  } catch (err) {
-    console.error('renderOrders error:', err);
+  if (orders.length === 0) {
+    container.innerHTML = `<p class="text-center">You haven’t ordered anything yet 😎</p>
+      <a href="index.html" class="btn btn-primary mt-2">Go Shopping</a>`;
+    return;
   }
+
+  orders.forEach(order => {
+    container.insertAdjacentHTML('beforeend', orderCardTemplate(order));
+  });
 }
 
-/* -------------------------------
-   Update Cart Badge
---------------------------------- */
-export function updateCartBadge(selector = '.cart-count') {
-  try {
-    const badgeEls = qsa(selector);
-    const cart = getCart();
-    const count = (cart && cart.items && cart.items.reduce((s, i) => s + (i.quantity || 0), 0)) || 0;
-    badgeEls.forEach(el => (el.textContent = count));
-  } catch (err) {
-    console.error('updateCartBadge error:', err);
-  }
+export function updateCartBadge(badgeId = 'cartBadge') {
+  const badge = document.querySelector(`.${badgeId}`) || document.getElementById(badgeId);
+  if (!badge) return;
+  const count = state.cart.items.reduce((acc, i) => acc + i.quantity, 0);
+  badge.textContent = count;
 }
 
-/* -------------------------------
-   Event Binding: Add to Cart / Buy Now
---------------------------------- */
-export function bindAddToCartButtons(root = document) {
-  try {
-    const addButtons = qsa('.add-to-cart', root);
-    addButtons.forEach(btn => {
-      // avoid double-binding
-      btn.onclick = null;
-      btn.addEventListener('click', (e) => {
-        const productId = btn.dataset.productId || btn.dataset.id;
-        if (!productId) return;
-        addToCart(productId, 1);
-        showToast('Added to cart', 'success');
-      });
-    });
+// -------------------------------
+// EVENT BINDERS
+// -------------------------------
 
-    // Buy Now buttons - add & go to checkout
-    const buyButtons = qsa('.buy-now', root);
-    buyButtons.forEach(btn => {
-      btn.onclick = null;
-      btn.addEventListener('click', (e) => {
-        const productId = btn.dataset.productId || btn.dataset.id;
-        if (!productId) return;
-        addToCart(productId, 1);
-        showToast('Preparing checkout...', 'info');
-        // redirect to checkout
-        window.location.href = 'checkout.html';
-      });
-    });
-  } catch (err) {
-    console.error('bindAddToCartButtons error:', err);
-  }
+export function bindAddToCartButtons() {
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.onclick = (e) => {
+      const id = e.target.dataset.id;
+      if (!id) return;
+      addToCart(id);
+      publish('cartUpdated');
+      showToast('Added to cart!', 'success');
+    };
+  });
+
+  document.querySelectorAll('.buy-now').forEach(btn => {
+    btn.onclick = (e) => {
+      const id = e.target.dataset.id;
+      if (!id) return;
+      addToCart(id);
+      publish('cartUpdated');
+      window.location.href = 'checkout.html';
+    };
+  });
 }
 
-/* -------------------------------
-   Event Binding: Cart Actions
---------------------------------- */
-export function bindCartActions(container = document) {
-  try {
-    const root = container;
-    // Quantity increase
-    qsa('.qty-increase', root).forEach(btn => {
-      btn.onclick = null;
-      btn.addEventListener('click', () => {
-        const itemEl = btn.closest('.cart-item');
-        if (!itemEl) return;
-        const pid = itemEl.dataset.productId;
-        const input = qs('.qty-input', itemEl);
-        const val = parseInt(input.value || '1', 10) + 1;
-        input.value = val;
-        updateCartQuantity(pid, val);
-      });
-    });
+export function bindCartActions() {
+  document.querySelectorAll('.qty-plus').forEach(btn => {
+    btn.onclick = (e) => {
+      const id = e.target.dataset.id;
+      const item = state.cart.items.find(i => i.id === id);
+      if (!item) return;
+      item.quantity += 1;
+      publish('cartUpdated');
+    };
+  });
 
-    // Quantity decrease
-    qsa('.qty-decrease', root).forEach(btn => {
-      btn.onclick = null;
-      btn.addEventListener('click', () => {
-        const itemEl = btn.closest('.cart-item');
-        if (!itemEl) return;
-        const pid = itemEl.dataset.productId;
-        const input = qs('.qty-input', itemEl);
-        let val = parseInt(input.value || '1', 10) - 1;
-        if (val < 1) val = 1;
-        input.value = val;
-        updateCartQuantity(pid, val);
-      });
-    });
+  document.querySelectorAll('.qty-minus').forEach(btn => {
+    btn.onclick = (e) => {
+      const id = e.target.dataset.id;
+      const item = state.cart.items.find(i => i.id === id);
+      if (!item) return;
+      item.quantity = Math.max(1, item.quantity - 1);
+      publish('cartUpdated');
+    };
+  });
 
-    // Direct quantity input
-    qsa('.qty-input', root).forEach(input => {
-      input.onchange = null;
-      input.addEventListener('change', () => {
-        const itemEl = input.closest('.cart-item');
-        if (!itemEl) return;
-        const pid = itemEl.dataset.productId;
-        let val = parseInt(input.value, 10) || 1;
-        if (val < 1) val = 1;
-        input.value = val;
-        updateCartQuantity(pid, val);
-      });
-    });
-
-    // Remove button
-    qsa('.btn-remove', root).forEach(btn => {
-      btn.onclick = null;
-      btn.addEventListener('click', () => {
-        const itemEl = btn.closest('.cart-item');
-        if (!itemEl) return;
-        const pid = itemEl.dataset.productId;
-        removeFromCart(pid);
-        showToast('Removed from cart', 'info');
-      });
-    });
-
-    // Checkout from cart page
-    const checkoutBtn = qs('.btn-primary[href="checkout.html"], a[href="checkout.html"]') || qs('a.btn-primary[href="checkout.html"]');
-    // (If there's a dedicated checkout button element, its click will be a normal link)
-  } catch (err) {
-    console.error('bindCartActions error:', err);
-  }
-}
-
-/* -------------------------------
-   Event Binding: Checkout Actions
---------------------------------- */
-/**
- * Binds checkout form submit: validates inputs, creates order, redirects to success.
- * Expects: #checkoutForm on checkout.html
- */
-export function bindCheckoutActions() {
-  try {
-    const form = qs('#checkoutForm');
-    if (!form) return;
-
-    form.onsubmit = null;
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // collect form fields
-      const formData = new FormData(form);
-      const name = formData.get('name')?.trim();
-      const email = formData.get('email')?.trim();
-      const phone = formData.get('phone')?.trim();
-      const address = formData.get('address')?.trim();
-      const city = formData.get('city')?.trim();
-      const stateField = formData.get('state')?.trim();
-      const zip = formData.get('zip')?.trim();
-      const country = formData.get('country')?.trim();
-      const payment = formData.get('payment') || 'cod';
-
-      // basic validation
-      if (!name || !validateEmail(email) || !validatePhone(phone) || !address) {
-        showToast('Please fill valid shipping details (name, email, phone, address).', 'error');
-        return;
+  document.querySelectorAll('.remove-item').forEach(btn => {
+    btn.onclick = (e) => {
+      const id = e.target.dataset.id;
+      const index = state.cart.items.findIndex(i => i.id === id);
+      if (index > -1) {
+        state.cart.items.splice(index, 1);
+        publish('cartUpdated');
+        showToast('Removed from cart', 'error');
       }
-
-      // build order object
-      const orderData = {
-        customer: { name, email, phone, address, city, state: stateField, zip, country },
-        paymentMethod: payment,
-        status: 'processing'
-      };
-
-      addOrder(orderData);
-      showToast('Order placed — thanks! Redirecting...', 'success');
-
-      // small delay for UX
-      setTimeout(() => {
-        window.location.href = 'success.html';
-      }, 900);
-    });
-  } catch (err) {
-    console.error('bindCheckoutActions error:', err);
-  }
+    };
+  });
 }
 
-/* -------------------------------
-   Initialization: initUI
---------------------------------- */
-/**
- * Initialize UI wiring on page load.
- * - Render products (if container present)
- * - Render cart and orders (if relevant)
- * - Bind checkout form
- * - Subscribe to store events
- */
+// -------------------------------
+// INITIALIZER
+// -------------------------------
+
 export function initUI(config = {}) {
-  try {
-    // Optionally use config (brand, owner email) to set site title etc.
-    if (config && config.siteTitle) {
-      document.title = config.siteTitle + ' | ' + (document.title || 'unRYL');
-    }
+  subscribe('cartUpdated', () => {
+    renderCart();
+    updateCartBadge();
+  });
 
-    // Initial renders if containers exist
-    renderProducts(null, 'productGrid'); // safe: will noop if container missing
-    renderCart('cartItems');
-    renderOrders('ordersList');
+  subscribe('ordersUpdated', () => {
+    renderOrders();
+  });
 
-    // Bind checkout form actions
-    bindCheckoutActions();
+  subscribe('productsLoaded', (products) => {
+    renderProducts(products);
+  });
 
-    // Subscribe to store events for reactivity
-    subscribe('cartUpdated', (cart) => {
-      // update cart UI and badge
-      renderCart('cartItems');
-      updateCartBadge('.cart-count');
-    });
+  subscribe('productsFiltered', (filteredProducts) => {
+    renderProducts(filteredProducts);
+  });
 
-    subscribe('ordersUpdated', (orders) => {
-      renderOrders('ordersList');
-    });
+  if (state.products.length) renderProducts();
+  if (state.cart.items.length) renderCart();
+  if (state.orders.length) renderOrders();
+}
+// ================================
+// js/ui.js - Search & Filter Integration
+// ================================
 
-    subscribe('productsLoaded', (products) => {
-      // re-render products if product grid exists
-      renderProducts(products, 'productGrid');
-    });
+import { getAllProducts } from './productService.js';
+import { publish } from './store.js';
+import { debounce } from './utils.js';
 
-    // Navbar search (if present)
-    const searchInput = qs('#searchInput');
-    if (searchInput) {
-      const onSearch = debounce((e) => {
-        const q = e.target.value.trim().toLowerCase();
-        const all = getProducts();
-        const filtered = all.filter(p => {
-          const txt = `${p.title || p.name || ''} ${p.description || p.desc || ''}`.toLowerCase();
-          return txt.includes(q);
-        });
-        renderProducts(filtered, 'productGrid');
-      }, 300);
-      searchInput.addEventListener('input', onSearch);
-    }
+// -------------------------------
+// SEARCH & FILTER STATE
+// -------------------------------
 
-    // update cart badge initially
-    updateCartBadge('.cart-count');
-  } catch (err) {
-    console.error('initUI error:', err);
-  }
+let currentSearchQuery = '';
+let currentFilters = {
+  category: 'all',      // tshirt, pants, hoodies, caps, accessories, sneakers, etc.
+  priceRange: [0, Infinity],
+  seller: null,
+  sort: 'newest',       // newest, priceAsc, priceDesc
+};
+
+// -------------------------------
+// EVENT HANDLERS
+// -------------------------------
+
+function handleSearchInput(e) {
+  currentSearchQuery = e.target.value.trim();
+  applySearchAndFilter();
 }
 
-/* -------------------------------
-   Exports
---------------------------------- */
-export {
-  initUI,
-  renderProducts,
-  renderCart,
-  renderOrders,
-  updateCartBadge,
-  bindAddToCartButtons,
-  bindCartActions,
-  bindCheckoutActions
-};
+function handleCategoryFilter(e) {
+  currentFilters.category = e.target.value;
+  applySearchAndFilter();
+}
+
+function handleSortFilter(e) {
+  currentFilters.sort = e.target.value;
+  applySearchAndFilter();
+}
+
+// -------------------------------
+// APPLY SEARCH + FILTER
+// -------------------------------
+
+export function applySearchAndFilter() {
+  let products = getAllProducts();
+
+  // 1. SEARCH
+  if (currentSearchQuery) {
+    const query = currentSearchQuery.toLowerCase();
+    products = products.filter(p => 
+      p.name.toLowerCase().includes(query) ||
+      p.title?.toLowerCase().includes(query) ||
+      p.description.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query)
+    );
+  }
+
+  // 2. CATEGORY FILTER
+  if (currentFilters.category && currentFilters.category !== 'all') {
+    products = products.filter(p => p.category.toLowerCase() === currentFilters.category.toLowerCase());
+  }
+
+  // 3. PRICE FILTER
+  products = products.filter(p => p.price >= currentFilters.priceRange[0] && p.price <= currentFilters.priceRange[1]);
+
+  // 4. SORT
+  if (currentFilters.sort === 'priceAsc') {
+    products.sort((a,b) => a.price - b.price);
+  } else if (currentFilters.sort === 'priceDesc') {
+    products.sort((a,b) => b.price - a.price);
+  } else if (currentFilters.sort === 'newest') {
+    products.sort((a,b) => b.id - a.id); // assuming id increases with newest
+  }
+
+  // PUBLISH filtered products to UI
+  publish('productsFiltered', products);
+}
+
+// -------------------------------
+// INITIALIZE SEARCH + FILTER UI
+// -------------------------------
+
+export function initSearchAndFilters(searchInputId='searchInput', categorySelectId='categoryFilter', sortSelectId='sortFilter') {
+  const searchInput = document.getElementById(searchInputId);
+  const categorySelect = document.getElementById(categorySelectId);
+  const sortSelect = document.getElementById(sortSelectId);
+
+  if (searchInput) searchInput.addEventListener('input', debounce(handleSearchInput, 300));
+  if (categorySelect) categorySelect.addEventListener('change', handleCategoryFilter);
+  if (sortSelect) sortSelect.addEventListener('change', handleSortFilter);
+}
+
+// -------------------------------
+// RESET FILTERS FUNCTION
+// -------------------------------
+
+export function resetFilters() {
+  currentSearchQuery = '';
+  currentFilters = { category: 'all', priceRange: [0, Infinity], seller: null, sort: 'newest' };
+  publish('productsFiltered', getAllProducts());
+  const searchInput = document.getElementById('searchInput');
+  const categorySelect = document.getElementById('categoryFilter');
+  const sortSelect = document.getElementById('sortFilter');
+  if (searchInput) searchInput.value = '';
+  if (categorySelect) categorySelect.value = 'all';
+  if (sortSelect) sortSelect.value = 'newest';
+}
