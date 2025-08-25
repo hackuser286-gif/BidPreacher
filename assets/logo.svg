@@ -1,61 +1,50 @@
-<!-- assets/logo.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img">
-  <title>unRYL</title>
+<!-- assets/sprite.svg -->
+<!-- Usage: Reusable sprite containing main logo (dark bg), transparent logo, and favicon icon. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
   <defs>
-    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#FF6A00"/>
-      <stop offset="48%" stop-color="#FF2E7E"/>
+    <!-- Shared Gradient -->
+    <linearGradient id="brandGradient" x1="0%" y1="20%" x2="100%" y2="80%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00F5D4"/>
+      <stop offset="45%" stop-color="#00C2FF"/>
       <stop offset="100%" stop-color="#3A86FF"/>
     </linearGradient>
   </defs>
-  <g id="logo-text">
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="48" letter-spacing="2px" fill="url(#unrylGradient)">unRYL</text>
-  </g>
-</svg>
 
-<!-- assets/logo-darkbg.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 100" role="img">
-  <title>unRYL</title>
-  <defs>
-    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#FF6A00"/>
-      <stop offset="48%" stop-color="#FF2E7E"/>
-      <stop offset="100%" stop-color="#3A86FF"/>
-    </linearGradient>
-  </defs>
-  <rect x="0" y="0" width="260" height="100" rx="12" ry="12" fill="#000"/>
-  <g id="logo-text">
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="48" letter-spacing="2px" fill="url(#unrylGradient)">unRYL</text>
-  </g>
-</svg>
+  <!-- Dark background logo -->
+  <symbol id="logo-dark" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet">
+    <rect x="0" y="0" width="240" height="80" rx="12" ry="12" fill="#0B0B0B"/>
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="42" letter-spacing="2"
+          fill="#000" opacity="0.18" transform="translate(0,0.8)">unRYL</text>
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="42" letter-spacing="2"
+          fill="url(#brandGradient)" shape-rendering="geometricPrecision">unRYL</text>
+  </symbol>
 
-<!-- assets/favicon.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img">
-  <title>unRYL</title>
-  <defs>
-    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#FF6A00"/>
-      <stop offset="48%" stop-color="#FF2E7E"/>
-      <stop offset="100%" stop-color="#3A86FF"/>
-    </linearGradient>
-  </defs>
-  <g id="monogram">
-    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="20" letter-spacing="1px" fill="url(#unrylGradient)">UR</text>
-  </g>
-</svg>
+  <!-- Transparent background logo -->
+  <symbol id="logo-transparent" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="42" letter-spacing="2"
+          fill="#000" opacity="0.16" transform="translate(0,0.8)">unRYL</text>
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="42" letter-spacing="2"
+          fill="url(#brandGradient)" shape-rendering="geometricPrecision">unRYL</text>
+  </symbol>
 
-<!-- assets/maskable-icon.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
-  <title>unRYL</title>
-  <defs>
-    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
-      <stop offset="0%" stop-color="#FF6A00"/>
-      <stop offset="48%" stop-color="#FF2E7E"/>
-      <stop offset="100%" stop-color="#3A86FF"/>
-    </linearGradient>
-  </defs>
-  <rect width="512" height="512" fill="url(#unrylGradient)"/>
-  <g id="logo-text">
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="120" letter-spacing="2px" fill="#FFFFFF">unRYL</text>
-  </g>
+  <!-- Favicon (circle + monogram) -->
+  <symbol id="favicon" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
+    <circle cx="256" cy="256" r="248" fill="#0B0B0B"/>
+    <text x="256" y="256" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="300"
+          fill="#000" opacity="0.20" transform="translate(0,3)">u</text>
+    <text x="256" y="256" text-anchor="middle" dominant-baseline="middle"
+          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
+          font-size="300"
+          fill="url(#brandGradient)" shape-rendering="geometricPrecision">u</text>
+  </symbol>
 </svg>
