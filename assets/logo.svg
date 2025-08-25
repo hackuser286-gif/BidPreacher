@@ -1,40 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">unRYL logo</title>
+  <desc id="desc">Lowercase "un" in warm gradient and uppercase "RYL" in cool gradient, on a transparent background.</desc>
+
   <defs>
-    <linearGradient id="brandGradient" x1="0%" y1="20%" x2="100%" y2="80%" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#00F5D4"/>
-      <stop offset="45%" stop-color="#00C2FF"/>
-      <stop offset="100%" stop-color="#3A86FF"/>
+    <!-- warm gradient for "un" -->
+    <linearGradient id="g-warm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#FF6A6A"/>
+      <stop offset="50%" stop-color="#FF8A5C"/>
+      <stop offset="100%" stop-color="#FFB15A"/>
+    </linearGradient>
+
+    <!-- cool gradient for "RYL" -->
+    <linearGradient id="g-cool" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#A06CFF"/>
+      <stop offset="100%" stop-color="#6AB8FF"/>
     </linearGradient>
   </defs>
 
-  <symbol id="logo-dark" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet">
-    <rect x="0" y="0" width="240" height="80" rx="12" ry="12" fill="#0B0B0B"/>
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
-          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
-          font-size="42" letter-spacing="2"
-          fill="#000" opacity="0.18">unRYL</text>
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
-          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
-          font-size="42" letter-spacing="2"
-          fill="url(#brandGradient)">unRYL</text>
-  </symbol>
-
-  <symbol id="logo-transparent" viewBox="0 0 240 80" preserveAspectRatio="xMidYMid meet">
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
-          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
-          font-size="42" letter-spacing="2"
-          fill="#000" opacity="0.16">unRYL</text>
-    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
-          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
-          font-size="42" letter-spacing="2"
-          fill="url(#brandGradient)">unRYL</text>
-  </symbol>
-
-  <symbol id="favicon" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
-    <circle cx="256" cy="256" r="248" fill="#0B0B0B"/>
-    <text x="256" y="280" text-anchor="middle"
-          font-family="Poppins, Inter, Arial, sans-serif" font-weight="700"
-          font-size="300"
-          fill="url(#brandGradient)">u</text>
-  </symbol>
+  <!-- No background rect: stays transparent -->
+  <g font-family="Poppins, Inter, Montserrat, Arial, sans-serif" font-weight="800">
+    <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="230">
+      <tspan fill="url(#g-warm)">un</tspan>
+      <tspan fill="url(#g-cool)">RYL</tspan>
+    </text>
+  </g>
 </svg>
