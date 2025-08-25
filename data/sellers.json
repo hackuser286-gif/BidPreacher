@@ -1,1 +1,50 @@
-
+[
+  {
+    "id": "s001",
+    "name": "StreetStyle Apparel",
+    "email": "contact@streetstyle.com",
+    "phone": "+1 (800) 555-1111",
+    "address": "45 Fashion Ave, Trend City, USA",
+    "rating": 4.7,
+    "reviews": 320,
+    "joinedAt": "2024-11-01",
+    "products": ["p001", "p003", "p007"],
+    "shippingRegions": ["USA", "Canada"]
+  },
+  {
+    "id": "s002",
+    "name": "Denim World",
+    "email": "support@denimworld.com",
+    "phone": "+1 (800) 555-2222",
+    "address": "89 Blue Jeans Blvd, DenimTown, USA",
+    "rating": 4.5,
+    "reviews": 190,
+    "joinedAt": "2024-12-15",
+    "products": ["p002", "p006"],
+    "shippingRegions": ["USA", "UK"]
+  },
+  {
+    "id": "s003",
+    "name": "Kickz Culture",
+    "email": "sales@kickzculture.com",
+    "phone": "+1 (800) 555-3333",
+    "address": "12 Sneaker St, Sole City, USA",
+    "rating": 4.6,
+    "reviews": 150,
+    "joinedAt": "2025-01-10",
+    "products": ["p004"],
+    "shippingRegions": ["USA", "Europe"]
+  },
+  {
+    "id": "s004",
+    "name": "Bling Accessories",
+    "email": "hello@blingaccessories.com",
+    "phone": "+1 (800) 555-4444",
+    "address": "77 Shine Lane, Sparkle Town, USA",
+    "rating": 4.4,
+    "reviews": 80,
+    "joinedAt": "2025-01-25",
+    "products": ["p005"],
+    "shippingRegions": ["USA", "Canada", "UK"]
+  }
+]
