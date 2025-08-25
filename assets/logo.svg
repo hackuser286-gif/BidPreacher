@@ -1,21 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80">
+<!-- assets/logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img">
+  <title>unRYL</title>
   <defs>
-    <!-- Gen Z Gradient (Sunset Orange → Pink → Blue) -->
-    <linearGradient id="genzGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff6a00"/>   <!-- Sunset Orange -->
-      <stop offset="50%" stop-color="#ff2e92"/>  <!-- Neon Pink -->
-      <stop offset="100%" stop-color="#3a86ff"/> <!-- Electric Blue -->
+    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="48%" stop-color="#FF2E7E"/>
+      <stop offset="100%" stop-color="#3A86FF"/>
     </linearGradient>
   </defs>
+  <g id="logo-text">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="48" letter-spacing="2px" fill="url(#unrylGradient)">unRYL</text>
+  </g>
+</svg>
 
-  <!-- Background (optional, can remove if you only want text) -->
-  <rect width="240" height="80" rx="12" fill="#000000"/>
+<!-- assets/logo-darkbg.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 100" role="img">
+  <title>unRYL</title>
+  <defs>
+    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="48%" stop-color="#FF2E7E"/>
+      <stop offset="100%" stop-color="#3A86FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="260" height="100" rx="12" ry="12" fill="#000"/>
+  <g id="logo-text">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="48" letter-spacing="2px" fill="url(#unrylGradient)">unRYL</text>
+  </g>
+</svg>
 
-  <!-- Text Logo -->
-  <text x="50%" y="55%" font-family="Poppins, Arial, Helvetica, sans-serif" 
-        font-size="40" font-weight="700"
-        fill="url(#genzGradient)" text-anchor="middle" 
-        alignment-baseline="middle" letter-spacing="2">
-    unRYL
-  </text>
+<!-- assets/favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img">
+  <title>unRYL</title>
+  <defs>
+    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="48%" stop-color="#FF2E7E"/>
+      <stop offset="100%" stop-color="#3A86FF"/>
+    </linearGradient>
+  </defs>
+  <g id="monogram">
+    <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="20" letter-spacing="1px" fill="url(#unrylGradient)">UR</text>
+  </g>
+</svg>
+
+<!-- assets/maskable-icon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>unRYL</title>
+  <defs>
+    <linearGradient id="unrylGradient" x1="0%" y1="20%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="48%" stop-color="#FF2E7E"/>
+      <stop offset="100%" stop-color="#3A86FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#unrylGradient)"/>
+  <g id="logo-text">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Poppins, Inter, Helvetica, sans-serif" font-weight="800" font-size="120" letter-spacing="2px" fill="#FFFFFF">unRYL</text>
+  </g>
 </svg>
