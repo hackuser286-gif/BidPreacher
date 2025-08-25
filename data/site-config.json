@@ -1,1 +1,50 @@
-
+{
+  "siteName": "unRYL",
+  "tagline": "Unleash Your Style. Be Real. Be unRYL.",
+  "logo": "/assets/logo.svg",
+  "theme": {
+    "primaryColor": "#6C63FF",
+    "secondaryColor": "#FF6584",
+    "backgroundColor": "#F9F9F9",
+    "textColor": "#333333"
+  },
+  "contact": {
+    "email": "support@unryl.com",
+    "phone": "+1 (800) 123-4567",
+    "address": "123 GenZ Street, Trend City, USA"
+  },
+  "socialLinks": {
+    "instagram": "https://instagram.com/unryl",
+    "tiktok": "https://tiktok.com/@unryl",
+    "twitter": "https://twitter.com/unryl",
+    "youtube": "https://youtube.com/@unryl"
+  },
+  "currency": {
+    "code": "USD",
+    "symbol": "$"
+  },
+  "shipping": {
+    "standard": {
+      "label": "Standard Shipping (5-7 days)",
+      "cost": 0
+    },
+    "express": {
+      "label": "Express Shipping (2-3 days)",
+      "cost": 5.99
+    }
+  },
+  "paymentMethods": [
+    "Credit Card",
+    "Debit Card",
+    "PayPal",
+    "Apple Pay",
+    "Google Pay"
+  ],
+  "features": {
+    "enableSearch": true,
+    "enableFilters": true,
+    "enableWishlist": true,
+    "enableDarkMode": true,
+    "enablePushNotifications": false
+  }
+}
